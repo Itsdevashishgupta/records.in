@@ -32,7 +32,7 @@ function Navbar() {
     <div className="navbar-section">
       <h1 className="navbar-title">
         <Link to="/">
-          <img src={photo} alt="" className="w-14 h-14" />
+          <img src={photo} alt="" className="w-20 h-20" />
         </Link>
       </h1>
 
@@ -45,7 +45,7 @@ function Navbar() {
         </li>
         <li>
           <a href="#services" className="navbar-links">
-            Services
+            Features
           </a>
         </li>
         <li>
@@ -55,25 +55,38 @@ function Navbar() {
         </li>
         <li>
           <a href="#reviews" className="navbar-links">
-            Reviews
+            Blogs
           </a>
         </li>
         <li>
           <a href="#doctors" className="navbar-links">
-            Doctors
+            Contact Us
+          </a>
+        </li>
+        <li>
+          <a href="#doctors" className="navbar-links">
+            Policies
           </a>
         </li>
       </ul>
-
+<div className="flex gap-2">
       <button
         className="navbar-btn"
         type="button"
         disabled={isButtonDisabled}
         onClick={handleChatBtnClick}
       >
-         Login
+         Sign In
       </button>
-
+      <button
+        className="navbar-btn"
+        type="button"
+        disabled={isButtonDisabled}
+        onClick={handleChatBtnClick}
+      >
+         Sign Up
+      </button>
+</div>
       {/* Mobile */}
       <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
         <div onClick={openNav} className="mobile-navbar-close">

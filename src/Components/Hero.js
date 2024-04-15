@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Doctor from "../Assets/doctor-picture.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarCheck, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarCheck, faAngleUp,faFile,faMobile } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate  } from "react-router-dom";
 import "../Styles/Hero.css";
 
@@ -36,7 +36,7 @@ function Hero() {
     <div className="section-container">
       <div className="hero-section">
         <div className="text-section">
-          <p className="text-headline">❤️ Health comes first</p>
+          <p className="text-headline"><FontAwesomeIcon icon={faFile} className="text-[#f99a1c]"/> Se <FontAwesomeIcon icon={faMobile} className="text-[#f99a1c]"/> Tak</p>
           <h2 className="text-title">
             Find your Doctor and make an Appointments
           </h2>

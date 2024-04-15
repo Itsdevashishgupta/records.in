@@ -38,10 +38,6 @@ function BookAppointment() {
           description="Empowering individuals to take control of their health journey through intuitive,
            user friendly health tech solutions that prioritize transparency, education and empowerment.  "
         />
-        
-
-        
-       
       </div>
     </div>
   );
