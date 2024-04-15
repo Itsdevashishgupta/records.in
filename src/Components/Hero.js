@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarCheck, faAngleUp,faFile,faMobile } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate  } from "react-router-dom";
 import "../Styles/Hero.css";
+import { FaApple, FaGooglePlay } from "react-icons/fa";
 
 function Hero() {
   const navigate = useNavigate();
@@ -49,22 +50,24 @@ function Hero() {
             type="button"
             onClick={handleBookAppointmentClick}
           >
-            <FontAwesomeIcon icon={faCalendarCheck} /> Book Appointment
+            <span>My-Records.in</span>
+            <span className="border-r border-l border-white border-opacity-20 px-3"> <FaGooglePlay/></span>
+            <span><FaApple/></span>    
           </button>
           <div className="text-stats">
             <div className="text-stats-container">
-              <p>145k+</p>
-              <p>Receive Patients</p>
+              <p></p>
+              <p></p>
             </div>
 
             <div className="text-stats-container">
-              <p>50+</p>
-              <p>Expert Doctors</p>
+              <p></p>
+              <p></p>
             </div>
 
             <div className="text-stats-container">
-              <p>10+</p>
-              <p>Years of Experience</p>
+              <p></p>
+              <p></p>
             </div>
           </div>
         </div>

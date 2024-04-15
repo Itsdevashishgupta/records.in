@@ -15,10 +15,7 @@ function About() {
           <span>About Us</span>
         </h3>
         <p className="about-description">
-          Welcome to Health Plus, your trusted partner for accessible and
-          personalized healthcare. Our expert doctors offer online consultations
-          and specialized services, prioritizing your well-being. Join us on
-          this journey towards a healthier you.
+        At My-Records.in, we're dedicated to empowering individuals to take control of their health journey. Our comprehensive health management app provides users with tools to track and manage their medical records efficiently. With a commitment to privacy and security, we strive to simplify healthcare management for everyone, ensuring peace of mind and well-being.
         </p>
 
         <SolutionStep
