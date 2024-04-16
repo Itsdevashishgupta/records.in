@@ -37,7 +37,7 @@ function Hero() {
     <div className="section-container">
       <div className="hero-section">
         <div className="text-section">
-          <p className="text-headline"><FontAwesomeIcon icon={faFile} className="text-[#f99a1c]"/> Se <FontAwesomeIcon icon={faMobile} className="text-[#f99a1c]"/> Tak</p>
+          <p className="text-headline"><span style={{fontFamily: "'Jacquard 24', system-ui"}}>File</span> Se <span style={{fontFamily: "'Jacquard 24', system-ui"}}>Mobile</span> Tak</p>
           <h2 className="text-title">
             Find your Doctor and make an Appointments
           </h2>

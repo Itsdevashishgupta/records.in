@@ -6,13 +6,14 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import "../Styles/Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import photo from "../Assets/Final Logo My Records-1.png";
 
 function Navbar() {
   const [nav, setNav] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const navigate=useNavigate()
 
   const openNav = () => {
     setNav(!nav);
@@ -65,7 +66,7 @@ function Navbar() {
           </a>
         </li>
         <li>
-          <a href="#doctors" className="navbar-links">
+          <a href="/Health-Plus/legal" className="navbar-links">
             Policies
           </a>
         </li>
@@ -75,18 +76,12 @@ function Navbar() {
         className="navbar-btn"
         type="button"
         disabled={isButtonDisabled}
-        onClick={handleChatBtnClick}
+        onClick={()=>navigate('/sign-in')}
+        
       >
          Sign In
       </button>
-      <button
-        className="navbar-btn"
-        type="button"
-        disabled={isButtonDisabled}
-        onClick={handleChatBtnClick}
-      >
-         Sign Up
-      </button>
+     
 </div>
       {/* Mobile */}
       <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>

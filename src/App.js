@@ -7,6 +7,8 @@ import NotFound from "./Pages/NotFound";
 import Appointment from "./Pages/Appointment";
 import Navbar from "./Components/Navbar";
 import Register from "./Components/Register";
+import SignIn from "./Components/SignIn";
+import Userdashboard from "./Components/Userdashboard";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/appointment" element={<Appointment />} />
           <Route path="*" element={<NotFound />} />
           <Route path="register" element={<Register/>} />
+          <Route path="sign-in" element={<SignIn/>} />
+          <Route path="user-dashboard" element={<Userdashboard/>} />
         </Routes>
       </Router>
     </div>
