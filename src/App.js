@@ -8,8 +8,8 @@ import Appointment from "./Pages/Appointment";
 import Navbar from "./Components/Navbar";
 import Register from "./Components/Register";
 import SignIn from "./Components/SignIn";
-import Userdashboard from "./Components/Userdashboard";
-import UserNavbar from "./Components/userdashboard/UserNavbar";
+import Userdashboard from "./Components/Users/userdashboard/Userdashboard";
+import UserNavbar from "./Components/Users/userdashboard/UserNavbar";
 import Info from "./Components/Features";
 
 function Content() {

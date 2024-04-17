@@ -5,10 +5,10 @@ import {
   faBars,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import "../../Styles/Navbar.css";
+import "../../../Styles/Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import photo from "../../Assets/Final Logo My Records-1.png";
+import photo from "../../../Assets/Final Logo My Records-1.png";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 
 function UserNavbar() {
