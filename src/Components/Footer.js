@@ -65,11 +65,11 @@ function Footer() {
           <p className="ft-list-title">Talk To Us</p>
           <ul className="ft-list-items">
             <li>
-              <a href="mailto:support@healthplus.com">support@healthplus.com</a>
+              <a href="mailto:support@healthplus.com">support@myrecords.com</a>
             </li>
             <li>
               <a href="mailto:appointment@healthplus.com">
-                appointment@healthplus.com
+                appointment@myrecords.com
               </a>
             </li>
             <li>
@@ -83,12 +83,12 @@ function Footer() {
       </div>
 
       <div className="ft-copyright">
-        <p>© 2013-2023 Health+. All rights reserved.</p>
+        <p>© 2013-2023 MYRECORDS.IN. All rights reserved.</p>
 
         <ul className="ft-social-links">
           <li>
             <a
-              href="https://linkedin.com/in/Alkaison/"
+              href="#"
               title="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
@@ -122,7 +122,7 @@ function Footer() {
 
           <li>
             <a
-              href="https://x.com/Alkaison/"
+              href="#"
               title="Twitter"
               target="_blank"
               rel="noopener noreferrer"

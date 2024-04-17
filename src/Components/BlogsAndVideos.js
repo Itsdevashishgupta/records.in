@@ -2,12 +2,12 @@ import React from "react";
 import { useNavigate  } from "react-router-dom";
 import "../Styles/BlogsAndVideos.css";
 import SolutionStep from "./SolutionStep";
-import video from '../Assets/3125907-uhd_3840_2160_25fps.mp4'
+import video from '../Assets/राष्ट्रीय डिजिटल स्वास्थ्य मिशन भारत में स्वास्थ्य सेवाओं के डिजिटलीकरण की नयी क्रांन्ति  NDHM.mp4'
 
 function BookAppointment() {
 
   return (
-    <div className="ba-section">
+    <div className="ba-section" id="blogs">
      <div className=" flex justify-center">
   <video width="450" height="240" controls className=" rounded-xl">
     <source src={video} type="video/mp4" className=" rounded-lg"  />

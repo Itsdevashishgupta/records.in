@@ -32,7 +32,7 @@ function Reviews() {
   handleReviewsUpdation();
 
   return (
-    <div className="review-section" id="reviews">
+    <div className="review-section" id="Contacts">
       
       <div>
         <img src={photo} alt="" />

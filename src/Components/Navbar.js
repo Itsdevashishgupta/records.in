@@ -46,7 +46,7 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <a href="#services" className="navbar-links">
+          <a href="/features" className="navbar-links">
             Features
           </a>
         </li>
@@ -56,12 +56,12 @@ function Navbar() {
           </a>
         </li>
         <li>
-          <a href="#reviews" className="navbar-links">
+          <a href="#blogs" className="navbar-links">
             Blogs
           </a>
         </li>
         <li>
-          <a href="#doctors" className="navbar-links">
+          <a href="#Contacts" className="navbar-links">
             Contact Us
           </a>
         </li>
@@ -81,6 +81,15 @@ function Navbar() {
       >
          Sign In
       </button>
+      <button
+        className="navbar-btn"
+        type="button"
+        disabled={isButtonDisabled}
+        onClick={()=>navigate('/register')}
+        
+      >
+         Sign Up
+      </button>
      
 </div>
       {/* Mobile */}
@@ -96,8 +105,8 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <a onClick={openNav} href="#services">
-              Services
+            <a onClick={openNav} href="#Features">
+              Features
             </a>
           </li>
           <li>
@@ -106,18 +115,19 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <a onClick={openNav} href="#reviews">
-              Reviews
+            <a onClick={openNav} href="#blogs">
+              Blogs
             </a>
           </li>
+        
           <li>
-            <a onClick={openNav} href="#doctors">
-              Doctors
-            </a>
-          </li>
-          <li>
-            <a onClick={openNav} href="#contact">
+            <a onClick={openNav} href="#Contacts">
               Contact
+            </a>
+          </li>
+          <li>
+            <a onClick={openNav} href="/Health-Plus/legal">
+              Policies
             </a>
           </li>
         </ul>

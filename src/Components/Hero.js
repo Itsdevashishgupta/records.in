@@ -37,9 +37,9 @@ function Hero() {
     <div className="section-container">
       <div className="hero-section">
         <div className="text-section">
-          <p className="text-headline"><span style={{fontFamily: "'Jacquard 24', system-ui"}}>File</span> Se <span style={{fontFamily: "'Jacquard 24', system-ui"}}>Mobile</span> Tak</p>
+          
           <h2 className="text-title">
-            Find your Doctor and make an Appointments
+           File Se Mobile Tak
           </h2>
           <p className="text-descritpion">
           My-records.in is a digital health platform for uploading, storing and 
