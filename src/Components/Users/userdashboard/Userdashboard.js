@@ -20,22 +20,23 @@ const Userdashboard = () => {
     address: 'D-20 Lajpat Nagar, New Delhi',
     };
 
-    const calculateHealthScore = () => {
-      const healthScore = 70;
-      return healthScore;
-    };
+   
 
-    const categorizeHealthScore = (score) => {
-    if (score >= 70) {
-      return 'Good';
-    } else if (score >= 40) {
-      return 'Average';
-    } else {
-      return 'Bad';
-    }
-  };
-  const healthScore = calculateHealthScore();
-  const healthStatus = categorizeHealthScore(healthScore);
+   
+  
+    
+  
+  let healthStatus
+  
+  const healthScore = 80;
+
+  if (healthScore>= 70) {
+    healthStatus = 'Good'
+  } else if (healthScore >= 40 && healthScore <70) {
+    healthStatus = 'Average';
+  } else {
+    healthStatus = 'Bad';
+  }
   
   const insuranceDetails = {
     companyName: 'United India Insurance',
