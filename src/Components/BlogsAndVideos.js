@@ -4,7 +4,7 @@ import "../Styles/BlogsAndVideos.css";
 import SolutionStep from "./SolutionStep";
 import video from '../Assets/राष्ट्रीय डिजिटल स्वास्थ्य मिशन भारत में स्वास्थ्य सेवाओं के डिजिटलीकरण की नयी क्रांन्ति  NDHM.mp4'
 
-function BookAppointment() {
+function Blogs() {
 
   return (
     <div className="ba-section" id="blogs">
@@ -36,4 +36,4 @@ function BookAppointment() {
   );
 }
 
-export default BookAppointment;
+export default Blogs;

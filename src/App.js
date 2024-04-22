@@ -11,6 +11,7 @@ import SignIn from "./Components/SignIn";
 import Userdashboard from "./Components/Users/userdashboard/Userdashboard";
 import UserNavbar from "./Components/Users/userdashboard/UserNavbar";
 import Info from "./Components/Features";
+import Blogs from "./Components/BlogsAndVideos";
 
 function Content() {
   const location = useLocation();
@@ -30,6 +31,7 @@ function Content() {
       <Route path="register" element={<Register/>} />
       <Route path="sign-in" element={<SignIn/>} />
       <Route path="user-dashboard" element={<Userdashboard/>} />
+      <Route path="/blogs" element={<Blogs/>} />
     </Routes>
   </>
   );

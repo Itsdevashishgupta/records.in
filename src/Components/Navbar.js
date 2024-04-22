@@ -56,7 +56,7 @@ function Navbar() {
           </a>
         </li>
         <li>
-          <a href="#blogs" className="navbar-links">
+          <a href="/blogs" className="navbar-links">
             Blogs
           </a>
         </li>
@@ -115,7 +115,7 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <a onClick={openNav} href="#blogs">
+            <a onClick={openNav} href="/blogs">
               Blogs
             </a>
           </li>
