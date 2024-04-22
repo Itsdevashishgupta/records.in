@@ -1,0 +1,12 @@
+.css-13cymwt-control:hover{
+    border-color: #f99a1c;
+    box-shadow: 0 0 0 1px #f99a1c;
+}
+.css-13cymwt-control:focus{
+    border-color: #f99a1c;
+    box-shadow: 0 0 0 1px #f99a1c;
+}
+
+.react-select {
+    color: red;
+  }
