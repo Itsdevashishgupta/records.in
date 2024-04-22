@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import photo from '../Assets/Final.svg'
+import photo from '../Assets/Final Logo My Records.svg'
 import '../App.css'
 import * as Yup from 'yup';
 import Select from 'react-select';
