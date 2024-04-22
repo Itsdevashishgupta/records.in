@@ -5,6 +5,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face { 
+    font-family:"Courier New";
+    font-variant:normal;
+    font-weight:bold;
+    src:url("../src/Assets/Final.svg") format("woff2");
+  }
+  
+  @font-face { 
+    font-family:"Tw Cen MT";
+    font-variant:normal;
+    font-weight:normal;
+    src:url("../src//Assets/Final.svg") format("woff2");
+  }
 * {
     padding: 0;
     margin: 0;
