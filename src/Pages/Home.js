@@ -14,11 +14,7 @@ function Home() {
     <div className="home-section">
       <Hero />
       <Abha/>
-      <Info />
-      <About />
-      <BookAppointment />
-      <Reviews />
-      <Doctors />
+   
       <Footer />
     </div>
   );

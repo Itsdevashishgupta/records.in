@@ -1,0 +1,9 @@
+
+.left {
+  background-image: url('/src/Assets/login-bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  position: absolute;
+  width: 50%;
+  height: 90%;
+}

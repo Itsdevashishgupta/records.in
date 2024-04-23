@@ -3,7 +3,7 @@ import { customerReviews } from "../Scripts/reviews";
 import "../Styles/Reviews.css";
 import photo from '../Assets/doctor-book-appointment.png'
 
-function Reviews() {
+function Contact() {
   let rMessage, rName, rLocation;
   const reviewsLength = customerReviews.length - 1;
   const [review, setReview] = useState(0);
@@ -78,4 +78,4 @@ function Reviews() {
   );
 }
 
-export default Reviews;
+export default Contact;

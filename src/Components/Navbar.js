@@ -51,7 +51,7 @@ function Navbar() {
           </a>
         </li>
         <li>
-          <a href="#about" className="navbar-links">
+          <a href="/about" className="navbar-links">
             About
           </a>
         </li>
@@ -61,13 +61,13 @@ function Navbar() {
           </a>
         </li>
         <li>
-          <a href="#Contacts" className="navbar-links">
+          <a href="/contact" className="navbar-links">
             Contact Us
           </a>
         </li>
         <li>
-          <a href="/Health-Plus/legal" className="navbar-links">
-            Policies
+          <a href="/Policies" className="navbar-links">
+            Privacy Policy
           </a>
         </li>
       </ul>

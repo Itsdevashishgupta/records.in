@@ -15,13 +15,24 @@ import Blogs from "./Components/BlogsAndVideos";
 import Features from "./Components/Features";
 import Sidenav from "./Components/Sidenav";
 import useWindowSize from "./Hoooks/UseWindow";
+import { ToastContainer } from "react-toastify";
+import DoctorsPrescription from "./Components/Users/My-records/DoctorsPrescription";
+import LabReports from "./Components/Users/My-records/Lab-Reports";
+import About from "./Components/About";
+import Contact from "./Components/Contact";
+import Verify from "./Components/Verify";
 
 function Content() {
   const location = useLocation();
-  const userPaths = ["/user-dashboard"];
-  const windowSize = useWindowSize(); // use the custom hook
+  const userPaths = ["/user-dashboard","/doctor-prescription","/lab-reports","/x-ray-mri-scan","/medical-expenses"];
+  const windowSize = useWindowSize(); 
   const [isSidenavOpen, setIsSidenavOpen] = useState(windowSize >= 768);
-
+  const userRoutes = [
+    { path: "/user-dashboard", component: <Userdashboard /> },
+    { path: "/doctor-prescription", component: <DoctorsPrescription /> },
+    { path: "/lab-reports", component: <LabReports /> },
+   
+  ];
   const toggleSidenav = () => {
     setIsSidenavOpen(!isSidenavOpen);
   };
@@ -35,27 +46,32 @@ function Content() {
   }, [windowSize]);
   return (
     <>
+      <ToastContainer />
       {!userPaths.includes(location.pathname) && <Navbar />}
       <div className={`flex flex-auto min-w-0 ${isSidenavOpen ? '' : ''}`}>
         {userPaths.includes(location.pathname) && isSidenavOpen && <Sidenav onClose={toggleSidenav} />}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/legal" element={<Legal />} />
-          <Route path="/about" element={<Info/>} />
+          <Route path="/Policies" element={<Legal />} />
+          <Route path="/about" element={<About/>} />
           <Route path="/features" element={<Info/>} />
           <Route path="/appointment" element={<Appointment />} />
           <Route path="*" element={<NotFound />} />
           <Route path="register" element={<Register/>} />
           <Route path="sign-in" element={<SignIn/>} />
+          <Route path="contact" element={<Contact/>} />
+          <Route path="/verify" element={<Verify/>} />
+          <Route path="/questionnaire" element={<Verify/>} />
+          
           <Route path="/blogs" element={<Blogs/>} />
-          {userPaths.includes(location.pathname) && (
-            <Route path="/user-dashboard" element={
-              <div className="flex flex-col w-full">
-                <UserNavbar  onExpandClick={toggleSidenav} isSidenavOpen={isSidenavOpen}/>
-                <Userdashboard/>
-              </div>
-            } />
-          )}
+          {userPaths.includes(location.pathname) && userRoutes.map(route => (
+          <Route path={route.path} element={
+            <div className="flex flex-col w-full">
+              <UserNavbar onExpandClick={toggleSidenav} isSidenavOpen={isSidenavOpen}/>
+              {route.component}
+            </div>
+          } />
+            ))}
         </Routes>
       </div>
     </>
