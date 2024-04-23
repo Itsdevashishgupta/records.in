@@ -45,9 +45,9 @@ const Userdashboard = () => {
   }
 
   return (
-    <div className='bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF] h-[auto]' style={{ fontFamily: 'Rubik, sans-serif' }}>
+    <div className='bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF] h-[auto] p-10' style={{ fontFamily: 'Rubik, sans-serif' }}>
       <div className='flex py-8 justify-center flex-wrap'>
-        <div className='bg-white w-3/5 px-10 py-8 rounded-lg flex justify-between'>
+        <div className='bg-white w-full px-10 py-8 rounded-lg flex justify-between'>
           <div>
             <h1 className='font-extrabold text-2xl mb-2'>Hello, {userData.name}</h1>
             <div style={{ fontFamily: 'Rubik, sans-serif' }}>

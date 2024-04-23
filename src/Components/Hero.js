@@ -5,6 +5,7 @@ import { faCalendarCheck, faAngleUp,faFile,faMobile } from "@fortawesome/free-so
 import { useNavigate  } from "react-router-dom";
 import "../Styles/Hero.css";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
+import photo from "../Assets/my_records.in.docx_and_8_more_pages_-_Work_-_Microsoft__Edge_22-04-2024_11_00_30-removebg-preview.png";
 
 function Hero() {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ function Hero() {
         <div className="text-section">
           
           <h2 className="text-title">
-           File Se Mobile Tak
+          <img src={photo} alt="" />
           </h2>
           <p className="text-descritpion">
           My-records.in is a digital health platform for uploading, storing and 

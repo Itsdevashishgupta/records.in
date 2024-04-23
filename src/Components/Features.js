@@ -1,14 +1,33 @@
 import React from "react";
 import InformationCard from "./InformationCard";
-import { faHeartPulse, faTruckMedical, faTooth,faBaby,faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
+import { faBaby,faCalendarCheck } from "@fortawesome/free-solid-svg-icons";
 import "../Styles/Features.css";
 import { IoWoman } from "react-icons/io5";
 import { MdElderlyWoman, MdHealthAndSafety } from "react-icons/md";
 import { TiCloudStorage } from "react-icons/ti";
+import playstore from "../Assets/Google_Play_Store_badge_EN.svg.webp"
+import applestore from "../Assets/download-on-the-app-store-apple-logo-svgrepo-com.svg"
+// import { ReactComponent as Badge } from '../Assets/Google_Play_Store_badge_EN.svg';
 
-function Info() {
+function Features() {
   return (
-    <div className="info-section" id="features">
+    <>
+    <div className="w-full pt-20">
+    <div className="p-8 flex flex-col justify-center relative w-full flex-wrap">
+  <div className="mb-6">
+    <h1 className="text-center font-extrabold text-6xl" style={{fontFamily:"'Poppins', sans-serif"}}>One App,<br />Complete Health Empowerment</h1>
+  </div>
+  <div className="max-w-[60%] w-[60%] text-center mx-auto">
+    <p className="text-center text-xl" style={{fontFamily:"'Rubik', sans-serif"}}>Uncover the power of seamless health management with an array of intuitive features designed for your proactive health journey.</p>
+  </div>
+  <div className=" mt-8">
+   <img src={playstore} alt="Google Play Store" className="w-60"/>
+   <img src={applestore} alt="Apple" className="w-60" />
+  </div>
+  <p></p>
+</div>
+    </div>
+        <div className="info-section" id="features">
       <div className="info-title-content">
         <h3 className="info-title">
           <span>What We Do</span>
@@ -68,7 +87,9 @@ function Info() {
     </div>
       </div>
     </div>
+    </>
+
   );
 }
 
-export default Info;
+export default Features;

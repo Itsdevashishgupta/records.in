@@ -10,8 +10,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import photo from "../../../Assets/Final Logo My Records-1.png";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
+import { MdOutlineClose, MdOutlineMenu } from "react-icons/md";
+import { HiMenuAlt2 } from "react-icons/hi";
 
-function UserNavbar() {
+function UserNavbar({ onExpandClick,isSidenavOpen }) {
   const [nav, setNav] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const navigate=useNavigate()
@@ -20,33 +22,12 @@ function UserNavbar() {
     setNav(!nav);
   };
 
-
+console.log(onExpandClick);
   return (
     <div className="navbar-section">
-      <h1 className="navbar-title">
-        <Link to="/">
-          <img src={photo} alt="" className="w-20 h-20" />
-        </Link>
-      </h1>
-
-      {/* Desktop */}
-      <ul className="navbar-items">
-        <li>
-          <Link to="user-dashboard" className="navbar-links">
-            My Profile
-          </Link>
-        </li>
-        <li>
-          <a href="#features" className="navbar-links">
-            My Daily Tracker
-          </a>
-        </li>
-        <li>
-          <a href="#about" className="navbar-links">
-            My Medical History
-          </a>
-        </li>
-      </ul>
+           <button onClick={onExpandClick} className="p-2 text-4xl">
+        {isSidenavOpen ?<HiMenuAlt2 /> : <MdOutlineMenu />}
+      </button>
 <div className="flex gap-2">
       <button
         className="flex justify-center items-center bg-[#f99a1c] text-white px-4 py-2 rounded-full"
