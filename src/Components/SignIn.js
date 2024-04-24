@@ -3,6 +3,7 @@ import { Formik, Form, Field, useField, useFormikContext } from 'formik';
 import photo from '../Assets/Final Logo My Records.svg';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
+import { ToastContainer, toast } from 'react-toastify';
 
 const SignInSchema = Yup.object().shape({
   mobileNumber: Yup.string()
@@ -19,18 +20,20 @@ const SignInSchema = Yup.object().shape({
 
 const SignIn = () => {
     const navigate = useNavigate();
+    const notify = () => toast("Sign In Successfullly!");
   return (
-    <div className="flex justify-center items-center  flex-wrap">
+    <div className="flex justify-center items-center w-full  flex-wrap">
       <div className="w-3/5">
         <img className="mx-auto h-[90vh]" src={photo} alt="Logo" />
       </div>
       <div className="w-2/5">
     <Formik
-      initialValues={{ mobileNumber: 1234567890, password: 'password' }}
+      initialValues={{ mobileNumber: 1234567890, password: '@dfsasdfgh@20' }}
       validationSchema={SignInSchema}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
          navigate('/user-dashboard');
+         toast.success("Sign In Successfully!");
           setSubmitting(false);
         }, 400);
       }}
@@ -57,6 +60,7 @@ const SignIn = () => {
           <button className="mt-4 block w-full p-2 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-[#f99a1c] hover:bg-white hover:text-[#f99a1c] hover:border border-[#f99a1c] text-white " type="submit" disabled={isSubmitting}>
             Sign In
           </button>
+        
         </Form>
       )}
     </Formik>

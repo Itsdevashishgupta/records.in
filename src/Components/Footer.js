@@ -3,6 +3,8 @@ import "../Styles/Footer.css";
 import SubscribeNewsletter from "./SubscribeNewsletter";
 import { Link } from "react-router-dom";
 import photo from '../Assets/Final Logo My Records.svg'
+import { FaPhone } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
 
 function Footer() {
   return (
@@ -19,26 +21,7 @@ function Footer() {
           <SubscribeNewsletter />
         </div>
 
-        <div className="ft-list">
-          <p className="ft-list-title">Services</p>
-          <ul className="ft-list-items">
-            <li>
-              <a href="#services">Emergency Care</a>
-            </li>
-            <li>
-              <a href="#services">Heart Disease</a>
-            </li>
-            <li>
-              <a href="#services">Dental Care</a>
-            </li>
-            <li>
-              <a href="#services">Prescription</a>
-            </li>
-            <li>
-              <a href="#services">Insights for doctors</a>
-            </li>
-          </ul>
-        </div>
+       
 
         <div className="ft-list">
           <p className="ft-list-title">Legal</p>
@@ -64,20 +47,21 @@ function Footer() {
         <div className="ft-list" id="contact">
           <p className="ft-list-title">Talk To Us</p>
           <ul className="ft-list-items">
-            <li>
-              <a href="mailto:support@healthplus.com">support@myrecords.com</a>
+            <li className="flex items-center" >
+            <IoMdMail />
+              <a href="ceo@my-records.in" className="ml-3">ceo@my-records.in</a>
             </li>
-            <li>
-              <a href="mailto:appointment@healthplus.com">
-                appointment@myrecords.com
+            <li className="flex items-center">
+            <IoMdMail />
+              <a href="contact@my-records.in" className="ml-3">
+              contact@my-records.in
               </a>
             </li>
-            <li>
-              <a href="tel:+022 5454 5252">+022 5454 5252</a>
+            <li className=" flex items-center">
+            <FaPhone />
+              <a href="tel:+022 5454 5252" className="ml-3">8468010824</a>
             </li>
-            <li>
-              <a href="tel:+022 2326 6232">+022 2326 6232</a>
-            </li>
+           
           </ul>
         </div>
       </div>

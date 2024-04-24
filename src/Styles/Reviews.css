@@ -6,6 +6,7 @@
     align-items: center;
     gap: 24px;
     background: white;
+    width: 100%;
 }
 /* Text */
 .rw-text-content {

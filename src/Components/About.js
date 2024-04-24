@@ -29,6 +29,11 @@ function About() {
           description="At the intersection of healthcare and technology our mission is to pioneer 
           innovative solutions that revolutionize patient experiences, on able better clinical outcomes, and drive programs towards healthier future for everyone. "
         />
+        
+        <SolutionStep
+          title="Goal"
+          description="Our goal is to reduce paper records in health care industry which will lead to saving trees to help global warming and contribute to building a better future by reducing carbon foot prints of our user. Also, by this we will also want to contribute towards Ayushman Bharat digital health mission of govt of India to support in building a transparent and complete health journey of individuals."
+        />
 
        
       </div>

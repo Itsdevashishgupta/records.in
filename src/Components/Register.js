@@ -5,6 +5,7 @@ import '../App.css'
 import * as Yup from 'yup';
 import Select from 'react-select';
 import '../Styles/Register.css'
+import { useNavigate } from 'react-router-dom';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -31,6 +32,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const Register = () => {
+  const navigate=useNavigate()
   const bloodGroupOptions = [
     { value: 'A+', label: 'A+' },
     { value: 'A-', label: 'A-' },
@@ -50,7 +52,7 @@ const Register = () => {
 
 
   return (
-    <div className="flex justify-center items-cente flex-wrap">
+    <div className="flex justify-center items-cente flex-wrap w-full">
       <div className="w-3/5">
         <img className="mx-auto h-[90vh]" src={photo} alt="Logo"/>
       </div>
@@ -64,20 +66,21 @@ const Register = () => {
     bloodGroup: '',
     email: '',
     address: '',
-    locality: '',
-    city: '',
-    state: '',
+    passowrd:'',
     pinCode: '',
     occupation: '',
   }}
   validationSchema={validationSchema}
   onSubmit={values => {
     console.log(values);
+   navigate('/verify')
   }}
 >
           {({ errors, touched }) => (
-    <Form className=" p-4  w-[80%] " style={{ fontFamily: 'Rubik, sans-serif' }}>
+    <Form className=" p-4 w-[90%] " style={{ fontFamily: 'Rubik, sans-serif' }}>
     <h2 className=" text-center font-semibold text-4xl my-7">Register</h2>
+    <div className=' flex flex-col gap-5'>
+    <div className=' grid grid-cols-2 gap-4'>
       <label className="block">
         <span className="text-gray-700">Name:</span>
         <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="name" placeholder="Enter your name" required />
@@ -88,6 +91,8 @@ const Register = () => {
         <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="date" name="dob" required />
         <ErrorMessage className=' text-red-500' name="dob" component="div" />
       </label>
+      </div>
+      <div className=' grid grid-cols-2 gap-4'>
     <label className="block">
   <span className="text-gray-700">Gender:</span>
   <Field name="gender">
@@ -105,12 +110,7 @@ const Register = () => {
   </Field>
   <ErrorMessage className=' text-red-500' name="gender" component="div" />
 </label>
-      <label className="block">
-        <span className="text-gray-700">Mobile Number:</span>
-        <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="mobileNumber" placeholder="Enter your mobile number" required />
-        <ErrorMessage className=' text-red-500' name="mobileNumber" component="div" />
-      </label>
-      <label className="block">
+  <label className="block">
   <span className="text-gray-700">Blood Group:</span>
   <Field name="bloodGroup">
     {({ field, form }) => (
@@ -127,8 +127,20 @@ const Register = () => {
   </Field>
   <ErrorMessage className=' text-red-500' name="bloodGroup" component="div" />
 </label>
+</div>
+       <label className="block">
+        <span className="text-gray-700">Mobile Number:</span>
+        <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="mobileNumber" placeholder="Enter your mobile number" required />
+        <ErrorMessage className=' text-red-500' name="mobileNumber" component="div" />
+      </label>
       <label className="block">
-  <span className="text-gray-700">Email:</span>
+        <span className="text-gray-700">Password</span>
+        <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="password" placeholder="Enter your mobile number" required />
+        <ErrorMessage className=' text-red-500' name="password" component="div" />
+      </label>
+    
+      <label className="block">
+  <span className="text-gray-700">Email:(Optional)</span>
   <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="email" name="email" placeholder="Enter your email" />
  
 </label>
@@ -136,33 +148,20 @@ const Register = () => {
   <span className="text-gray-700">Address:</span>
   <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="address" placeholder="Enter your address" required />
 </label>
-<label className="block">
-  <span className="text-gray-700">Locality:</span>
-  <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="locality" placeholder="Enter your locality"  />
-  <ErrorMessage className=' text-red-500' name="locality" component="div" />
-</label>
-<label className="block">
-  <span className="text-gray-700">City:</span>
-  <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="city" placeholder="Enter your city" required />
-  <ErrorMessage className=' text-red-500' name="city" component="div" />
-</label>
-<label className="block">
-  <span className="text-gray-700">State:</span>
-  <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="state" placeholder="Enter your state" required />
-  <ErrorMessage className=' text-red-500' name="state" component="div" />
-</label>
+
 <label className="block">
   <span className="text-gray-700">Pin Code:</span>
   <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="pinCode" placeholder="Enter your pin code" required />
   <ErrorMessage className=' text-red-500' name="pinCode" component="div" />
 </label>
 <label className="block">
-  <span className="text-gray-700">Occupation:</span>
+  <span className="text-gray-700">Occupation:(Optional)</span>
   <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="occupation" placeholder="Enter your occupation"/>
-  <ErrorMessage className=' text-red-500' name="occupation" component="div" />
+ 
 </label>
       
       <button className="mt-4 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-blue-500 hover:bg-blue-700 text-white font-bold" type="submit">Register</button>
+      </div>
     </Form>
   )}
         </Formik>
