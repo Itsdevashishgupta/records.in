@@ -21,6 +21,7 @@ import LabReports from "./Components/Users/My-records/Lab-Reports";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Verify from "./Components/Verify";
+import Questionnaire from "./Components/Users/Questionnaire";
 
 function Content() {
   const location = useLocation();
@@ -61,7 +62,7 @@ function Content() {
           <Route path="sign-in" element={<SignIn/>} />
           <Route path="contact" element={<Contact/>} />
           <Route path="/verify" element={<Verify/>} />
-          <Route path="/questionnaire" element={<Verify/>} />
+          <Route path="/questionnaire" element={<Questionnaire/>} />
           
           <Route path="/blogs" element={<Blogs/>} />
           {userPaths.includes(location.pathname) && userRoutes.map(route => (
