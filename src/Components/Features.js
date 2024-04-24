@@ -73,7 +73,7 @@ DHR makes it easier for doctors and healthcare providers to access your informat
       </span>
       <img src={tracker} className="w-54 h-40 ml-16 mt-4"/>
       <p className="info-card-title">Health Tracker</p>
-      <p className="info-card-description">Health Tracker helps you monitor and manage your well-being easily. Track vital signs like heart rate, blood pressure, and weight, along with daily activities and sleep patterns. Set goals, receive reminders, and view trends to stay motivated. Access educational resources for better health decisions. Your data is securely stored and can be visualized for insights. Compatible with mobile and web for convenient access anywhere. Stay on top of your health effortlessly with Health Tracker.</p>
+      <p className="info-card-description text-left">Health Tracker helps you monitor and manage your well-being easily. Track vital signs like heart rate, blood pressure, and weight, along with daily activities and sleep patterns. Set goals, receive reminders, and view trends to stay motivated. Access educational resources for better health decisions. Your data is securely stored and can be visualized for insights. Compatible with mobile and web for convenient access anywhere. Stay on top of your health effortlessly with Health Tracker.</p>
     </div>
     <div className="info-cards">
       <span className="info-card-icon text-[#f99a1c] text-2xl">
@@ -81,7 +81,7 @@ DHR makes it easier for doctors and healthcare providers to access your informat
       </span>
       <img src={report} className="w-44 h-36 mb-8 ml-28 mt-4"/>
       <p className="info-card-title">Reports Management</p>
-      <p className="info-card-description">Reports management in health records simplifies data organization and analysis, compiling patient information into clear summaries for easy understanding by healthcare professionals. These reports cover various aspects such as lab reports, X-rays, MRI and other scans, treatment progress, aiding in informed decision-making. By offering concise insights, they streamline communication among medical teams and improve patient care. Reports management ensures efficient record-keeping, enabling quick access to critical data whenever needed.</p>
+      <p className="info-card-description text-left">Reports management in health records simplifies data organization and analysis, compiling patient information into clear summaries for easy understanding by healthcare professionals. These reports cover various aspects such as lab reports, X-rays, MRI and other scans, treatment progress, aiding in informed decision-making. By offering concise insights, they streamline communication among medical teams and improve patient care. Reports management ensures efficient record-keeping, enabling quick access to critical data whenever needed.</p>
     </div>
       <div className="info-cards">
       <span className="info-card-icon text-[#f99a1c] text-2xl">
@@ -89,7 +89,7 @@ DHR makes it easier for doctors and healthcare providers to access your informat
       </span>
       <img src={women} className="w-40 h-40 ml-28 mt-4"/>
       <p className="info-card-title">Women Health Management</p>
-      <p className="info-card-description">Women's health management encompasses caring for physical, mental, and emotional well-being. This includes understanding and monitoring the menstrual cycle, a natural monthly process where the body prepares for pregnancy. By tracking menstruation, women can better manage their reproductive health, detect irregularities, and plan accordingly. It's essential to prioritize self-care, maintain a balanced diet, exercise regularly, and seek medical advice for any concerns. Regular check-ups, screenings, and open communication with healthcare providers contribute to overall wellness and empowerment.</p>
+      <p className="info-card-description text-left">Women's health management encompasses caring for physical, mental, and emotional well-being. This includes understanding and monitoring the menstrual cycle, a natural monthly process where the body prepares for pregnancy. By tracking menstruation, women can better manage their reproductive health, detect irregularities, and plan accordingly. It's essential to prioritize self-care, maintain a balanced diet, exercise regularly, and seek medical advice for any concerns. Regular check-ups, screenings, and open communication with healthcare providers contribute to overall wellness and empowerment.</p>
     </div>
 
     <div className="info-cards">
@@ -98,7 +98,7 @@ DHR makes it easier for doctors and healthcare providers to access your informat
       </span>
       <img src={senior} className="w-56 ml-20 mt-8"/>
       <p className="info-card-title">Senior Citizens Health Management</p>
-      <p className="info-card-description">Senior Citizens' Health Management simplifies daily life by sending reminders for medication and doctor check-ups. It tracks health records, ensuring nothing gets missed. With gentle prompts, it helps seniors stay on top of their health routines effortlessly. Whether it's remembering to take pills or scheduling regular check-ups, this tool ensures seniors feel supported and in control of their health journey. By keeping everything organized and accessible, it promotes peace of mind for both seniors and their caregivers.</p>
+      <p className="info-card-description text-left">Senior Citizens' Health Management simplifies daily life by sending reminders for medication and doctor check-ups. It tracks health records, ensuring nothing gets missed. With gentle prompts, it helps seniors stay on top of their health routines effortlessly. Whether it's remembering to take pills or scheduling regular check-ups, this tool ensures seniors feel supported and in control of their health journey. By keeping everything organized and accessible, it promotes peace of mind for both seniors and their caregivers.</p>
     </div>
     <div className="info-cards">
       <span className="info-card-icon text-[#f99a1c] text-2xl">
@@ -106,7 +106,7 @@ DHR makes it easier for doctors and healthcare providers to access your informat
       </span>
       <img src={baby} className="w-48 ml-28 mt-8"/>
       <p className="info-card-title">Newborn Baby Immunization</p>
-      <p className="info-card-description">Ensure your newborn's health with our Newborn Baby Immunization program. Track vaccinations as per MHA guidelines with a handy Vaccination Cart, receiving timely reminders. Monitor doctor visits and keep records of periodic check-ups. Track your child's overall development with comprehensive reports. Access medical history from day one for seamless healthcare management. Prioritize your baby's well-being effortlessly.</p>
+      <p className="info-card-description text-left">Ensure your newborn's health with our Newborn Baby Immunization program. Track vaccinations as per MHA guidelines with a handy Vaccination Cart, receiving timely reminders. Monitor doctor visits and keep records of periodic check-ups. Track your child's overall development with comprehensive reports. Access medical history from day one for seamless healthcare management. Prioritize your baby's well-being effortlessly.</p>
     </div>
     <div className="info-cards">
       <span className="info-card-icon text-[#f99a1c] text-2xl">
@@ -114,7 +114,7 @@ DHR makes it easier for doctors and healthcare providers to access your informat
       </span>
       <img src={weight} className="w-44 ml-28 mt-8"/>
       <p className="info-card-title">Diet & Weight Management</p>
-      <p className="info-card-description">Diet and weight management are about eating the right foods and maintaining a healthy weight. It's not just about losing weight; it's also about feeling good and having energy. Eating a balanced diet with plenty of fruits, vegetables, lean proteins, and whole grains helps keep you healthy. Portion control is important too, so you don't eat too much. Exercise is also crucial for weight management. It helps burn calories and build muscle, which can boost your metabolism. By making small, sustainable changes to your eating habits and staying active, you can achieve and maintain a healthy weight.</p>
+      <p className="info-card-description text-left">Diet and weight management are about eating the right foods and maintaining a healthy weight. It's not just about losing weight; it's also about feeling good and having energy. Eating a balanced diet with plenty of fruits, vegetables, lean proteins, and whole grains helps keep you healthy. Portion control is important too, so you don't eat too much. Exercise is also crucial for weight management. It helps burn calories and build muscle, which can boost your metabolism. By making small, sustainable changes to your eating habits and staying active, you can achieve and maintain a healthy weight.</p>
     </div>
       <div className="info-cards">
       <span className="info-card-icon text-[#f99a1c] text-2xl">
@@ -122,7 +122,7 @@ DHR makes it easier for doctors and healthcare providers to access your informat
       </span>
       <img src={stress} className="w-56 ml-20 mt-4"/>
       <p className="info-card-title">Stress Management</p>
-      <p className="info-card-description">Stress management is about handling the pressures of life in a healthy way. It involves techniques to reduce and cope with stressors, which are things that cause stress. This includes identifying stress triggers, practicing relaxation techniques like deep breathing or meditation, exercising regularly, getting enough sleep, and maintaining a balanced diet. It's also important to set boundaries, prioritize tasks, and seek support from friends, family, or professionals when needed. By taking proactive steps to manage stress, we can improve our overall well-being and lead happier, more fulfilling lives.</p>
+      <p className="info-card-description text-left">Stress management is about handling the pressures of life in a healthy way. It involves techniques to reduce and cope with stressors, which are things that cause stress. This includes identifying stress triggers, practicing relaxation techniques like deep breathing or meditation, exercising regularly, getting enough sleep, and maintaining a balanced diet. It's also important to set boundaries, prioritize tasks, and seek support from friends, family, or professionals when needed. By taking proactive steps to manage stress, we can improve our overall well-being and lead happier, more fulfilling lives.</p>
     </div>
     
     <div className="info-cards">
@@ -131,7 +131,7 @@ DHR makes it easier for doctors and healthcare providers to access your informat
       </span>
       <img src={tree} className="w-44 ml-28 mt-8"/>
       <p className="info-card-title">Family User Management</p>
-      <p className="info-card-description">Family User Management in health simplifies managing multiple users' health data. It allows families to create profiles for each member, track their health records, appointments, and medication schedules in one place. Users can easily switch between family members' profiles for personalized care. This system ensures efficient communication with healthcare providers, streamlines appointment scheduling, and enhances coordination for better health outcomes. By centralizing health information, families can stay organized, support each other's wellness journey, and make informed decisions together, promoting a healthier and happier family life.</p>
+      <p className="info-card-description text-left">Family User Management in health simplifies managing multiple users' health data. It allows families to create profiles for each member, track their health records, appointments, and medication schedules in one place. Users can easily switch between family members' profiles for personalized care. This system ensures efficient communication with healthcare providers, streamlines appointment scheduling, and enhances coordination for better health outcomes. By centralizing health information, families can stay organized, support each other's wellness journey, and make informed decisions together, promoting a healthier and happier family life.</p>
     </div>
     
     <div className="info-cards">
@@ -140,7 +140,7 @@ DHR makes it easier for doctors and healthcare providers to access your informat
       </span>
       <img src={appointment} className="w-44 ml-28 mt-8"/>
       <p className="info-card-title">Appointment Management</p>
-      <p className="info-card-description">Appointment management in healthcare ensures patients receive timely care. It involves scheduling appointments for medical consultations, tests, and procedures. Patients book appointments with doctors or healthcare facilities, often through phone calls or online platforms. Receptionists or automated systems manage appointment calendars, coordinating patient needs with available slots. Reminders via text, email, or phone calls help patients remember appointments, reducing no-shows. Efficient appointment management streamlines healthcare delivery, reducing wait times and ensuring patients receive the care they need when they need it."</p>
+      <p className="info-card-description text-left">Appointment management in healthcare ensures patients receive timely care. It involves scheduling appointments for medical consultations, tests, and procedures. Patients book appointments with doctors or healthcare facilities, often through phone calls or online platforms. Receptionists or automated systems manage appointment calendars, coordinating patient needs with available slots. Reminders via text, email, or phone calls help patients remember appointments, reducing no-shows. Efficient appointment management streamlines healthcare delivery, reducing wait times and ensuring patients receive the care they need when they need it."</p>
     </div> 
 
         <div className="info-cards">
@@ -149,7 +149,7 @@ DHR makes it easier for doctors and healthcare providers to access your informat
       </span>
       <img src={policy} className="w-32 ml-28 mt-4"/>
       <p className="info-card-title"> Health Insurance Policy </p>
-      <p className="info-card-description">Health insurance policies protect you financially by covering medical expenses. When you get sick or injured, the insurance company pays for part or all of your treatment costs, depending on the policy's terms. These policies typically cover doctor visits, hospital stays, prescription medications, and preventive care. You pay a monthly premium to keep your coverage active. In return, the insurance company helps you pay for healthcare services when needed, reducing your out-of-pocket expenses. Having health insurance gives you peace of mind, ensuring that you can access necessary medical care without worrying about the high costs.</p>
+      <p className="info-card-description text-left">Health insurance policies protect you financially by covering medical expenses. When you get sick or injured, the insurance company pays for part or all of your treatment costs, depending on the policy's terms. These policies typically cover doctor visits, hospital stays, prescription medications, and preventive care. You pay a monthly premium to keep your coverage active. In return, the insurance company helps you pay for healthcare services when needed, reducing your out-of-pocket expenses. Having health insurance gives you peace of mind, ensuring that you can access necessary medical care without worrying about the high costs.</p>
     </div>
     <div className="info-cards">
       <span className="info-card-icon text-[#f99a1c] text-2xl">
@@ -157,7 +157,7 @@ DHR makes it easier for doctors and healthcare providers to access your informat
       </span>
       <img src={data} className="w-48 ml-28 mt-8"/>
       <p className="info-card-title"> Secure Data Storage</p>
-      <p className="info-card-description">Secure data storage in health records ensures sensitive information like medical history and personal details are protected from unauthorized access or breaches. This is achieved through encryption, which scrambles data into unreadable code without the correct key. Access controls limit who can view or modify records, while regular backups prevent data loss. Secure servers and firewalls shield against cyber threats, and audits ensure compliance with privacy regulations like HIPAA. These measures safeguard patient confidentiality, trust, and the integrity of healthcare systems.</p>
+      <p className="info-card-description text-left">Secure data storage in health records ensures sensitive information like medical history and personal details are protected from unauthorized access or breaches. This is achieved through encryption, which scrambles data into unreadable code without the correct key. Access controls limit who can view or modify records, while regular backups prevent data loss. Secure servers and firewalls shield against cyber threats, and audits ensure compliance with privacy regulations like HIPAA. These measures safeguard patient confidentiality, trust, and the integrity of healthcare systems.</p>
     </div>
       </div>
     </div>

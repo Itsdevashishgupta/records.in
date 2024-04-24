@@ -5,10 +5,10 @@
     justify-content: center;
     align-items: center;
     gap: 24px;
-    background: white;
+    background: linear-gradient(to right, #ECF2FF, #FBFCFF);
     width: 100%;
 }
-/* Text */
+/* Text */  
 .rw-text-content {
     width: 100%;
 }
