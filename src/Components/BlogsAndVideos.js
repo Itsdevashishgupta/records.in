@@ -15,11 +15,11 @@ function Blogs() {
 
   return (
     <div className=" flex flex-col">    <div className=" pb-5 " id="blogs">
-     <div className=" flex flex-col  bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]] mt-4 w-full">
+     <div className=" flex flex-col  bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]] mt-4 w-full p-6">
      <h3 className="ba-title">
           <span className="items-center ml-[500px]">Blogs And Videos</span>
         </h3>
-        <div className="grid grid-cols-2  mt-10">
+        <div className="grid lg:grid-cols-2 grid-cols-1  mt-10">
         <video width="600" height="400" controls className=" rounded-lg m-4">
     <source src={'https://s3.amazonaws.com/myrecords.in/%E0%A4%B0%E0%A4%BE%E0%A4%B7%E0%A5%8D%E0%A4%9F%E0%A5%8D%E0%A4%B0%E0%A5%80%E0%A4%AF+%E0%A4%A1%E0%A4%BF%E0%A4%9C%E0%A4%BF%E0%A4%9F%E0%A4%B2+%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%AE%E0%A4%BF%E0%A4%B6%E0%A4%A8+%E0%A4%AD%E0%A4%BE%E0%A4%B0%E0%A4%A4+%E0%A4%AE%E0%A5%87%E0%A4%82+%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%B8%E0%A5%8D%E0%A4%A5%E0%A5%8D%E0%A4%AF+%E0%A4%B8%E0%A5%87%E0%A4%B5%E0%A4%BE%E0%A4%93%E0%A4%82+%E0%A4%95%E0%A5%87+%E0%A4%A1%E0%A4%BF%E0%A4%9C%E0%A4%BF%E0%A4%9F%E0%A4%B2%E0%A5%80%E0%A4%95%E0%A4%B0%E0%A4%A3+%E0%A4%95%E0%A5%80+%E0%A4%A8%E0%A4%AF%E0%A5%80+%E0%A4%95%E0%A5%8D%E0%A4%B0%E0%A4%BE%E0%A4%82%E0%A4%A8%E0%A5%8D%E0%A4%A4%E0%A4%BF++NDHM.mp4'} type="video/mp4" className=" rounded-lg"/>
   </video>
@@ -37,9 +37,9 @@ function Blogs() {
           </div>
         </div>  
   </div>
-    <div className="videos grid grid-cols-3 gap-5" height="400px" width="23%" style={{fontFamily:"'Rubik', sans-serif"}}>
+    <div className="videos grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-5 p-6" height="400px" width="23%" style={{fontFamily:"'Rubik', sans-serif"}}>
         <div className="video-2 flex flex-col justify-center border">
-          <video controls className="">
+          <video controls className="" style={{height:"210px"}}>
         <source src={'https://s3.amazonaws.com/myrecords.in/Talk+Ayushman+Bharat+Digital+Mission+(ABDM).mp4'} type="video/mp4" className=" "/>
             </video>
             <div className="ml-2 ">
@@ -56,7 +56,7 @@ function Blogs() {
           </div>
         </div>
         <div className="video-2 flex flex-col justify-center border">
-          <video controls className="">
+          <video controls className="" style={{height:"210px"}}>
         <source src={'https://s3.amazonaws.com/myrecords.in/EMR+vs+EHR+What+is+the+difference.mp4'} type="video/mp4" className=" "/>
             </video>
             <div className="ml-2 ">
@@ -73,7 +73,7 @@ function Blogs() {
           </div>
         </div>
         <div className="video-2 flex flex-col justify-center border">
-          <video controls className="">
+          <video controls className="w-200px" style={{height:"210px"}}>
         <source src={'https://s3.amazonaws.com/myrecords.in/The+Difference+Between+EMR++EHR.mp4'} type="video/mp4" className=" "/>
             </video>
             <div className="ml-2 ">

@@ -1,101 +1,142 @@
 import React, { useState } from 'react';
-import photo from '../../../Assets/doctorsPrecription.jpg';
+import { FaSearch, FaPlus, FaShare, FaTrash, FaFilter, FaTimes } from 'react-icons/fa';
+import image from '../../../Assets/doctorsPrecription.jpg'
 
-const DoctorsPrescription = () => {
+const HealthReportsPage = () => {
+  const [filter, setFilter] = useState('weekly');
+  const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedTimeline, setSelectedTimeline] = useState('Weekly');
+const [selectedImage, setSelectedImage] = useState(null);
 
-  const openModal = () => {
-    setIsModalOpen(true);
+const handleImageClick = (image) => {
+  setSelectedImage(image);
+  setIsModalOpen(true);
+}
+
+const handleCloseModal = () => {
+  setIsModalOpen(false);
+}
+
+  const handleFilterChange = (value) => {
+    setFilter(value);
+    setIsFilterMenuOpen(false); 
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const handleDeleteReport = (reportId) => {
+    const updatedReports = reports.filter((report) => report.id !== reportId);
+    
   };
-  const handleFileUpload = (event) => {
-    console.log(event.target.files);
-  };
-
-  const handleTimelineChange = (event) => {
-    setSelectedTimeline(event.target.value);
-  };
+  const reports = [
+    {
+      id: 1,
+      title: 'Report 1',
+      description: 'This is the description for Report 1.',
+      image: `${image}`,
+    },
+    {
+      id: 2,
+      title: 'Report 2',
+      description: 'This is the description for Report 2.',
+      image: `${image}`,
+    },
+    {
+      id: 3,
+      title: 'Report 3',
+      description: 'This is the description for Report 3.',
+      image:`${image}`,
+    },
+  ]; 
 
   return (
-    <div className='bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF] pt-4 p-10'>
-       <div className="flex justify-between mr-8 space-x-4 pb-10 ">
-       <h3 className=' text'>Doctors's Prescription</h3>
-       <div className='flex justify-between gap-5'>
-  <button 
-    onClick={() => document.getElementById('fileUpload').click()} 
-    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-  >
-    Add Report
-  </button>
-  <input 
-    type="file" 
-    id="fileUpload" 
-    onChange={handleFileUpload} 
-    style={{display: 'none'}} 
-  />
-  <div className="inline-block relative w-64">
-    <select 
-      value={selectedTimeline} 
-      onChange={handleTimelineChange} 
-      className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-    >
-      <option value="Weekly">Weekly</option>
-      <option value="Biweekly">Biweekly</option>
-      <option value="Monthly">Monthly</option>
-      <option value="Date Range">Date Range</option>
-    </select>
-    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-      <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 12l-6-6 1.414-1.414L10 9.172l4.586-4.586L16 6z"/></svg>
-    </div>
-  </div>
-  </div>
-</div>
-    <div className=' grid grid-cols-4 gap-5' style={{fontFamily:"Rubik, sans-serif"}}>
-      <div className='flex flex-col justify-center items-center border pb-4'>
-        <img src={photo} alt="" className='w-full mb-4' onClick={openModal}/>
-        <p className=' text-lg font-semibold '>Doctor's Name</p>
-        <p className=' text-sm font-semibold'>28-April-2024</p>
-      </div>
-      <div className='flex flex-col justify-center items-center border pb-4'>
-        <img src={photo} alt="" className='w-full mb-4' onClick={openModal}/>
-        <p className=' text-lg font-semibold '>Doctor's Name</p>
-        <p className=' text-sm font-semibold'>23-April-2024</p>
-      </div>
-     
-
-      {isModalOpen && (
-        <div className="fixed z-10 inset-0 overflow-y-auto">
-          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div className="fixed inset-0 transition-opacity" aria-hidden="true">
-              <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
-            </div>
-
-            <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
-            <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-              <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                <div className="sm:flex sm:items-start">
-                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                    <img src={photo} alt="" className='w-full'/>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                <button type="button" className="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" onClick={closeModal}>
-                  X
+    <div className="container mx-auto  p-10">
+      <div className="flex justify-between items-center mb-4">
+        <div className="flex items-center gap-5">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
+            />
+            <FaSearch className="absolute right-3 top-3 text-gray-500" />
+          </div>
+          <div className="relative">
+            <button
+              onClick={() => setIsFilterMenuOpen(!isFilterMenuOpen)}
+              className="bg-gray-200 text-gray-600 px-4 py-2 rounded-md flex items-center"
+            >
+              <FaFilter className="mr-2" />
+              Filter
+            </button>
+            {isFilterMenuOpen && (
+              <div className="absolute mt-2 py-2 w-40 bg-white rounded-md shadow-md z-10">
+                <button
+                  onClick={() => handleFilterChange('weekly')}
+                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
+                >
+                  Weekly
+                </button>
+                <button
+                  onClick={() => handleFilterChange('biweekly')}
+                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
+                >
+                  Biweekly
+                </button>
+                <button
+                  onClick={() => handleFilterChange('monthly')}
+                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
+                >
+                  Monthly
+                </button>
+                <button
+                  onClick={() => handleFilterChange('timerange')}
+                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
+                >
+                  Time Range
                 </button>
               </div>
-            </div>
+            )}
           </div>
         </div>
-      )}
+        <div className="flex items-center space-x-4">
+          <button className="bg-[#f99a1c] hover:bg-white hover:text-[#f99a1c] hover:border border-[#f99a1c] border text-white px-4 py-2 rounded-md flex items-center">
+            <FaPlus className="mr-2" />
+            Add Report
+          </button>
+          <button className="bg-green-500 text-white px-4 py-2 rounded-md flex items-center">
+            <FaShare className="mr-2" />
+            Share Report
+          </button>
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-6">
+  {reports.map((report) => (
+    <div key={report.id} className="bg-gray-100 p-4 rounded-md relative">
+      <div className="flex justify-between items-center mb-2">
+        <h3 className="text-lg font-semibold">{report.title}</h3>
+        <button
+          onClick={() => handleDeleteReport(report.id)}
+          className="text-red-500 hover:text-red-700"
+        >
+          <FaTrash />
+        </button>
+      </div>
+      <img src={report.image} alt={report.title} className="w-full h-48 object-cover mb-2 cursor-pointer" onClick={() => handleImageClick(report.image)} />
+      <p>{report.description}</p>
     </div>
+  ))}
+</div>
+{isModalOpen && (
+  <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+    <div className="bg-white p-4 rounded-md relative">
+      <button onClick={handleCloseModal} className="absolute top-0 right-0 m-2">
+        <FaTimes />
+      </button>
+      <img src={selectedImage} alt="Selected" className="w-full" />
+    </div>
+  </div>
+)}
     </div>
   );
 };
 
-export default DoctorsPrescription;
+export default HealthReportsPage;

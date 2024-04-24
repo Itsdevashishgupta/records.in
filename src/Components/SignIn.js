@@ -4,6 +4,7 @@ import photo from '../Assets/Final Logo My Records.svg';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
+import image from '../Assets/Trackers.jpg'
 
 const SignInSchema = Yup.object().shape({
   mobileNumber: Yup.string()
@@ -22,11 +23,11 @@ const SignIn = () => {
     const navigate = useNavigate();
     const notify = () => toast("Sign In Successfullly!");
   return (
-    <div className="flex justify-center items-center w-full  flex-wrap">
-      <div className="w-3/5">
-        <img className="mx-auto h-[90vh]" src={photo} alt="Logo" />
-      </div>
-      <div className="w-2/5">
+    <div className="bg-gray-100 flex w-full" style={{fontFamily:"'Rubik', sans-serif"}}>
+    <header className="bg-blue-500 h-[90vh] text-white text-center py-4 w-1/2 sticky top-0 w-1/2"
+     style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    </header>
+    <div className="flex justify-center w-1/2 items-center">
     <Formik
       initialValues={{ mobileNumber: 1234567890, password: '@dfsasdfgh@20' }}
       validationSchema={SignInSchema}

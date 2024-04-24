@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import image from '../../Assets/Trackers.jpg'
+import { useNavigate } from 'react-router-dom';
 
 function Questionnaire() {
   const [part, setPart] = useState('A');
-
+   const navigate = useNavigate();
   const handleNext = () => {
+    window.scrollTo(0, 0);
     setPart((prevPart) => {
       if (prevPart === 'A') return 'B';
       if (prevPart === 'B') return 'C';
@@ -15,6 +18,7 @@ function Questionnaire() {
   };
   
   const handlePrev = () => {
+    window.scrollTo(0, 0);
     setPart((prevPart) => {
       if (prevPart === 'B') return 'A';
       if (prevPart === 'C') return 'B';
@@ -26,10 +30,11 @@ function Questionnaire() {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-4 bg-white rounded-md shadow-md">
+    <div style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center', fontFamily:"'Rubik', sans-serif" }} className='w-full min-h-[90vh]'>
+    <div className="max-w-lg mx-auto my-10 p-4 rounded-md shadow-md bg-white">
     {part === 'A' && (
       <div>
-        <h2 className="text-xl font-semibold mb-4">Part A</h2>
+        <h2 className="text-4xl font-semibold mb-4 text-center py-5">Part A</h2>
         <form>
           {[
             'Do you have any existing medical condition?',
@@ -56,7 +61,7 @@ function Questionnaire() {
 
     {part === 'B' && (
   <div>
-    <h2 className="text-xl font-semibold mb-4">Part B</h2>
+    <h2 className="text-4xl font-semibold mb-4 text-center py-5">Part B</h2>
     <form>
       <div className="mb-4">
         <label className="block mb-2">How would you rate your overall health?</label>
@@ -89,7 +94,7 @@ function Questionnaire() {
 
 {part === 'C' && (
   <div>
-    <h2 className="text-xl font-semibold mb-4">Part C</h2>
+    <h2 className="text-4xl font-semibold mb-4 text-center py-5">Part C</h2>
     <form>
       {[
         'Have you ever been diagnosed with a mental health disorder?',
@@ -109,7 +114,7 @@ function Questionnaire() {
 
 {part === 'D' && (
   <div>
-    <h2 className="text-xl font-semibold mb-4">Part D</h2>
+    <h2 className="text-4xl font-semibold mb-4 text-center py-5">Part D</h2>
     <form>
       {[
         'Do you smoke?',
@@ -131,7 +136,7 @@ function Questionnaire() {
 
 {part === 'E' && (
   <div>
-    <h2 className="text-xl font-semibold mb-4">Part E</h2>
+    <h2 className="text-4xl font-semibold mb-4 text-center py-5">Part E</h2>
     <form>
       {[
         'Have you experienced any significant stress or life event recently?',
@@ -152,7 +157,7 @@ function Questionnaire() {
 
 {part === 'F' && (
   <div>
-    <h2 className="text-xl font-semibold mb-4">Part F</h2>
+    <h2 className="text-4xl font-semibold mb-4 text-center py-5">Part F</h2>
     <form>
       {[
         'Do you have any specific health concerns or symptoms which you would like to discuss?',
@@ -173,12 +178,17 @@ function Questionnaire() {
       Previous
     </button>
   )}
-  {part !== 'F' && (
-    <button onClick={handleNext} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+  {part !== 'F' ? (
+    <button onClick={handleNext} className="bg-[#f99a1c] hover:bg-white hover:text-[#f99a1c] hover:border border hover:border-[#f99a1c] text-white font-bold py-2 px-4 rounded">
       Next
+    </button>
+  ) : (
+    <button onClick={() => {navigate('/user-dashboard'); window.scrollTo(0, 0);}} className="bg-[#f99a1c] hover:bg-white hover:text-[#f99a1c] border hover:border border-[#f99a1c] text-white font-bold py-2 px-4 rounded">
+      Submit
     </button>
   )}
 </div>
+    </div>
     </div>
   );
 }
