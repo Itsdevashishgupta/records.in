@@ -22,16 +22,20 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Verify from "./Components/Verify";
 import Questionnaire from "./Components/Users/Questionnaire";
+import XRay from "./Components/Users/My-records/X-ray";
+import Medical from "./Components/Users/My-records/medicalExpenses";
 
 function Content() {
   const location = useLocation();
-  const userPaths = ["/user-dashboard","/doctor-prescription","/lab-reports","/x-ray-mri-scan","/medical-expenses"];
+  const userPaths = ["/user-dashboard","/doctor-prescription","/lab-reports","/x-ray","/medical-expenses"];
   const windowSize = useWindowSize(); 
   const [isSidenavOpen, setIsSidenavOpen] = useState(windowSize >= 768);
   const userRoutes = [
     { path: "/user-dashboard", component: <Userdashboard /> },
     { path: "/doctor-prescription", component: <DoctorsPrescription /> },
     { path: "/lab-reports", component: <LabReports /> },
+    { path: "/x-ray", component: <XRay/> },
+    { path: "/medical-expenses", component: <Medical /> },
    
   ];
   const toggleSidenav = () => {

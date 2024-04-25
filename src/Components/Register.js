@@ -1,5 +1,5 @@
-import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import React, { useEffect, useState } from 'react';
+import { Formik, Field, Form, ErrorMessage, useFormikContext } from 'formik';
 import photo from '../Assets/Final Logo My Records.svg'
 import '../App.css'
 import * as Yup from 'yup';
@@ -7,6 +7,9 @@ import Select from 'react-select';
 import '../Styles/Register.css'
 import { useNavigate } from 'react-router-dom';
 import image from '../Assets/Trackers.jpg'
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { format } from 'date-fns';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -16,25 +19,75 @@ const validationSchema = Yup.object().shape({
     .max(new Date(), 'You cannot enter a date in the future!'),
   gender: Yup.string()
     .required('Gender is required'),
-  mobileNumber: Yup.string()
+  phone: Yup.string()
     .matches(/^[0-9]{10}$/, 'Must be exactly 10 digits')
     .required('Mobile number is required'),
+  password: Yup.string()
+    .required('Password is required')
+    .min(8, 'Password is too short - should be 8 chars minimum')
+    .matches(/(?=.*[0-9])/, 'Password must contain a number')
+    .matches(/[^A-Za-z0-9]/, 'Password must contain a special character'),
+  confirmPassword: Yup.string()
+    .required('Confirm Password is required')
+    .oneOf([Yup.ref('password'), null], 'Passwords must match'),
   email: Yup.string()
     .email('Invalid email address'),
   address: Yup.string(),
-  bloodGroup: Yup.string()
+  blood_group: Yup.string()
   .required('Blood Group is required'),
  
   city: Yup.string(),
   state: Yup.string(),
-  pinCode: Yup.string()
+  pincode: Yup.string()
     .matches(/^[0-9]{6}$/, 'Must be exactly 6 digits'),
   
 });
 
 const Register = () => {
   const navigate=useNavigate()
-  const bloodGroupOptions = [
+  const [formValues, setFormValues] = useState(null);
+  const register = async (values) => {
+    const TIMEOUT_DURATION = 10000; // Timeout duration in milliseconds (adjust as needed)
+  
+    try {
+      const response = await fetch('https://my-records-in.onrender.com/api/v1/users/sendOtp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      return await response.json();
+  
+    } catch (error) {
+      console.error('Error during registration:', error);
+      throw error;
+    }
+  };
+  
+  
+  
+
+  useEffect(() => {
+    if (formValues) {
+      const fetchData = async () => {
+        try {
+          const data = await register(formValues);
+          console.log(data);
+        } catch (error) {
+          console.error('Error during fetchData:', error);
+        }
+      };
+  
+      fetchData();
+    }
+  }, [formValues]);
+  const blood_groupOptions = [
     { value: 'A+', label: 'A+' },
     { value: 'A-', label: 'A-' },
     { value: 'B+', label: 'B+' },
@@ -51,32 +104,45 @@ const Register = () => {
     { value: 'Other', label: 'Other' },
   ];
 
-
   return (
     <div className="bg-gray-100 flex w-full" style={{fontFamily:"'Rubik', sans-serif"}}>
-    <header className="bg-blue-500 h-[100vh] text-white text-center py-4 w-1/2 sticky top-0 w-1/2"
+    <header className="bg-blue-500 h-[100vh] text-white text-center py-4 w-1/2 sticky top-0 "
      style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
     </header>
     <div className="flex justify-center w-1/2">
-      <Formik
+    <Formik
   initialValues={{
-    name: '',
-    dob: '',
-    gender: '',
-    mobileNumber: '',
-    bloodGroup: '',
-    email: '',
-    address: '',
-    passowrd:'',
-    pinCode: '',
-    occupation: '',
+    name: 'Devashish',
+    dob: '20-05-2000',
+    gender: 'Male',
+    phone: '1234567890',
+    blood_group: 'B+',
+    email: 'dev@gmail.com',
+    address: 'asdfghjkl;lkjhgfdsa',
+    password: 'Mera@123',
+    confirmPassword: 'Mera@123',
+    pincode: '123456',
+    occupation: 'doctor',
   }}
   validationSchema={validationSchema}
-  onSubmit={values => {
-    console.log(values);
-   navigate('/verify')
-  }}
+  onSubmit={async (values, { setSubmitting }) => {
+    try {
+      setFormValues(values);
+      let dob = new Date(values.dob);
+values.dob = format(dob, 'dd-MM-yyyy');
+      await register(values);
+      toast.success("Registration Successfull!");
+      navigate('/otp-verification')
+    } catch (error) {
+      console.error('Error during registration:', error);
+      toast.error("Registration Failed!");
+    } finally {
+      setSubmitting(false);
+    }
+   
+}}
 >
+
           {({ errors, touched }) => (
     <Form className=" p-4 w-[90%] " style={{ fontFamily: 'Rubik, sans-serif' }}>
     <h2 className=" text-center font-semibold text-4xl my-7">Register</h2>
@@ -84,8 +150,12 @@ const Register = () => {
     <div className=' grid grid-cols-2 gap-4'>
       <label className="block">
         <span className="text-gray-700">Name</span>
-        <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="name" placeholder="Enter your name" required />
-        <ErrorMessage className='text-red-500' name="name" component="div" />
+        <Field 
+    className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" 
+    type="text" 
+    name="name" 
+    required 
+  />        <ErrorMessage className='text-red-500' name="name" component="div" />
       </label>
       <label className="block">
         <span className="text-gray-700">Date of Birth</span>
@@ -113,31 +183,36 @@ const Register = () => {
 </label>
   <label className="block">
   <span className="text-gray-700">Blood Group</span>
-  <Field name="bloodGroup">
+  <Field name="blood_group">
     {({ field, form }) => (
       <Select
         className="mt-1 block w-full  rounded-md shadow-sm hover:border-[#f99a1c] focus:border-[#f99a1c] focus:ring focus:ring-[#f99a1c] focus:ring-opacity-50"
-        options={bloodGroupOptions}
+        options={blood_groupOptions}
         name={field.name}
-        value={bloodGroupOptions ? bloodGroupOptions.find(option => option.value === field.value) : ''}
+        value={blood_groupOptions ? blood_groupOptions.find(option => option.value === field.value) : ''}
         onChange={(option) => form.setFieldValue(field.name, option.value)}
         onBlur={field.onBlur}
         placeholder="Select your blood group"
       />
     )}
   </Field>
-  <ErrorMessage className=' text-red-500' name="bloodGroup" component="div" />
+  <ErrorMessage className=' text-red-500' name="blood_group" component="div" />
 </label>
 </div>
        <label className="block">
         <span className="text-gray-700">Mobile Number</span>
-        <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="mobileNumber" placeholder="Enter your mobile number" required />
-        <ErrorMessage className=' text-red-500' name="mobileNumber" component="div" />
+        <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="phone" placeholder="Enter your mobile number" required />
+        <ErrorMessage className=' text-red-500' name="phone" component="div" />
       </label>
       <label className="block">
         <span className="text-gray-700">Password</span>
-        <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="password" placeholder="Enter your Password" required />
+        <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="password" name="password" placeholder="Enter your Password" required />
         <ErrorMessage className=' text-red-500' name="password" component="div" />
+      </label>
+      <label className="block">
+        <span className="text-gray-700">Confirm Password</span>
+        <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="password" name="confirmPassword" placeholder="Enter your Password" required />
+        <ErrorMessage className=' text-red-500' name="confirmPassword" component="div" />
       </label>
     
       <label className="block">
@@ -152,8 +227,8 @@ const Register = () => {
 
 <label className="block">
   <span className="text-gray-700">Pin Code</span>
-  <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="pinCode" placeholder="Enter your pin code" required />
-  <ErrorMessage className=' text-red-500' name="pinCode" component="div" />
+  <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="text" name="pincode" placeholder="Enter your pin code" required />
+  <ErrorMessage className=' text-red-500' name="pincode" component="div" />
 </label>
 <label className="block">
   <span className="text-gray-700">Occupation (Optional)</span>

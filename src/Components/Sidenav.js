@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../Assets/Final Logo My Records-1.png';
-import { FaUser, FaRegListAlt, FaTimes, FaChevronUp, FaChevronDown } from 'react-icons/fa';
+import { FaUser,FaStress, FaRegListAlt, FaTimes, FaChevronUp, FaChevronDown, FaAppleAlt, FaUsers, FaCalendarCheck, FaFileMedical, FaRegSmileBeam, FaPrescription, FaVial, FaXRay, FaMoneyBillWave } from 'react-icons/fa';
 import useWindowSize from '../Hoooks/UseWindow';
 
 function Sidenav({ isSidenavOpen,onClose }) {
@@ -28,7 +28,7 @@ function Sidenav({ isSidenavOpen,onClose }) {
         <div  className=' overflow-y-auto h-[72vh]'>
         <div className=' relative overflow-hidden w-full h-full'>
         <div className='absolute overflow-scroll mr-[-17px] mb-[-17px] inset-0'>
-      <nav className='px-4 pr-6 pb-4' style={{fontFamily:"'Roboto', sans-serif"}}>
+      <nav className='px-4 pr-6 pb-4' style={{fontFamily:"'Wix Madefor Display', sans-serif"}}>
         <div className={`h-12 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/user-dashboard' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
           <FaUser className='w-6 h-6' />
           <a href='/user-dashboard' className="flex items-center h-full w-full ">
@@ -44,20 +44,23 @@ function Sidenav({ isSidenavOpen,onClose }) {
         </div>
         {isDropdownOpen && (
           <div className="pl-4">
-            <Link to="/doctor-prescription" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-records/record1' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
-              <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Doctors' Prescription</span>
-            </Link>
-            <Link to="/lab-reports" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-records/record2' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
-              <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Lab Reports</span>
-            </Link>
-            <Link to="/my-records/record2" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-records/record2' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
-              <span className="ml-2  ltr:mr-2 rtl:ml-2 ">X-Ray & MRI Scan</span>
-            </Link>
-            <Link to="/my-records/record2" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-records/record2' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
-              <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Medical Expenses</span>
-            </Link>
-           
-          </div>
+  <Link to="/doctor-prescription" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-records/record1' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+    <FaPrescription />
+    <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Doctors' Prescription</span>
+  </Link>
+  <Link to="/lab-reports" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-records/record2' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+    <FaVial />
+    <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Lab Reports</span>
+  </Link>
+  <Link to="/x-ray" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-records/record2' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+    <FaXRay />
+    <span className="ml-2  ltr:mr-2 rtl:ml-2 ">X-Ray & MRI Scan</span>
+  </Link>
+  <Link to="/medical-expenses" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-records/record2' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+    <FaMoneyBillWave />
+    <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Medical Expenses</span>
+  </Link>
+</div>
         )}
         <div className={`h-12 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-health-tracker' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
           <FaUser className='w-6 h-6' />
@@ -65,6 +68,40 @@ function Sidenav({ isSidenavOpen,onClose }) {
             <span className="ml-2  ltr:mr-2 rtl:ml-2 ">My-Health Tracker</span>
           </a>
         </div>
+        <div className={`h-12 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/diet-weight-management' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+  <FaAppleAlt className='w-6 h-6' />
+  <Link to="/diet-weight-management" className="flex items-center h-full w-full ">
+    <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Diet and Weight Management</span>
+  </Link>
+</div>
+
+<div className={`h-12 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/stress-management' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+  <FaRegSmileBeam className='w-6 h-6' />
+  <Link to="/stress-management" className="flex items-center h-full w-full ">
+    <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Stress Management</span>
+  </Link>
+</div>
+
+<div className={`h-12 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/family-user-management' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+  <FaUsers className='w-6 h-6' />
+  <Link to="/family-user-management" className="flex items-center h-full w-full ">
+    <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Family User Management</span>
+  </Link>
+</div>
+
+<div className={`h-12 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/appointment-management' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+  <FaCalendarCheck className='w-6 h-6' />
+  <Link to="/appointment-management" className="flex items-center h-full w-full ">
+    <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Appointment Management</span>
+  </Link>
+</div>
+
+<div className={`h-12 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/health-insurance-policy' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+  <FaFileMedical className='w-6 h-6' />
+  <Link to="/health-insurance-policy" className="flex items-center h-full w-full ">
+    <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Health Insurance Policy</span>
+  </Link>
+</div>
       </nav>
     </div>
         </div>

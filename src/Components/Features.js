@@ -19,11 +19,13 @@ import { MdElderlyWoman, MdHealthAndSafety } from "react-icons/md";
 import { TiCloudStorage } from "react-icons/ti";
 import playstore from "../Assets/Google_Play_Store_badge_EN.svg.webp"
 import applestore from "../Assets/download-on-the-app-store-apple-logo-svgrepo-com.svg"
+import Footer from "./Footer";
 // import { ReactComponent as Badge } from '../Assets/Google_Play_Store_badge_EN.svg';
 
 function Features() {
   return (
     <>
+    <div className="flex flex-col ">
     {/* <div className="w-full pt-20">
      <div className="p-8 flex flex-col justify-center relative w-full flex-wrap">
   <div className="mb-6">
@@ -40,7 +42,7 @@ function Features() {
   <p></p>
 </div> 
     </div> */}
-        <div className="info-section" id="features">
+        <div className="info-section pb-5" id="features">
       <div className="info-title-content">
         <h3 className="info-title">
           <span>What We Do</span>
@@ -161,6 +163,8 @@ DHR makes it easier for doctors and healthcare providers to access your informat
     </div>
       </div>
     </div>
+    <Footer/>
+</div>
     </>
 
   );

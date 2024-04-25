@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import image from '../Assets/Trackers.jpg'
 
 const SignInSchema = Yup.object().shape({
-  mobileNumber: Yup.string()
+  phone: Yup.string()
     .required('Mobile Number is required')
     .matches(/^[0-9]+$/, "Must be only digits")
     .min(10, 'Must be exactly 10 digits')
@@ -29,15 +29,34 @@ const SignIn = () => {
     </header>
     <div className="flex justify-center w-1/2 items-center">
     <Formik
-      initialValues={{ mobileNumber: 1234567890, password: '@dfsasdfgh@20' }}
+      initialValues={{ phone: '8188053879', password: 'Test@123' }}
       validationSchema={SignInSchema}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-         navigate('/user-dashboard');
-         toast.success("Sign In Successfully!");
-          setSubmitting(false);
-        }, 400);
-      }}
+      onSubmit={async (values, { setSubmitting }) => {
+  try {
+    const response = await fetch('https://my-records-in.onrender.com/api/v1/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(values)
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data);
+
+    navigate('/user-dashboard');
+    toast.success("Sign In Successfully!");
+  } catch (error) {
+    console.error('Error during sign in:', error);
+    toast.error("Sign In Failed!");
+  } finally {
+    setSubmitting(false);
+  }
+}}
     >
       {({ errors, touched ,isSubmitting }) => (
         <Form className="p-4 w-[80%] " style={{ fontFamily: 'Rubik, sans-serif' }}>
@@ -46,11 +65,11 @@ const SignIn = () => {
             <span className="text-gray-700">Mobile Number:</span>
             <Field
              type="text"
-             name="mobileNumber"
+             name="phone"
              className="mt-1 block w-full p-2 rounded-md border-gray-300 border shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
              placeholder="Enter your mobile number"/>
-            {errors.mobileNumber && touched.mobileNumber ? (
-            <div className=' text-red-500'>{errors.mobileNumber}</div>
+            {errors.phone && touched.phone ? (
+            <div className=' text-red-500'>{errors.phone}</div>
           ) : null}
           </label>
           <label className="block">

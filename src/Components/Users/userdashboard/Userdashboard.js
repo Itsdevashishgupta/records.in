@@ -1,6 +1,7 @@
 import React from 'react';
 import photo from '../../../Assets/1.avif';
 import bmiMeter from '../../../Assets/BMI-Calculator.webp' 
+import healthscore from '../../../Assets/healthScore.png' 
 
 const Userdashboard = () => {
   const userData = {
@@ -20,13 +21,6 @@ const Userdashboard = () => {
     email: 'rk.singh@gmail.com',
     address: 'D-20 Lajpat Nagar, New Delhi',
     };
-
-   
-
-   
-  
-    
-  
   let healthStatus
   
   const healthScore = 80;
@@ -50,7 +44,7 @@ const Userdashboard = () => {
       <div className='flex py-8 justify-center flex-wrap gap-12'>
         <div className=' w-6/12 gap-8 rounded-lg flex flex-col justify-between'>
         
-         <div className='flex gap-12 bg-white px-10 py-8'>
+         <div className='flex gap-12 bg-white px-10 py-8 shadow-md'>
          <div className=' flex flex-col gap-6'>
           <div className='flex gap-5 justify-center items-center'>
           <img src={userData.photoUrl} alt="User" className='w-20 item-center rounded-full' />
@@ -96,7 +90,7 @@ const Userdashboard = () => {
             </div>
           </div>
           </div>
-          <div className='bg-white px-10 py-8 mb-4 '>
+          <div className='bg-white px-10 py-8 mb-4 shadow-md'>
   <h1 className='font-semibold text-lg underline underline-offset'>Family Doctor Details</h1>
   <div>
   <p><span class="font-bold">Name:</span> Dr. John Smith</p>
@@ -108,7 +102,7 @@ const Userdashboard = () => {
 
 
 </div>
-          <div className='bg-white px-10 py-8 mb-4 '>
+          <div className='bg-white px-10 py-8 mb-4 shadow-md'>
   <h1 className='font-semibold text-lg underline underline-offset mb-4'>Medical Insurance Details</h1>
   <ul class="list-disc">
   <li><span class="font-bold">Insurance Company:</span> XYZ Health Insurance</li>
@@ -120,9 +114,17 @@ const Userdashboard = () => {
 </ul>
 </div>
         </div>
-        <div className='w-5/12 h-1/2 bg-white justify-center flex'>
-          <img src={bmiMeter} alt="" className='w-[70%]'/>
+        <div className='w-5/12 h-1/2 justify-center items-center gap-4   flex flex-col'>
+        <div className='justify-center items-center gap-4 p-4  flex flex-col bg-white shadow-md'>
+          <img src={bmiMeter} alt="" className='w-[100%]'/>
+          <p className='text-xl font-bold text-center'>BMI Score</p>
+          </div>
+        <div className='justify-center items-center gap-4 p-4  flex flex-col bg-white shadow-md'>
+          <img src={healthscore} alt="" className='w-[100%]'/>
+          <p className='text-xl font-bold text-center'>Health Score</p>
+          </div>
         </div>
+        
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css';
 
-const HealthReportsPage = () => {
+const Medical = () => {
   const [filter, setFilter] = useState('weekly');
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -102,16 +102,38 @@ const handleCloseModal = () => {
           </div>
           <div className="relative">
             <button
-             onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}
+              onClick={() => setIsFilterMenuOpen(!isFilterMenuOpen)}
               className="bg-gray-200 text-gray-600 px-4 py-2 rounded-md flex items-center"
             >
               <FaFilter className="mr-2" />
-              Date Filter
+              Filter
             </button>
             {isFilterMenuOpen && (
               <div className="absolute mt-2 py-2 w-40 bg-white rounded-md shadow-md z-10">
-               
-              
+                <button
+                  onClick={() => handleFilterChange('weekly')}
+                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
+                >
+                  Weekly
+                </button>
+                <button
+                  onClick={() => handleFilterChange('biweekly')}
+                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
+                >
+                  Biweekly
+                </button>
+                <button
+                  onClick={() => handleFilterChange('monthly')}
+                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
+                >
+                  Monthly
+                </button>
+                <button
+                onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}
+                className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
+              >
+                Date Range
+              </button>
 
               <div ref={ref}>
                 {isDatePickerOpen && (
@@ -167,4 +189,4 @@ const handleCloseModal = () => {
   );
 };
 
-export default HealthReportsPage;
+export default Medical;

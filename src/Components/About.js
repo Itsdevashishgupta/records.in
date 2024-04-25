@@ -2,9 +2,11 @@ import React from "react";
 import Doctor from "../Assets/doctor-group.png";
 import SolutionStep from "./SolutionStep";
 import "../Styles/About.css";
+import Footer from "./Footer";
 
 function About() {
   return (
+    <div className=" flex flex-col">
     <div className="about-section" id="about">
       <div className="about-image-content">
         <img src={Doctor} alt="Doctor Group" className="about-image1" />
@@ -37,6 +39,8 @@ function About() {
 
        
       </div>
+    </div>
+    <Footer/>
     </div>
   );
 }
