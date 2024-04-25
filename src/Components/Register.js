@@ -9,14 +9,13 @@ import { useNavigate } from 'react-router-dom';
 import image from '../Assets/Trackers.jpg'
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { format } from 'date-fns';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
     .required('Name is required'),
-  dob: Yup.date()
-    .required('Date of Birth is required')
-    .max(new Date(), 'You cannot enter a date in the future!'),
+  // dob: Yup.date()
+  //   .required('Date of Birth is required')
+  //   .max(new Date(), 'You cannot enter a date in the future!'),
   gender: Yup.string()
     .required('Gender is required'),
   phone: Yup.string()
@@ -46,47 +45,47 @@ const validationSchema = Yup.object().shape({
 const Register = () => {
   const navigate=useNavigate()
   const [formValues, setFormValues] = useState(null);
-  const register = async (values) => {
-    const TIMEOUT_DURATION = 10000; // Timeout duration in milliseconds (adjust as needed)
+  // const register = async (values) => {
+  //   const TIMEOUT_DURATION = 10000; // Timeout duration in milliseconds (adjust as needed)
   
-    try {
-      const response = await fetch('https://my-records-in.onrender.com/api/v1/users/sendOtp', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(values)
-      });
+  //   try {
+  //     const response = await fetch('https://my-records-in.onrender.com/api/v1/users/sendOtp', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify(values)
+  //     });
   
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+  //     if (!response.ok) {
+  //       throw new Error(`HTTP error! status: ${response.status}`);
+  //     }
   
-      return await response.json();
+  //     return await response.json();
   
-    } catch (error) {
-      console.error('Error during registration:', error);
-      throw error;
-    }
-  };
+  //   } catch (error) {
+  //     console.error('Error during registration:', error);
+  //     throw error;
+  //   }
+  // };
   
   
   
 
-  useEffect(() => {
-    if (formValues) {
-      const fetchData = async () => {
-        try {
-          const data = await register(formValues);
-          console.log(data);
-        } catch (error) {
-          console.error('Error during fetchData:', error);
-        }
-      };
+  // useEffect(() => {
+  //   if (formValues) {
+  //     const fetchData = async () => {
+  //       try {
+  //         const data = await register(formValues);
+  //         console.log(data);
+  //       } catch (error) {
+  //         console.error('Error during fetchData:', error);
+  //       }
+  //     };
   
-      fetchData();
-    }
-  }, [formValues]);
+  //     fetchData();
+  //   }
+  // }, [formValues]);
   const blood_groupOptions = [
     { value: 'A+', label: 'A+' },
     { value: 'A-', label: 'A-' },
@@ -113,12 +112,12 @@ const Register = () => {
     <Formik
   initialValues={{
     name: 'Devashish',
-    dob: '20-05-2000',
+    dob: '',
     gender: 'Male',
     phone: '1234567890',
     blood_group: 'B+',
     email: 'dev@gmail.com',
-    address: 'asdfghjkl;lkjhgfdsa',
+    address: 'asdfghjkllkjhgfdsa',
     password: 'Mera@123',
     confirmPassword: 'Mera@123',
     pincode: '123456',
@@ -126,20 +125,30 @@ const Register = () => {
   }}
   validationSchema={validationSchema}
   onSubmit={async (values, { setSubmitting }) => {
-    try {
-      setFormValues(values);
-      let dob = new Date(values.dob);
-values.dob = format(dob, 'dd-MM-yyyy');
-      await register(values);
-      toast.success("Registration Successfull!");
-      navigate('/otp-verification')
-    } catch (error) {
-      console.error('Error during registration:', error);
-      toast.error("Registration Failed!");
-    } finally {
-      setSubmitting(false);
+  try {
+    const response = await fetch('https://my-records-in.onrender.com/api/v1/users/sendOtp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(values)
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-   
+
+    const data = await response.json();
+    console.log(data);
+
+    navigate('/user-dashboard');
+    toast.success("Sign In Successfully!");
+  } catch (error) {
+    console.error('Error during sign in:', error);
+    toast.error("Sign In Failed!");
+  } finally {
+    setSubmitting(false);
+  }
 }}
 >
 
@@ -157,11 +166,7 @@ values.dob = format(dob, 'dd-MM-yyyy');
     required 
   />        <ErrorMessage className='text-red-500' name="name" component="div" />
       </label>
-      <label className="block">
-        <span className="text-gray-700">Date of Birth</span>
-        <Field className="mt-1 block w-full p-2 rounded-md border border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" type="date" name="dob" required />
-        <ErrorMessage className=' text-red-500' name="dob" component="div" />
-      </label>
+     
       </div>
       <div className=' grid grid-cols-2 gap-4'>
     <label className="block">
