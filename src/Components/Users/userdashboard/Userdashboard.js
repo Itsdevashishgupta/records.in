@@ -93,7 +93,7 @@ const Userdashboard = () => {
           <div className='bg-white px-10 py-8 mb-4 shadow-md'>
   <h1 className='font-semibold text-lg underline underline-offset'>Family Doctor Details</h1>
   <div>
-  <p><span class="font-bold">Name:</span> Dr. John Smith</p>
+  <p><span class="font-bold">Name:</span> Dr. R.K.Singh</p>
   <p><span class="font-bold">Age:</span> 45</p>
   <p><span class="font-bold">Experience:</span> 20 years</p>
   <p><span class="font-bold">Post:</span> Senior Consultant</p>

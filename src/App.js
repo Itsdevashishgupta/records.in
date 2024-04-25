@@ -4,7 +4,6 @@ import "./App.css";
 import Home from "./Pages/Home";
 import Legal from "./Pages/Legal";
 import NotFound from "./Pages/NotFound";
-import Appointment from "./Pages/Appointment";
 import Navbar from "./Components/Navbar";
 import Register from "./Components/Register";
 import SignIn from "./Components/SignIn";
@@ -31,6 +30,11 @@ import Baby_health_tracker from "./Components/Users/My-health-tracker/Baby-healt
 import { UserProvider } from "./Components/Context/authcontext";
 import cookie from 'js-cookie';
 import AccessDenied from "./Components/Acccess-Denied";
+import Diet_Weight from "./Components/Users/Other/Diet_Weight";
+import Familymanage from "./Components/Users/Other/Family-manage";
+import HealthInsurance from "./Components/Users/Other/HealthInsurance";
+import Appointment from "./Components/Users/Other/Appointment";
+import Stress from "./Components/Users/Other/Stress";
 
 const ProtectedRoute = ({ children }) => {
   const token = cookie.get('token');
@@ -54,7 +58,13 @@ function Content() {
        "/basic-health-tracker", 
       "/women-health-tracker",
       "/senior-citizen-health-tracker",
-      "/baby-health-tracker"
+      "/baby-health-tracker",
+      "/diet-weight-management",
+      "/family-user-management",
+      "/appointment-management",
+      "/health-insurance-policy",
+      "/questionnaire",
+      "/stress-management"
     ];
   const windowSize = useWindowSize(); 
   const [isSidenavOpen, setIsSidenavOpen] = useState(windowSize >= 768);
@@ -68,7 +78,12 @@ function Content() {
     { path: "/basic-health-tracker", component: <Basic_health_tracker />},
     { path: "/women-health-tracker", component: <Women_health_tracker />},
     { path:"/senior-citizen-health-tracker", component: <Senior_citizen_health_tracker />},
-    { path:"/baby-health-tracker", component:<Baby_health_tracker />}
+    { path:"/baby-health-tracker", component:<Baby_health_tracker />},
+    { path:"/diet-weight-management", component:<Diet_Weight />},
+    { path:"/family-user-management", component:<Familymanage />},
+    { path:"/appointment-management", component:<Appointment />},
+    { path:"/health-insurance-policy", component:<HealthInsurance />},
+    { path:"/stress-management", component:<Stress />},
 
    
   ];

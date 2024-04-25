@@ -14,6 +14,8 @@ import { MdOutlineClose, MdOutlineMenu } from "react-icons/md";
 import { HiMenuAlt2 } from "react-icons/hi";
 import { CgProfile } from "react-icons/cg";
 import { IoIosNotificationsOutline } from "react-icons/io";
+import profile from '../../../Assets/user.png'
+import bell from '../../../Assets/bell.png'
 
 function UserNavbar({ onExpandClick,isSidenavOpen }) {
   const [nav, setNav] = useState(false);
@@ -30,10 +32,10 @@ console.log(onExpandClick);
            <button onClick={onExpandClick} className="p-2 text-4xl">
         {isSidenavOpen ?<HiMenuAlt2 /> : <MdOutlineMenu />}
       </button>
-      <div className="flex gap-4 justify-between items-center">
-      <div className="text-2xl"><IoIosNotificationsOutline /></div>
+      <div className="flex gap-6 justify-between items-center">
+      <div className="text-2xl"><img src={bell} alt="" className="w-8" /></div>
       <div className=" text-2xl ">
-      <CgProfile/>
+      <img src={profile} alt="" className="w-8" />
       </div>
 <div className="flex gap-2">
       <button
