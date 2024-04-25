@@ -28,19 +28,19 @@ function Footer() {
           <p className="ft-list-title">Legal</p>
           <ul className="ft-list-items">
             <li>
-              <Link to={"/legal"}>General Info</Link>
+              <Link to={"/Policies"}>General Info</Link>
             </li>
             <li>
-              <Link to={"/legal"}>Privacy Policy</Link>
+              <Link to={"/Policies"}>Privacy Policy</Link>
             </li>
             <li>
-              <Link to={"/legal"}>Terms of Services</Link>
+              <Link to={"/Policies"}>Terms of Services</Link>
             </li>
             <li>
-              <Link to={"/legal"}>Consultations</Link>
+              <Link to={"/Policies"}>Consultations</Link>
             </li>
             <li>
-              <Link to={"/legal"}>How it Works</Link>
+              <Link to={"/Policies"}>How it Works</Link>
             </li>
           </ul>
         </div>
