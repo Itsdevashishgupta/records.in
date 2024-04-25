@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { customerReviews } from "../Scripts/reviews";
 import "../Styles/Reviews.css";
 import photo from '../Assets/doctor-book-appointment.png'
+import Footer from "./Footer";
 
 function Contact() {
   let rMessage, rName, rLocation;
@@ -32,7 +33,8 @@ function Contact() {
   handleReviewsUpdation();
 
   return (
-    <div className="review-section" id="Contacts">
+    <div className=" w-full">
+    <div className="review-section " id="Contacts">
       
       <div>
         <img src={photo} alt="" />
@@ -72,8 +74,10 @@ function Contact() {
           </div>
         </div>
       </div>
-
-      </div>
+     
+     </div>
+     <Footer/>
+     </div>
     
   );
 }
