@@ -19,7 +19,7 @@ const BasicHealthTracker = () => {
     <div className="flex flex-col items-center justify-center min-h-screen  px-4 md:px-6">
       <div className="max-w-3xl w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {data.map((item, index) => (
-          <div key={index} className="rounded-lg border bg-card text-card-foreground shadow-lg" data-v0-t="card">
+          <div key={index} className="rounded-lg border bg-card text-card-foreground shadow-lg bg-white" data-v0-t="card">
             <div className="flex flex-col space-y-1.5 p-6">
               <item.Icon className={`w-8 h-8 text-${item.color}-500`} />
               <h3 className="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">{item.title}</h3>

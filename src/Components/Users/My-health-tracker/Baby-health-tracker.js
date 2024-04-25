@@ -43,7 +43,7 @@ function Baby_health_tracker() {
                     <div className="bg-white  rounded-lg shadow-lg">
                         {/* Card Content */}
                         <div className="p-6">
-                            <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Growth Metrics</h2>
+                            <h2 className="text-lg font-semibold text-gray-800  mb-4">Growth Metrics</h2>
                             {/* Growth metrics data */}
                             {/* Example: */}
                             <div className="grid grid-cols-2 gap-4">
@@ -76,7 +76,7 @@ function Baby_health_tracker() {
                     <div className="bg-white  rounded-lg shadow-lg">
                         {/* Card Content */}
                         <div className="p-6">
-                            <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Milestones</h2>
+                            <h2 className="text-lg font-semibold text-gray-800  mb-4">Milestones</h2>
                             {/* Milestones data */}
                             {/* Example: */}
                             <div className="grid grid-cols-1 gap-4">
@@ -115,7 +115,7 @@ function Baby_health_tracker() {
                     <div className="bg-white  rounded-lg shadow-lg">
                         {/* Card Content */}
                         <div className="p-6">
-                            <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Calendar</h2>
+                            <h2 className="text-lg font-semibold text-gray-800  mb-4">Calendar</h2>
                             {/* Container for the calendar */}
                             <div className="">
                                 {/* React Calendar component */}
@@ -134,9 +134,9 @@ function Baby_health_tracker() {
                     <div className="bg-white  rounded-lg shadow-lg">
                         {/* Card Content */}
                         <div className="p-6">
-                            <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Notes</h2>
+                            <h2 className="text-lg font-semibold text-gray-800  mb-4">Notes</h2>
                             {/* Add Notes Button */}
-                            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mb-4">Add Note</button>
+                            <button className="bg-[#f99a1c] text-white px-4 py-2 rounded-lg mb-4">Add Note</button>
                             {/* Display Notes */}
                             <div className="grid grid-cols-1 gap-4">
                                 {/* Map through notesData and display notes */}
@@ -170,9 +170,9 @@ function Baby_health_tracker() {
                     <div className="bg-white  rounded-lg shadow-lg">
                         {/* Card Content */}
                         <div className="p-6">
-                            <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Vaccinations</h2>
+                            <h2 className="text-lg font-semibold text-gray-800  mb-4">Vaccinations</h2>
                             {/* Add Vaccination Button */}
-                            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mb-4" onClick={() => addVaccination('New Vaccination', '2024-06-30')}>Add Vaccination</button>
+                            <button className="bg-[#f99a1c] text-white px-4 py-2 rounded-lg mb-4" onClick={() => addVaccination('New Vaccination', '2024-06-30')}>Add Vaccination</button>
                             {/* Display Vaccination Data */}
                             <div className="grid grid-cols-1 gap-4">
                                 {/* Map through vaccinations and display */}

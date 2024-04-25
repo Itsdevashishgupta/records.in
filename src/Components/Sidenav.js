@@ -50,19 +50,19 @@ function Sidenav({ isSidenavOpen,onClose }) {
         </div>
         {isDropdownOpen && (
           <div className="pl-4">
-  <Link to="/doctor-prescription" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-records/record1' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+  <Link to="/doctor-prescription" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/doctor-prescription' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
     <FaPrescription />
     <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Doctors' Prescription</span>
   </Link>
-  <Link to="/lab-reports" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-records/record2' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+  <Link to="/lab-reports" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/lab-reports' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
     <FaVial />
     <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Lab Reports</span>
   </Link>
-  <Link to="/x-ray" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-records/record2' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+  <Link to="/x-ray" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/x-ray' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
     <FaXRay />
     <span className="ml-2  ltr:mr-2 rtl:ml-2 ">X-Ray & MRI Scan</span>
   </Link>
-  <Link to="/medical-expenses" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-records/record2' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+  <Link to="/medical-expenses" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/medical-expenses' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
     <FaMoneyBillWave />
     <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Medical Expenses</span>
   </Link>
@@ -77,19 +77,19 @@ function Sidenav({ isSidenavOpen,onClose }) {
         </div>
         {isHealthTrackerDropdownOpen && (
           <div className="pl-4">
-            <Link to="/basic-health-tracker" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-health-tracker/basic' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+            <Link to="/basic-health-tracker" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/basic-health-tracker' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
               <FaMale />
               <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Basic Health Tracker</span>
             </Link>
-            <Link to="/women-health-tracker" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-health-tracker/women' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+            <Link to="/women-health-tracker" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/women-health-tracker' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
               <FaFemale />
               <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Women Health Tracker</span>
             </Link>
-            <Link to="/senior-citizen-health-tracker" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-health-tracker/senior' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+            <Link to="/senior-citizen-health-tracker" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/senior-citizen-health-tracker' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
               <FaOldRepublic />
               <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Senior Citizen Health Tracker</span>
             </Link>
-            <Link to="/baby-health-tracker" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-health-tracker/baby' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+            <Link to="/baby-health-tracker" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/baby-health-tracker' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
               <FaBaby />
               <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Baby Health Tracker</span>
             </Link>

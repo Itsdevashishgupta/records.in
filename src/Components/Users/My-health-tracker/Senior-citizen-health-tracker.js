@@ -12,7 +12,7 @@ function SeniorCitizenHealthTracker() {
         <div className="col-span-1 lg:col-span-2 grid grid-cols-1 gap-6">
           <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
-              <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Heart Rate</h2>
+              <h2 className="text-lg font-semibold text-gray-800  mb-4">Heart Rate</h2>
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col items-center">
                   <div className="text-4xl font-bold">72 bpm</div>
@@ -27,7 +27,7 @@ function SeniorCitizenHealthTracker() {
         <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
           <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
-              <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Blood Pressure</h2>
+              <h2 className="text-lg font-semibold text-gray-800  mb-4">Blood Pressure</h2>
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col items-center">
                   <div className="text-4xl font-bold">120/80 mmHg</div>
@@ -42,7 +42,7 @@ function SeniorCitizenHealthTracker() {
         <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
           <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
-              <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Medication Reminders</h2>
+              <h2 className="text-lg font-semibold text-gray-800  mb-4">Medication Reminders</h2>
               <div className="grid grid-cols-1 gap-4">
                 <div className="flex items-center gap-4">
                   <div className="text-4xl font-bold">2</div>
@@ -59,7 +59,7 @@ function SeniorCitizenHealthTracker() {
         <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
           <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
-              <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Daily Activity</h2>
+              <h2 className="text-lg font-semibold text-gray-800  mb-4">Daily Activity</h2>
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex flex-col items-center">
                   <div className="text-4xl font-bold">7,542</div>
@@ -78,15 +78,15 @@ function SeniorCitizenHealthTracker() {
         <div className="col-span-1 lg:col-span-3 grid grid-cols-1 gap-6">
           <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
-              <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Upcoming Appointments</h2>
+              <h2 className="text-lg font-semibold text-gray-800  mb-4">Upcoming Appointments</h2>
               <div className="overflow-x-auto">
                 <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-gray-50 dark:bg-gray-800">
+                  <thead className="bg-[#f99a1c]">
                     <tr>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Date</th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Time</th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Provider</th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Reason</th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black  uppercase tracking-wider">Date</th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black  uppercase tracking-wider">Time</th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black  uppercase tracking-wider">Provider</th>
+                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black  uppercase tracking-wider">Reason</th>
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">

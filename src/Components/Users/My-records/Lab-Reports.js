@@ -1,192 +1,232 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaSearch, FaPlus, FaShare, FaTrash, FaFilter, FaTimes } from 'react-icons/fa';
-import image from '../../../Assets/doctorsPrecription.jpg'
 import { DateRangePicker } from 'react-date-range';
-import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css';
+import { BiCalendarPlus } from 'react-icons/bi';
 
-const HealthReportsPage = () => {
-  const [filter, setFilter] = useState('weekly');
-  const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-const [selectedImage, setSelectedImage] = useState(null);
-const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
-const [state, setState] = useState([
-  {
-    startDate: new Date(),
-    endDate: null,
-    key: 'selection'
-  }
-]);
-
-const handleSelect = (ranges) => {
-  setState([ranges.selection]);
-}
-const ref = useRef();
-const ref1 = useRef();
-
-useEffect(() => {
-  const checkIfClickedOutside = e => {
-    if (isDatePickerOpen && ref.current && !ref.current.contains(e.target)) {
-      setIsDatePickerOpen(false);
+const MyRecords = () => {
+  const [dateRange, setDateRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: null,
+      key: 'selection'
     }
-  }
-  document.addEventListener("mousedown", checkIfClickedOutside)
-  return () => {
-    document.removeEventListener("mousedown", checkIfClickedOutside)
-  }
-}, [isDatePickerOpen]);
-
-useEffect(() => {
-  const checkIfClickedOutside1= e => {
-    if (isModalOpen && ref1.current && !ref1.current.contains(e.target)) {
-      setIsModalOpen(false);
-    }
-  }
-  document.addEventListener("mousedown", checkIfClickedOutside1)
-  return () => {
-    document.removeEventListener("mousedown", checkIfClickedOutside1)
-  }
-}, [isModalOpen]);
-
-const handleImageClick = (image) => {
-  setSelectedImage(image);
-  setIsModalOpen(true);
-}
-
-const handleCloseModal = () => {
-  setIsModalOpen(false);
-}
-
-  const handleFilterChange = (value) => {
-    setFilter(value);
-    setIsFilterMenuOpen(false); 
+  ]);
+  
+  const [isDatePickerVisible, setDatePickerVisible] = useState(false);
+  
+  const datePickerRef = useRef();
+  
+  const handleSelect = (ranges) => {
+    setDateRange([ranges.selection]);
+    setDatePickerVisible(false);
   };
-
-  const handleDeleteReport = (reportId) => {
-    const updatedReports = reports.filter((report) => report.id !== reportId);
-    
-  };
-  const reports = [
-    {
-      id: 1,
-      title: 'Report 1',
-      description: 'This is the description for Report 1.',
-      image: `${image}`,
-    },
-    {
-      id: 2,
-      title: 'Report 2',
-      description: 'This is the description for Report 2.',
-      image: `${image}`,
-    },
-    {
-      id: 3,
-      title: 'Report 3',
-      description: 'This is the description for Report 3.',
-      image:`${image}`,
-    },
-  ]; 
-
+  
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (datePickerRef.current && !datePickerRef.current.contains(event.target)) {
+        setDatePickerVisible(false);
+      }
+    };
+  
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
   return (
-    <div className="container mx-auto  p-10">
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center gap-5">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
-            />
-            <FaSearch className="absolute right-3 top-3 text-gray-500" />
-          </div>
-          <div className="relative">
-            <button
-              onClick={() => setIsFilterMenuOpen(!isFilterMenuOpen)}
-              className="bg-gray-200 text-gray-600 px-4 py-2 rounded-md flex items-center"
-            >
-              <FaFilter className="mr-2" />
-              Filter
-            </button>
-            {isFilterMenuOpen && (
-              <div className="absolute mt-2 py-2 w-40 bg-white rounded-md shadow-md z-10">
-                <button
-                  onClick={() => handleFilterChange('weekly')}
-                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
-                >
-                  Weekly
-                </button>
-                <button
-                  onClick={() => handleFilterChange('biweekly')}
-                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
-                >
-                  Biweekly
-                </button>
-                <button
-                  onClick={() => handleFilterChange('monthly')}
-                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
-                >
-                  Monthly
-                </button>
-                <button
-                onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}
-                className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
-              >
-                Date Range
-              </button>
+    <div className="flex flex-col w-full min-h-screen">
+      <main className="flex-1 p-4 md:p-10">
+        <div className="grid gap-6">
+          <div className="flex items-center justify-between">
+           
+            <h1 className="text-2xl font-bold">My Records</h1>
+            <div className='flex justify-between gap-4'>
+            <div style={{ position: 'relative' }} ref={datePickerRef}>
+  <button 
+    className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2" 
+    type="button"
+    onClick={() => setDatePickerVisible(true)}
+  >
+    <BiCalendarPlus className="mr-2 h-4 w-4" />
+    Date Filter
+  </button>
 
-              <div ref={ref}>
-                {isDatePickerOpen && (
-                  <DateRangePicker
-                    ranges={state}
-                    onChange={handleSelect}
-                  />
-                )}
+  {isDatePickerVisible && (
+    <div style={{ position: 'absolute', zIndex: 1, right: 0 }}>
+      <DateRangePicker
+        ranges={dateRange}
+        onChange={handleSelect}
+      />
+    </div>
+  )}
+</div>
+            <a
+              className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+              href="#"
+            >
+              +Add Report
+            </a>
+            </div>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {/* Replace with map function to render dynamic lab reports */}
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+              <div className="p-6 flex flex-row items-center justify-between pb-2 space-y-0">
+                <h3 className="whitespace-nowrap tracking-tight text-sm font-medium">Lab Report 002</h3>
+                <div className="flex gap-2">
+                  {/* Add onClick handlers for view and delete actions */}
+                  <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-4 h-4"
+                    >
+                      <path d="M5 12s2.545-5 7-5c4.454 0 7 5 7 5s-2.546 5-7 5c-4.455 0-7-5-7-5z"></path>
+                      <path d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
+                      <path d="M21 17v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2"></path>
+                      <path d="M21 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"></path>
+                    </svg>
+                    <span className="sr-only">View</span>
+                  </button>
+                  <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-4 h-4"
+                    >
+                      <path d="M3 6h18"></path>
+                      <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                      <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                    </svg>
+                    <span className="sr-only">Delete</span>
+                  </button>
+                </div>
               </div>
+              <div className="p-6">
+                <div className="text-sm text-gray-500 dark:text-gray-400">Collected on: 04/15/2023</div>
               </div>
-            )}
+            </div>
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+              <div className="p-6 flex flex-row items-center justify-between pb-2 space-y-0">
+                <h3 className="whitespace-nowrap tracking-tight text-sm font-medium">Lab Report 003</h3>
+                <div className="flex gap-2">
+                  {/* Add onClick handlers for view and delete actions */}
+                  <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-4 h-4"
+                    >
+                      <path d="M5 12s2.545-5 7-5c4.454 0 7 5 7 5s-2.546 5-7 5c-4.455 0-7-5-7-5z"></path>
+                      <path d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
+                      <path d="M21 17v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2"></path>
+                      <path d="M21 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"></path>
+                    </svg>
+                    <span className="sr-only">View</span>
+                  </button>
+                  <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-4 h-4"
+                    >
+                      <path d="M3 6h18"></path>
+                      <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                      <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                    </svg>
+                    <span className="sr-only">Delete</span>
+                  </button>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="text-sm text-gray-500 dark:text-gray-400">Collected on: 04/15/2023</div>
+              </div>
+            </div>
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+              <div className="p-6 flex flex-row items-center justify-between pb-2 space-y-0">
+                <h3 className="whitespace-nowrap tracking-tight text-sm font-medium">Lab Report 001</h3>
+                <div className="flex gap-2">
+                  {/* Add onClick handlers for view and delete actions */}
+                  <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-4 h-4"
+                    >
+                      <path d="M5 12s2.545-5 7-5c4.454 0 7 5 7 5s-2.546 5-7 5c-4.455 0-7-5-7-5z"></path>
+                      <path d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path>
+                      <path d="M21 17v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2"></path>
+                      <path d="M21 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"></path>
+                    </svg>
+                    <span className="sr-only">View</span>
+                  </button>
+                  <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-4 h-4"
+                    >
+                      <path d="M3 6h18"></path>
+                      <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                      <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                    </svg>
+                    <span className="sr-only">Delete</span>
+                  </button>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="text-sm text-gray-500 dark:text-gray-400">Collected on: 04/15/2023</div>
+              </div>
+            </div>
+            {/* Repeat for other lab reports */}
           </div>
         </div>
-        <div className="flex items-center space-x-4">
-          <button className="bg-[#f99a1c] hover:bg-white hover:text-[#f99a1c] hover:border border-[#f99a1c] border text-white px-4 py-2 rounded-md flex items-center">
-            <FaPlus className="mr-2" />
-            Add Report
-          </button>
-          <button className="bg-[#f99a1c] hover:bg-white hover:text-[#f99a1c] hover:border border-[#f99a1c] border text-white px-4 py-2 rounded-md flex items-center">
-            <FaShare className="mr-2" />
-            Share Report
-          </button>
-        </div>
-      </div>
-      <div className="grid grid-cols-3 gap-6">
-  {reports.map((report) => (
-    <div key={report.id} className="bg-gray-100 p-4 rounded-md relative">
-      <div className="flex justify-between items-center mb-2">
-        <h3 className="text-lg font-semibold">{report.title}</h3>
-        <button
-          onClick={() => handleDeleteReport(report.id)}
-          className="text-red-500 hover:text-red-700"
-        >
-          <FaTrash />
-        </button>
-      </div>
-      <img src={report.image} alt={report.title} className="w-full h-48 object-cover mb-2 cursor-pointer" onClick={() => handleImageClick(report.image)} />
-      <p>{report.description}</p>
-    </div>
-  ))}
-</div>
-{isModalOpen && (
-  <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50" ref={ref}>
-    <div className="bg-white p-4 rounded-md relative">
-      <button onClick={handleCloseModal} className="absolute top-0 right-0 m-2">
-        <FaTimes />
-      </button>
-      <img src={selectedImage} alt="Selected" className="w-full max-h-[500px] object-contain" />
-    </div>
-  </div>
-)}
+      </main>
     </div>
   );
 };
 
-export default HealthReportsPage;
+export default MyRecords;

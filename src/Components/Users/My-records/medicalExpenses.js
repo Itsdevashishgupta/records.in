@@ -1,192 +1,267 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaSearch, FaPlus, FaShare, FaTrash, FaFilter, FaTimes } from 'react-icons/fa';
-import image from '../../../Assets/doctorsPrecription.jpg'
 import { DateRangePicker } from 'react-date-range';
-import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css';
+import { BiCalendarPlus } from 'react-icons/bi';
 
-const Medical = () => {
-  const [filter, setFilter] = useState('weekly');
-  const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-const [selectedImage, setSelectedImage] = useState(null);
-const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
-const [state, setState] = useState([
-  {
-    startDate: new Date(),
-    endDate: null,
-    key: 'selection'
-  }
-]);
-
-const handleSelect = (ranges) => {
-  setState([ranges.selection]);
-}
-const ref = useRef();
-const ref1 = useRef();
-
-useEffect(() => {
-  const checkIfClickedOutside = e => {
-    if (isDatePickerOpen && ref.current && !ref.current.contains(e.target)) {
-      setIsDatePickerOpen(false);
+const ExpenseTracker = () => {
+  const [dateRange, setDateRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: null,
+      key: 'selection'
     }
-  }
-  document.addEventListener("mousedown", checkIfClickedOutside)
-  return () => {
-    document.removeEventListener("mousedown", checkIfClickedOutside)
-  }
-}, [isDatePickerOpen]);
-
-useEffect(() => {
-  const checkIfClickedOutside1= e => {
-    if (isModalOpen && ref1.current && !ref1.current.contains(e.target)) {
-      setIsModalOpen(false);
-    }
-  }
-  document.addEventListener("mousedown", checkIfClickedOutside1)
-  return () => {
-    document.removeEventListener("mousedown", checkIfClickedOutside1)
-  }
-}, [isModalOpen]);
-
-const handleImageClick = (image) => {
-  setSelectedImage(image);
-  setIsModalOpen(true);
-}
-
-const handleCloseModal = () => {
-  setIsModalOpen(false);
-}
-
-  const handleFilterChange = (value) => {
-    setFilter(value);
-    setIsFilterMenuOpen(false); 
+  ]);
+  
+  const [isDatePickerVisible, setDatePickerVisible] = useState(false);
+  
+  const datePickerRef = useRef();
+  
+  const handleSelect = (ranges) => {
+    setDateRange([ranges.selection]);
+    setDatePickerVisible(false);
   };
-
-  const handleDeleteReport = (reportId) => {
-    const updatedReports = reports.filter((report) => report.id !== reportId);
-    
-  };
-  const reports = [
-    {
-      id: 1,
-      title: 'Report 1',
-      description: 'This is the description for Report 1.',
-      image: `${image}`,
-    },
-    {
-      id: 2,
-      title: 'Report 2',
-      description: 'This is the description for Report 2.',
-      image: `${image}`,
-    },
-    {
-      id: 3,
-      title: 'Report 3',
-      description: 'This is the description for Report 3.',
-      image:`${image}`,
-    },
-  ]; 
-
+  
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (datePickerRef.current && !datePickerRef.current.contains(event.target)) {
+        setDatePickerVisible(false);
+      }
+    };
+  
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
   return (
-    <div className="container mx-auto  p-10">
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center gap-5">
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
-            />
-            <FaSearch className="absolute right-3 top-3 text-gray-500" />
-          </div>
-          <div className="relative">
-            <button
-              onClick={() => setIsFilterMenuOpen(!isFilterMenuOpen)}
-              className="bg-gray-200 text-gray-600 px-4 py-2 rounded-md flex items-center"
-            >
-              <FaFilter className="mr-2" />
-              Filter
-            </button>
-            {isFilterMenuOpen && (
-              <div className="absolute mt-2 py-2 w-40 bg-white rounded-md shadow-md z-10">
-                <button
-                  onClick={() => handleFilterChange('weekly')}
-                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
-                >
-                  Weekly
-                </button>
-                <button
-                  onClick={() => handleFilterChange('biweekly')}
-                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
-                >
-                  Biweekly
-                </button>
-                <button
-                  onClick={() => handleFilterChange('monthly')}
-                  className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
-                >
-                  Monthly
-                </button>
-                <button
-                onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}
-                className="block w-full px-4 py-2 text-gray-800 hover:bg-gray-200"
-              >
-                Date Range
-              </button>
+    <div className="flex flex-col min-h-screen">
+      <header className="bg-white text-gray-900 py-4 px-6">
+        <div className="container mx-auto flex items-center justify-between">
+          <h1 className="text-2xl font-bold">Medical Expenses Tracker</h1>
+          <div className="flex items-center space-x-4">
+          <div style={{ position: 'relative' }} ref={datePickerRef}>
+  <button 
+    className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2" 
+    type="button"
+    onClick={() => setDatePickerVisible(true)}
+  >
+    <BiCalendarPlus className="mr-2 h-4 w-4" />
+    Date Filter
+  </button>
 
-              <div ref={ref}>
-                {isDatePickerOpen && (
-                  <DateRangePicker
-                    ranges={state}
-                    onChange={handleSelect}
-                  />
-                )}
-              </div>
-              </div>
-            )}
+  {isDatePickerVisible && (
+    <div style={{ position: 'absolute', zIndex: 1, right: 0 }}>
+      <DateRangePicker
+        ranges={dateRange}
+        onChange={handleSelect}
+      />
+    </div>
+  )}
+</div>
+            <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-gray-900 h-10 px-4 py-2">
+              + Add Report
+            </button>
           </div>
         </div>
-        <div className="flex items-center space-x-4">
-          <button className="bg-[#f99a1c] hover:bg-white hover:text-[#f99a1c] hover:border border-[#f99a1c] border text-white px-4 py-2 rounded-md flex items-center">
-            <FaPlus className="mr-2" />
-            Add Report
-          </button>
-          <button className="bg-[#f99a1c] hover:bg-white hover:text-[#f99a1c] hover:border border-[#f99a1c] border text-white px-4 py-2 rounded-md flex items-center">
-            <FaShare className="mr-2" />
-            Share Report
-          </button>
+      </header>
+      <main className="flex-1 bg-gray-100 py-8 px-6">
+        <div className="container mx-auto">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold">Expense Reports</h2>
+              <div className="flex items-center space-x-4">
+              
+                <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-gray-900 hover:bg-gray-900 hover:text-white h-10 w-10">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-4 w-4"
+                  >
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                  </svg>
+                  <span className="sr-only">Search</span>
+                </button>
+              </div>
+            </div>
+            <div className="overflow-x-auto">
+              <div className="relative w-full overflow-auto">
+                <table className="w-full caption-bottom text-sm">
+                  <thead className="[&amp;_tr]:border-b">
+                    <tr className="border-b transition-colors hover:bg-gray-200 data-[state=selected]:bg-gray-200">
+                      <th className="h-12 px-4 text-left align-middle font-medium text-gray-500 [&amp;:has([role=checkbox])]:pr-0">
+                        Date
+                      </th>
+                      <th className="h-12 px-4 text-left align-middle font-medium text-gray-500 [&amp;:has([role=checkbox])]:pr-0">
+                        Category
+                      </th>
+                      <th className="h-12 px-4 text-left align-middle font-medium text-gray-500 [&amp;:has([role=checkbox])]:pr-0">
+                        Amount
+                      </th>
+                      <th className="h-12 px-4 text-left align-middle font-medium text-gray-500 [&amp;:has([role=checkbox])]:pr-0">
+                        Actions
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="[&amp;_tr:last-child]:border-0">
+                    <tr className="border-b transition-colors hover:bg-gray-200 data-[state=selected]:bg-gray-200">
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">2023-04-15</td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Prescription</td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">$50.00</td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 flex items-center space-x-2">
+                        <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-gray-900 hover:bg-gray-900 hover:text-white h-10 w-10">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="h-4 w-4"
+                          >
+                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                            <polyline points="16 6 12 2 8 6"></polyline>
+                            <line x1="12" x2="12" y1="2" y2="15"></line>
+                          </svg>
+                          <span className="sr-only">Share</span>
+                        </button>
+                        <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-gray-900 hover:bg-gray-900 hover:text-white h-10 w-10">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="h-4 w-4"
+                          >
+                            <path d="M3 6h18"></path>
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                            <line x1="10" x2="10" y1="11" y2="17"></line>
+                            <line x1="14" x2="14" y1="11" y2="17"></line>
+                          </svg>
+                          <span className="sr-only">Delete</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr className="border-b transition-colors hover:bg-gray-200 data-[state=selected]:bg-gray-200">
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">2023-04-10</td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Doctor Visit</td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">$75.00</td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 flex items-center space-x-2">
+                        <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-gray-900 hover:bg-gray-900 hover:text-white h-10 w-10">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="h-4 w-4"
+                          >
+                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                            <polyline points="16 6 12 2 8 6"></polyline>
+                            <line x1="12" x2="12" y1="2" y2="15"></line>
+                          </svg>
+                          <span className="sr-only">Share</span>
+                        </button>
+                        <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-gray-900 hover:bg-gray-900 hover:text-white h-10 w-10">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="h-4 w-4"
+                          >
+                            <path d="M3 6h18"></path>
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                            <line x1="10" x2="10" y1="11" y2="17"></line>
+                            <line x1="14" x2="14" y1="11" y2="17"></line>
+                          </svg>
+                          <span className="sr-only">Delete</span>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr className="border-b transition-colors hover:bg-gray-200 data-[state=selected]:bg-gray-200">
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">2023-04-05</td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Physical Therapy</td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">$100.00</td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 flex items-center space-x-2">
+                        <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-gray-900 hover:bg-gray-900 hover:text-white h-10 w-10">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="h-4 w-4"
+                          >
+                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                            <polyline points="16 6 12 2 8 6"></polyline>
+                            <line x1="12" x2="12" y1="2" y2="15"></line>
+                          </svg>
+                          <span className="sr-only">Share</span>
+                        </button>
+                        <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-gray-900 hover:bg-gray-900 hover:text-white h-10 w-10">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="h-4 w-4"
+                          >
+                            <path d="M3 6h18"></path>
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                            <line x1="10" x2="10" y1="11" y2="17"></line>
+                            <line x1="14" x2="14" y1="11" y2="17"></line>
+                          </svg>
+                          <span className="sr-only">Delete</span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="grid grid-cols-3 gap-6">
-  {reports.map((report) => (
-    <div key={report.id} className="bg-gray-100 p-4 rounded-md relative">
-      <div className="flex justify-between items-center mb-2">
-        <h3 className="text-lg font-semibold">{report.title}</h3>
-        <button
-          onClick={() => handleDeleteReport(report.id)}
-          className="text-red-500 hover:text-red-700"
-        >
-          <FaTrash />
-        </button>
-      </div>
-      <img src={report.image} alt={report.title} className="w-full h-48 object-cover mb-2 cursor-pointer" onClick={() => handleImageClick(report.image)} />
-      <p>{report.description}</p>
-    </div>
-  ))}
-</div>
-{isModalOpen && (
-  <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50" ref={ref}>
-    <div className="bg-white p-4 rounded-md relative">
-      <button onClick={handleCloseModal} className="absolute top-0 right-0 m-2">
-        <FaTimes />
-      </button>
-      <img src={selectedImage} alt="Selected" className="w-full max-h-[500px] object-contain" />
-    </div>
-  </div>
-)}
+      </main>
     </div>
   );
 };
 
-export default Medical;
+export default ExpenseTracker;

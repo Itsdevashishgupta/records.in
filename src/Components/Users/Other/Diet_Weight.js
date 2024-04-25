@@ -36,26 +36,11 @@ const DietTracker = () => {
             </button>
           </div>
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="bg-gray-900 text-white py-4 px-6">
+    <div className="flex flex-col min-h-screen bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]">
+      <header className="bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF] py-4 px-6">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-2xl font-bold">Diet Tracker</h1>
-          <nav>
-            <ul className="flex space-x-4">
-              <li>
-                <a href="#">Dashboard</a>
-              </li>
-              <li>
-                <a href="#">Food Diary</a>
-              </li>
-              <li>
-                <a href="#">Exercise</a>
-              </li>
-              <li>
-                <a href="#">Weight Loss Plan</a>
-              </li>
-            </ul>
-          </nav>
+        
         </div>
       </header>
       <main className="flex-1 py-8 px-6">

@@ -1,170 +1,129 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaSearch, FaPlus, FaShare, FaTrash, FaFilter, FaTimes } from 'react-icons/fa';
-import image from '../../../Assets/doctorsPrecription.jpg'
+import { BiSearch, BiCalendarPlus, BiPlus, BiShare, BiTrash } from 'react-icons/bi'; // Import icons as needed
 import { DateRangePicker } from 'react-date-range';
-import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css';
 
-const HealthReportsPage = () => {
-  const [filter, setFilter] = useState('weekly');
-  const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-const [selectedImage, setSelectedImage] = useState(null);
-const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
-const [state, setState] = useState([
-  {
-    startDate: new Date(),
-    endDate: null,
-    key: 'selection'
-  }
-]);
-
-const handleSelect = (ranges) => {
-  setState([ranges.selection]);
-}
-const ref = useRef();
-const ref1 = useRef();
-
-useEffect(() => {
-  const checkIfClickedOutside = e => {
-    if (isDatePickerOpen && ref.current && !ref.current.contains(e.target)) {
-      setIsDatePickerOpen(false);
+const PrescriptionRecords = () => {
+  const [dateRange, setDateRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: null,
+      key: 'selection'
     }
-  }
-  document.addEventListener("mousedown", checkIfClickedOutside)
-  return () => {
-    document.removeEventListener("mousedown", checkIfClickedOutside)
-  }
-}, [isDatePickerOpen]);
-
-useEffect(() => {
-  const checkIfClickedOutside1= e => {
-    if (isModalOpen && ref1.current && !ref1.current.contains(e.target)) {
-      setIsModalOpen(false);
-    }
-  }
-  document.addEventListener("mousedown", checkIfClickedOutside1)
-  return () => {
-    document.removeEventListener("mousedown", checkIfClickedOutside1)
-  }
-}, [isModalOpen]);
-
-const handleImageClick = (image) => {
-  setSelectedImage(image);
-  setIsModalOpen(true);
-}
-
-const handleCloseModal = () => {
-  setIsModalOpen(false);
-}
-
-  const handleFilterChange = (value) => {
-    setFilter(value);
-    setIsFilterMenuOpen(false); 
+  ]);
+  
+  const [isDatePickerVisible, setDatePickerVisible] = useState(false);
+  
+  const datePickerRef = useRef();
+  
+  const handleSelect = (ranges) => {
+    setDateRange([ranges.selection]);
+    setDatePickerVisible(false);
   };
-
-  const handleDeleteReport = (reportId) => {
-    const updatedReports = reports.filter((report) => report.id !== reportId);
-    
-  };
-  const reports = [
-    {
-      id: 1,
-      title: 'Report 1',
-      description: 'This is the description for Report 1.',
-      image: `${image}`,
-    },
-    {
-      id: 2,
-      title: 'Report 2',
-      description: 'This is the description for Report 2.',
-      image: `${image}`,
-    },
-    {
-      id: 3,
-      title: 'Report 3',
-      description: 'This is the description for Report 3.',
-      image:`${image}`,
-    },
-  ]; 
-
+  
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (datePickerRef.current && !datePickerRef.current.contains(event.target)) {
+        setDatePickerVisible(false);
+      }
+    };
+  
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
   return (
-    <div className="container mx-auto  p-10">
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center gap-5">
-          <div className="relative">
+    <main className="container mx-auto px-4 py-8 md:px-6 lg:py-12">
+      <div className="flex flex-col gap-6 md:gap-8">
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight md:text-3xl">My Prescription Records</h1>
+          <p className="text-gray-500 ">View and manage your prescription history.</p>
+        </div>
+        <div className="flex items-center gap-4">
+          {/* Search input */}
+          <div className="relative flex-1">
+            <BiSearch className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500 " />
             <input
-              type="text"
-              placeholder="Search..."
-              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"
+              className="flex h-10 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full rounded-md border border-gray-200 bg-white px-10 py-2 text-sm shadow-sm transition-colors focus:border-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900  dark:text-gray-50 "
+              placeholder="Search prescriptions..."
+              type="search"
             />
-            <FaSearch className="absolute right-3 top-3 text-gray-500" />
           </div>
-          <div className="relative">
-            <button
-             onClick={() => setIsDatePickerOpen(!isDatePickerOpen)}
-              className="bg-gray-200 text-gray-600 px-4 py-2 rounded-md flex items-center"
-            >
-              <FaFilter className="mr-2" />
-              Date Filter
-            </button>
-            {isFilterMenuOpen && (
-              <div className="absolute mt-2 py-2 w-40 bg-white rounded-md shadow-md z-10">
-               
-              
+          {/* Buttons */}
+          <div style={{ position: 'relative' }} ref={datePickerRef}>
+  <button 
+    className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2" 
+    type="button"
+    onClick={() => setDatePickerVisible(true)}
+  >
+    <BiCalendarPlus className="mr-2 h-4 w-4" />
+    Date Filter
+  </button>
 
-              <div ref={ref}>
-                {isDatePickerOpen && (
-                  <DateRangePicker
-                    ranges={state}
-                    onChange={handleSelect}
-                  />
-                )}
-              </div>
-              </div>
-            )}
+  {isDatePickerVisible && (
+    <div style={{ position: 'absolute', zIndex: 1 }}>
+      <DateRangePicker
+        ranges={dateRange}
+        onChange={handleSelect}
+      />
+    </div>
+  )}
+</div>
+          {/* Add Prescription */}
+          <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2" type="button">
+            <BiPlus className="mr-2 h-4 w-4" />
+            +Add Prescription
+          </button>
+          {/* Share */}
+          <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2" type="button">
+            <BiShare className="mr-2 h-4 w-4" />
+            Share
+          </button>
+          {/* Delete */}
+          <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2" type="button">
+            <BiTrash className="mr-2 h-4 w-4" />
+            Delete
+          </button>
+        </div>
+        {/* Prescription records table */}
+        <div className="overflow-hidden rounded-lg border border-gray-200 shadow-sm dark:border-gray-800">
+          <div className="relative w-full overflow-auto">
+            <table className="w-full caption-bottom text-sm">
+              <thead className="[&amp;_tr]:border-b">
+                <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">Medication</th>
+                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">Dosage</th>
+                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">Date Prescribed</th>
+                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">Prescribing Doctor</th>
+                </tr>
+              </thead>
+              <tbody className="[&amp;_tr:last-child]:border-0">
+                {/* Prescription records data */}
+                {/* Replace image src with actual image paths */}
+                <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                  <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Amoxicillin</td>
+                  <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">500mg</td>
+                  <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">2023-04-15</td>
+                  <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">
+                    <div className="flex items-center gap-3">
+                      <img src="/placeholder.svg" alt="Doctor Avatar" width="40" height="40" className="h-10 w-10 rounded-full object-cover" style={{ aspectRatio: '40 / 40', objectFit: 'cover' }} />
+                      <div>
+                        <p className="font-medium">Dr. John Doe</p>
+                        <p className="text-sm text-gray-500 ">johndoe@example.com</p>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                {/* Repeat for other prescription records */}
+              </tbody>
+            </table>
           </div>
         </div>
-        <div className="flex items-center space-x-4">
-          <button className="bg-[#f99a1c] hover:bg-white hover:text-[#f99a1c] hover:border border-[#f99a1c] border text-white px-4 py-2 rounded-md flex items-center">
-            <FaPlus className="mr-2" />
-            Add Report
-          </button>
-          <button className="bg-[#f99a1c] hover:bg-white hover:text-[#f99a1c] hover:border border-[#f99a1c] border text-white px-4 py-2 rounded-md flex items-center">
-            <FaShare className="mr-2" />
-            Share Report
-          </button>
-        </div>
       </div>
-      <div className="grid grid-cols-3 gap-6">
-  {reports.map((report) => (
-    <div key={report.id} className="bg-gray-100 p-4 rounded-md relative">
-      <div className="flex justify-between items-center mb-2">
-        <h3 className="text-lg font-semibold">{report.title}</h3>
-        <button
-          onClick={() => handleDeleteReport(report.id)}
-          className="text-red-500 hover:text-red-700"
-        >
-          <FaTrash />
-        </button>
-      </div>
-      <img src={report.image} alt={report.title} className="w-full h-48 object-cover mb-2 cursor-pointer" onClick={() => handleImageClick(report.image)} />
-      <p>{report.description}</p>
-    </div>
-  ))}
-</div>
-{isModalOpen && (
-  <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50" ref={ref}>
-    <div className="bg-white p-4 rounded-md relative">
-      <button onClick={handleCloseModal} className="absolute top-0 right-0 m-2">
-        <FaTimes />
-      </button>
-      <img src={selectedImage} alt="Selected" className="w-full max-h-[500px] object-contain" />
-    </div>
-  </div>
-)}
-    </div>
+    </main>
   );
 };
 
-export default HealthReportsPage;
+export default PrescriptionRecords;
