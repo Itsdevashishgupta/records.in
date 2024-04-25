@@ -24,10 +24,23 @@ import Verify from "./Components/Verify";
 import Questionnaire from "./Components/Users/Questionnaire";
 import XRay from "./Components/Users/My-records/X-ray";
 import Medical from "./Components/Users/My-records/medicalExpenses";
+import Basic_health_tracker from "./Components/Users/My-health-tracker/Basic-health-tracker";
+import Women_health_tracker from "./Components/Users/My-health-tracker/Women-health-tracker";
+import Senior_citizen_health_tracker from "./Components/Users/My-health-tracker/Senior-citizen-health-tracker";
+import Baby_health_tracker from "./Components/Users/My-health-tracker/Baby-health-tracker";
 
 function Content() {
   const location = useLocation();
-  const userPaths = ["/user-dashboard","/doctor-prescription","/lab-reports","/x-ray","/medical-expenses"];
+  const userPaths = [
+    "/user-dashboard", 
+    "/doctor-prescription",
+     "/lab-reports", "/x-ray",
+      "/medical-expenses",
+       "/basic-health-tracker", 
+      "/women-health-tracker",
+      "/senior-citizen-health-tracker",
+      "/baby-health-tracker"
+    ];
   const windowSize = useWindowSize(); 
   const [isSidenavOpen, setIsSidenavOpen] = useState(windowSize >= 768);
   const userRoutes = [
@@ -36,6 +49,11 @@ function Content() {
     { path: "/lab-reports", component: <LabReports /> },
     { path: "/x-ray", component: <XRay/> },
     { path: "/medical-expenses", component: <Medical /> },
+    { path: "/basic-health-tracker", component: <Basic_health_tracker />},
+    { path: "/women-health-tracker", component: <Women_health_tracker />},
+    { path:"/senior-citizen-health-tracker", component: <Senior_citizen_health_tracker />},
+    { path:"/baby-health-tracker", component:<Baby_health_tracker />}
+
    
   ];
   const toggleSidenav = () => {
