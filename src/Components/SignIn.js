@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
 import image from '../Assets/Trackers.jpg'
+import cookie from 'js-cookie';
 
 const SignInSchema = Yup.object().shape({
   phone: Yup.string()
@@ -44,12 +45,12 @@ const SignIn = () => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-
+     else{
     const data = await response.json();
     console.log(data);
-
+    cookie.set('token',data.data.accessToken,{expires:7})
     navigate('/user-dashboard');
-    toast.success("Sign In Successfully!");
+    toast.success("Sign In Successfully!");}
   } catch (error) {
     console.error('Error during sign in:', error);
     toast.error("Sign In Failed!");
