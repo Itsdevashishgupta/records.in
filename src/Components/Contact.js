@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { customerReviews } from "../Scripts/reviews";
 import "../Styles/Reviews.css";
-import photo from '../Assets/doctor-book-appointment.png'
+import photo from '../Assets/health_records-removebg-preview.png'
 import Footer from "./Footer";
 
 function Contact() {
@@ -29,7 +29,6 @@ function Contact() {
     rMessage = reviewMessage.message;
   };
 
-  // list review on visit
   handleReviewsUpdation();
 
   return (
