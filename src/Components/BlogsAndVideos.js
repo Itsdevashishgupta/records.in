@@ -61,7 +61,7 @@ function Blogs() {
             </video>
             <div className="ml-2 ">
     <div className=" flex flex-col px-3 py-4">
-       <div><h2 className="text-xl font-bold mb-2 width-100% ">Ayushman Bharat Digital Mission</h2> </div>
+       <div><h2 className="text-xl font-bold mb-2 width-100% ">Elecronic Medical Records</h2> </div>
       <div className="text-gray-500  text-sm  ">  April 22, 2024</div>
 
     </div>
@@ -78,7 +78,7 @@ function Blogs() {
             </video>
             <div className="ml-2 ">
     <div className=" flex flex-col px-3 py-4">
-       <div><h2 className="text-xl font-bold mb-2 width-100% ">Ayushman Bharat Digital Mission</h2> </div>
+       <div><h2 className="text-xl font-bold mb-2 width-100% ">EMR vs EHR</h2> </div>
       <div className="text-gray-500  text-sm  ">  April 22, 2024</div>
 
     </div>
