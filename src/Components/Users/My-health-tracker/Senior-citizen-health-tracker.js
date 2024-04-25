@@ -10,7 +10,7 @@ function SeniorCitizenHealthTracker() {
       <main className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
         {/* Heart Rate Card */}
         <div className="col-span-1 lg:col-span-2 grid grid-cols-1 gap-6">
-          <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md">
+          <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
               <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Heart Rate</h2>
               <div className="grid grid-cols-2 gap-4">
@@ -25,7 +25,7 @@ function SeniorCitizenHealthTracker() {
 
         {/* Blood Pressure Card */}
         <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
-          <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md">
+          <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
               <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Blood Pressure</h2>
               <div className="grid grid-cols-2 gap-4">
@@ -40,7 +40,7 @@ function SeniorCitizenHealthTracker() {
 
         {/* Medication Reminders Card */}
         <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
-          <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md">
+          <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
               <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Medication Reminders</h2>
               <div className="grid grid-cols-1 gap-4">
@@ -57,7 +57,7 @@ function SeniorCitizenHealthTracker() {
 
         {/* Daily Activity Card */}
         <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
-          <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md">
+          <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
               <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Daily Activity</h2>
               <div className="grid grid-cols-2 gap-4">
@@ -76,7 +76,7 @@ function SeniorCitizenHealthTracker() {
 
         {/* Upcoming Appointments Card */}
         <div className="col-span-1 lg:col-span-3 grid grid-cols-1 gap-6">
-          <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md">
+          <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
               <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Upcoming Appointments</h2>
               <div className="overflow-x-auto">
@@ -89,7 +89,7 @@ function SeniorCitizenHealthTracker() {
                       <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Reason</th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white dark:bg-gray-700 divide-y divide-gray-200">
+                  <tbody className="bg-white divide-y divide-gray-200">
                     <tr>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">April 25, 2024</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10:00 AM</td>

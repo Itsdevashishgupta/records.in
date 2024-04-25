@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { ToastContainer, toast } from 'react-toastify';
 import image from '../Assets/Trackers.jpg'
+import cookie from 'js-cookie';
 
 const SignInSchema = Yup.object().shape({
   phone: Yup.string()
@@ -44,12 +45,12 @@ const SignIn = () => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-
+     else{
     const data = await response.json();
     console.log(data);
-
+    cookie.set('token',data.data.accessToken,{expires:7})
     navigate('/user-dashboard');
-    toast.success("Sign In Successfully!");
+    toast.success("Sign In Successfully!");}
   } catch (error) {
     console.error('Error during sign in:', error);
     toast.error("Sign In Failed!");
@@ -77,7 +78,7 @@ const SignIn = () => {
             <Field type="password" name="password" className="mt-1 block w-full p-2 rounded-md border-gray-300 border shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Enter your password" required />
             {errors.password && touched.password ? <div className='text-red-500'>{errors.password}</div> : null}
           </label>
-          <button className="mt-4 block w-full p-2 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-[#f99a1c] hover:bg-white hover:text-[#f99a1c] hover:border border-[#f99a1c] text-white " type="submit" disabled={isSubmitting}>
+          <button className="mt-4 block cursor-pointer w-full p-2 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 bg-[#f99a1c] hover:bg-white hover:text-[#f99a1c] hover:border border-[#f99a1c] text-white " type="submit" disabled={isSubmitting}>
             Sign In
           </button>
         

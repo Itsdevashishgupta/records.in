@@ -43,7 +43,7 @@ function Hero() {
           <img src={photo} alt="" />
           </h2>
           <p className="text-descritpion">
-          My-records.in is a digital health platform for uploading, storing and 
+          My-Records.in is a digital health platform for uploading, storing and 
           maintaining health records of patients /users through mobile app and accessible through web and mobile application.
           </p>
           <button
@@ -53,7 +53,7 @@ function Hero() {
           >
             <span>My-Records.in</span>
             <span className="border-r border-l border-white border-opacity-20 px-3"> <FaGooglePlay/></span>
-            <span><FaApple/></span>    
+            <span><FaApple/></span>
           </button>
           <div className="text-stats">
             <div className="text-stats-container">

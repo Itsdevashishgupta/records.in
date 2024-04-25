@@ -12,6 +12,10 @@ import photo from "../../../Assets/Final Logo My Records-1.png";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 import { MdOutlineClose, MdOutlineMenu } from "react-icons/md";
 import { HiMenuAlt2 } from "react-icons/hi";
+import { CgProfile } from "react-icons/cg";
+import { IoIosNotificationsOutline } from "react-icons/io";
+import profile from '../../../Assets/user.png'
+import bell from '../../../Assets/bell.png'
 
 function UserNavbar({ onExpandClick,isSidenavOpen }) {
   const [nav, setNav] = useState(false);
@@ -28,6 +32,11 @@ console.log(onExpandClick);
            <button onClick={onExpandClick} className="p-2 text-4xl">
         {isSidenavOpen ?<HiMenuAlt2 /> : <MdOutlineMenu />}
       </button>
+      <div className="flex gap-6 justify-between items-center">
+      <div className="text-2xl"><img src={bell} alt="" className="w-8" /></div>
+      <div className=" text-2xl ">
+      <img src={profile} alt="" className="w-8" />
+      </div>
 <div className="flex gap-2">
       <button
         className="flex justify-center items-center bg-[#f99a1c] text-white px-4 py-2 rounded-full"
@@ -41,6 +50,7 @@ console.log(onExpandClick);
             <span><FaApple/></span>  
       </button>
      
+</div>
 </div>
       {/* Mobile */}
       <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import "./App.css";
 import Home from "./Pages/Home";
 import Legal from "./Pages/Legal";
 import NotFound from "./Pages/NotFound";
-import Appointment from "./Pages/Appointment";
 import Navbar from "./Components/Navbar";
 import Register from "./Components/Register";
 import SignIn from "./Components/SignIn";
@@ -28,9 +27,29 @@ import Basic_health_tracker from "./Components/Users/My-health-tracker/Basic-hea
 import Women_health_tracker from "./Components/Users/My-health-tracker/Women-health-tracker";
 import Senior_citizen_health_tracker from "./Components/Users/My-health-tracker/Senior-citizen-health-tracker";
 import Baby_health_tracker from "./Components/Users/My-health-tracker/Baby-health-tracker";
+import { UserProvider } from "./Components/Context/authcontext";
+import cookie from 'js-cookie';
+import AccessDenied from "./Components/Acccess-Denied";
+import Diet_Weight from "./Components/Users/Other/Diet_Weight";
+import Familymanage from "./Components/Users/Other/Family-manage";
+import HealthInsurance from "./Components/Users/Other/HealthInsurance";
+import Appointment from "./Components/Users/Other/Appointment";
+import Stress from "./Components/Users/Other/Stress";
+
+const ProtectedRoute = ({ children }) => {
+  const token = cookie.get('token');
+
+  if (token) {
+    return children;
+  } else {
+    return <Navigate to="/access-denied" />;
+  }
+};
 
 function Content() {
   const location = useLocation();
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
   const userPaths = [
     "/user-dashboard", 
     "/doctor-prescription",
@@ -39,10 +58,17 @@ function Content() {
        "/basic-health-tracker", 
       "/women-health-tracker",
       "/senior-citizen-health-tracker",
-      "/baby-health-tracker"
+      "/baby-health-tracker",
+      "/diet-weight-management",
+      "/family-user-management",
+      "/appointment-management",
+      "/health-insurance-policy",
+      "/questionnaire",
+      "/stress-management"
     ];
   const windowSize = useWindowSize(); 
   const [isSidenavOpen, setIsSidenavOpen] = useState(windowSize >= 768);
+  const token=cookie.get('token')
   const userRoutes = [
     { path: "/user-dashboard", component: <Userdashboard /> },
     { path: "/doctor-prescription", component: <DoctorsPrescription /> },
@@ -52,7 +78,12 @@ function Content() {
     { path: "/basic-health-tracker", component: <Basic_health_tracker />},
     { path: "/women-health-tracker", component: <Women_health_tracker />},
     { path:"/senior-citizen-health-tracker", component: <Senior_citizen_health_tracker />},
-    { path:"/baby-health-tracker", component:<Baby_health_tracker />}
+    { path:"/baby-health-tracker", component:<Baby_health_tracker />},
+    { path:"/diet-weight-management", component:<Diet_Weight />},
+    { path:"/family-user-management", component:<Familymanage />},
+    { path:"/appointment-management", component:<Appointment />},
+    { path:"/health-insurance-policy", component:<HealthInsurance />},
+    { path:"/stress-management", component:<Stress />},
 
    
   ];
@@ -69,6 +100,7 @@ function Content() {
   }, [windowSize]);
   return (
     <>
+     <UserProvider value={{ phone, setPhone, password, setPassword }}>
       <ToastContainer />
       {!userPaths.includes(location.pathname) && <Navbar />}
       <div className={`flex flex-auto min-w-0 ${isSidenavOpen ? '' : ''}`}>
@@ -80,23 +112,31 @@ function Content() {
           <Route path="/features" element={<Info/>} />
           <Route path="/appointment" element={<Appointment />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="register" element={<Register/>} />
+          <Route path="/access-denied" element={<AccessDenied />} />
           <Route path="sign-in" element={<SignIn/>} />
           <Route path="contact" element={<Contact/>} />
-          <Route path="/verify" element={<Verify/>} />
-          <Route path="/questionnaire" element={<Questionnaire/>} />
+          <Route path="verify" element={<Verify />} />
+          <Route path="register" element={ <Register />} />
+          
+ 
+  
+          <Route path="/questionnaire" element={<ProtectedRoute><Questionnaire/></ProtectedRoute>} />
           
           <Route path="/blogs" element={<Blogs/>} />
           {userPaths.includes(location.pathname) && userRoutes.map(route => (
+          
           <Route path={route.path} element={
+            <ProtectedRoute>
             <div className="flex flex-col w-full">
               <UserNavbar onExpandClick={toggleSidenav} isSidenavOpen={isSidenavOpen}/>
               {route.component}
             </div>
+            </ProtectedRoute>
           } />
             ))}
         </Routes>
       </div>
+      </UserProvider>
     </>
   );
 }

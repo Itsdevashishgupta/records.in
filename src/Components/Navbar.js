@@ -105,12 +105,12 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <a onClick={openNav} href="#Features">
+            <a onClick={openNav} href="/features">
               Features
             </a>
           </li>
           <li>
-            <a onClick={openNav} href="#about">
+            <a onClick={openNav} href="/about">
               About
             </a>
           </li>
@@ -121,16 +121,37 @@ function Navbar() {
           </li>
         
           <li>
-            <a onClick={openNav} href="#Contacts">
+            <a onClick={openNav} href="/contact">
               Contact
             </a>
           </li>
           <li>
-            <a onClick={openNav} href="/Health-Plus/legal">
+            <a onClick={openNav} href="/Policies">
               Policies
             </a>
           </li>
         </ul>
+        
+      <button
+        className="navbar-btn"
+        type="button"
+        disabled={isButtonDisabled}
+        onClick={()=>navigate('/sign-in')}
+        
+      >
+         Sign In
+      </button>
+      <button
+        className="navbar-btn"
+        type="button"
+        disabled={isButtonDisabled}
+        onClick={()=>navigate('/register')}
+        
+      >
+         Sign Up
+      </button>
+     
+
       </div>
 
       {/* Hamburger Icon */}

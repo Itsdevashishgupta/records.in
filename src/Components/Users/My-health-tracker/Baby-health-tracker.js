@@ -40,7 +40,7 @@ function Baby_health_tracker() {
                 {/* Example Card */}
                 <div className="col-span-1 lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Growth Metrics Card */}
-                    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg">
+                    <div className="bg-white  rounded-lg shadow-lg">
                         {/* Card Content */}
                         <div className="p-6">
                             <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Growth Metrics</h2>
@@ -73,7 +73,7 @@ function Baby_health_tracker() {
                     </div>
 
                     {/* Milestones Card */}
-                    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg">
+                    <div className="bg-white  rounded-lg shadow-lg">
                         {/* Card Content */}
                         <div className="p-6">
                             <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Milestones</h2>
@@ -112,7 +112,7 @@ function Baby_health_tracker() {
 
                 {/* Calendar Card */}
                 <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
-                    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg">
+                    <div className="bg-white  rounded-lg shadow-lg">
                         {/* Card Content */}
                         <div className="p-6">
                             <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Calendar</h2>
@@ -131,7 +131,7 @@ function Baby_health_tracker() {
 
                 {/* Notes Container */}
                 <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
-                    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg">
+                    <div className="bg-white  rounded-lg shadow-lg">
                         {/* Card Content */}
                         <div className="p-6">
                             <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Notes</h2>
@@ -167,7 +167,7 @@ function Baby_health_tracker() {
                     </div>
                 </div>
                 <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
-                    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg">
+                    <div className="bg-white  rounded-lg shadow-lg">
                         {/* Card Content */}
                         <div className="p-6">
                             <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Vaccinations</h2>
