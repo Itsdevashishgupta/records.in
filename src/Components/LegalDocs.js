@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/LegalDocs.css";
+import Footer from "./Footer";
 
 function LegalDocs() {
   useEffect(() => {
@@ -41,10 +42,7 @@ function LegalDocs() {
         At My-Records.in, we're committed to putting you in control of your health. Our user-friendly app empowers you to manage your medical records with ease, focusing on privacy and security for peace of mind. We envision a world where transparent health tech solutions enable seamless navigation of health journeys. Our mission is to lead innovation, enhance patient experiences, and contribute to a healthier future for everyone. We're dedicated to reducing paper records in the healthcare industry, supporting environmental sustainability.
         </p>
       </div>
-
-      <div className="legal-footer">
-        <p>© MY-RECORDS.IN. All rights reserved.</p>
-      </div>
+        <Footer/>
     </div>
   );
 }

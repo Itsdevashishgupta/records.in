@@ -69,7 +69,7 @@ function Footer() {
         <ul className="ft-social-links">
         <li>
             <a
-              href="#"
+              href="8468010824"
               title="Whatsapp"
               target="_blank"
               rel="noopener noreferrer"
@@ -91,7 +91,7 @@ function Footer() {
 
           <li>
             <a
-              href="https://facebook.com/my-records.in"
+              href="https://www.facebook.com/profile.php?id=61558424584560"
               title="FaceBook"
               target="_blank"
               rel="noopener noreferrer"
