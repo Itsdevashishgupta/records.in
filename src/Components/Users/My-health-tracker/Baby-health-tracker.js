@@ -1,43 +1,46 @@
 import React from 'react';
+import { useState } from 'react';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 function Baby_health_tracker() {
+    const [date, setDate] = useState(new Date());
+    const notesData = [
+        {
+            title: 'Feeding Schedule',
+            content: 'Breastfed for 30 minutes at 8am and 6pm.',
+            date: 'April 25, 2024',
+        },
+        {
+            title: 'Diaper Change',
+            content: 'Changed diaper at 10am and 4pm.',
+            date: 'April 24, 2024',
+        },
+    ];
+    const [vaccinations, setVaccinations] = useState([
+        { name: 'Vaccination 1', date: '2024-04-10', status: 'upcoming' },
+        { name: 'Vaccination 2', date: '2024-03-15', status: 'completed' },
+        { name: 'Vaccination 3', date: '2024-05-20', status: 'upcoming' },
+    ]);
+
+    // Function to add vaccination data
+    const addVaccination = (name, date) => {
+        const newVaccination = { name, date, status: 'upcoming' };
+        setVaccinations([...vaccinations, newVaccination]);
+    };
+
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]]">
             {/* Header */}
-            <header className="bg-gray-100 dark:bg-gray-800 py-4 px-6 flex items-center justify-between">
-                {/* Logo and Title */}
-                <div className="flex items-center gap-4">
-                    <h1 className="text-2xl font-bold">Baby Tracker</h1>
-                </div>
-                {/* User Avatar */}
-                <div className="flex items-center gap-4">
-                    {/* Button or link for additional functionality */}
-                    <button className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 transition duration-300">
-                        {/* Your user avatar icon */}
-                        {/* Example: <img src="user-avatar.png" alt="User Avatar" className="h-8 w-8 rounded-full" /> */}
-                    </button>
-                    {/* Placeholder image for user avatar */}
-                    <img
-                        alt="User Avatar"
-                        className="rounded-full"
-                        height="40"
-                        src="/placeholder.svg"
-                        style={{
-                            aspectRatio: "40/40",
-                            objectFit: "cover",
-                        }}
-                        width="40"
-                    />
-                </div>
-            </header>
+            <h1 className="text-2xl font-bold ml-10 mt-10">Baby Health Tracker</h1>
 
             {/* Main Content */}
-            <main className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+            <main className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6  ">
                 {/* Cards for Growth Metrics, Milestones, Calendar, Notes, and Photos */}
                 {/* Example Card */}
                 <div className="col-span-1 lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Growth Metrics Card */}
-                    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md">
+                    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg">
                         {/* Card Content */}
                         <div className="p-6">
                             <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Growth Metrics</h2>
@@ -70,7 +73,7 @@ function Baby_health_tracker() {
                     </div>
 
                     {/* Milestones Card */}
-                    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md">
+                    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg">
                         {/* Card Content */}
                         <div className="p-6">
                             <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Milestones</h2>
@@ -109,13 +112,81 @@ function Baby_health_tracker() {
 
                 {/* Calendar Card */}
                 <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
-                    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md">
+                    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg">
                         {/* Card Content */}
                         <div className="p-6">
                             <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Calendar</h2>
-                            {/* Calendar */}
-                            {/* Example: */}
-                            <CalendarComponent />
+                            {/* Container for the calendar */}
+                            <div className="">
+                                {/* React Calendar component */}
+                                <Calendar
+                                    onChange={setDate} // Function to handle date changes
+                                    value={date} // Value to be displayed in the calendar
+                                    className="text-center"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Notes Container */}
+                <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
+                    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg">
+                        {/* Card Content */}
+                        <div className="p-6">
+                            <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Notes</h2>
+                            {/* Add Notes Button */}
+                            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mb-4">Add Note</button>
+                            {/* Display Notes */}
+                            <div className="grid grid-cols-1 gap-4">
+                                {/* Map through notesData and display notes */}
+                                {notesData.map((note, index) => (
+                                    <div key={index} className="flex items-start gap-4">
+                                        {/* User Avatar */}
+                                        <img
+                                            alt="User Avatar"
+                                            className="rounded-full"
+                                            height="40"
+                                            src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg"
+                                            style={{
+                                                aspectRatio: "40/40",
+                                                objectFit: "cover",
+                                            }}
+                                            width="40"
+                                        />
+                                        {/* Note Content */}
+                                        <div>
+                                            <p className="font-medium">{note.title}</p>
+                                            <p className="text-gray-500 dark:text-gray-400 text-sm">{note.content}</p>
+                                            <p className="text-xs text-gray-500 dark:text-gray-400">{note.date}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
+                    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg">
+                        {/* Card Content */}
+                        <div className="p-6">
+                            <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Vaccinations</h2>
+                            {/* Add Vaccination Button */}
+                            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mb-4" onClick={() => addVaccination('New Vaccination', '2024-06-30')}>Add Vaccination</button>
+                            {/* Display Vaccination Data */}
+                            <div className="grid grid-cols-1 gap-4">
+                                {/* Map through vaccinations and display */}
+                                {vaccinations.map((vaccination, index) => (
+                                    <div key={index} className="flex items-start gap-4">
+                                        {/* Vaccination Data */}
+                                        <div>
+                                            <p className="font-medium">{vaccination.name}</p>
+                                            <p className="text-gray-500 dark:text-gray-400 text-sm">{vaccination.date}</p>
+                                            <p className="text-xs text-gray-500 dark:text-gray-400">{vaccination.status === 'upcoming' ? 'Upcoming' : 'Past'}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -190,15 +261,5 @@ function ScrollIcon(props) {
     );
 }
 
-// Calendar Component
-function CalendarComponent() {
-    // Your calendar component implementation here
-    return (
-        <div className="text-center">
-            {/* Placeholder for calendar component */}
-            <p>Calendar Placeholder</p>
-        </div>
-    );
-}
 
 export default Baby_health_tracker;
