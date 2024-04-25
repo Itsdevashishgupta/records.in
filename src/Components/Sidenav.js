@@ -3,12 +3,18 @@ import { Link, useLocation } from 'react-router-dom';
 import Logo from '../Assets/Final Logo My Records-1.png';
 import { FaUser,FaStress, FaRegListAlt, FaTimes, FaChevronUp, FaChevronDown, FaAppleAlt, FaUsers, FaCalendarCheck, FaFileMedical, FaRegSmileBeam, FaPrescription, FaVial, FaXRay, FaMoneyBillWave } from 'react-icons/fa';
 import useWindowSize from '../Hoooks/UseWindow';
+import { FaBaby, FaFemale, FaMale, FaOldRepublic } from 'react-icons/fa';
 
 function Sidenav({ isSidenavOpen,onClose }) {
     const [isExpanded, setIsExpanded] = useState(false);
     const location = useLocation();
     const windowSize = useWindowSize();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isHealthTrackerDropdownOpen, setIsHealthTrackerDropdownOpen] = useState(false);
+  
+    const toggleHealthTrackerDropdown = () => {
+      setIsHealthTrackerDropdownOpen(!isHealthTrackerDropdownOpen);
+    };
   
     const toggleDropdown = () => {
       setIsDropdownOpen(!isDropdownOpen);
@@ -62,12 +68,32 @@ function Sidenav({ isSidenavOpen,onClose }) {
   </Link>
 </div>
         )}
-        <div className={`h-12 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-health-tracker' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
-          <FaUser className='w-6 h-6' />
-          <a href='/user-dashboard' className="flex items-center h-full w-full ">
-            <span className="ml-2  ltr:mr-2 rtl:ml-2 ">My-Health Tracker</span>
-          </a>
+        <div className={`h-12 px-2 mb-2 flex justify-between w-full cursor-pointer items-center ${location.pathname.startsWith('/my-health-tracker') ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`} onClick={toggleHealthTrackerDropdown}>
+        <div className=' flex justify-between'>
+          <FaUser className='w-6 h-6 font-normal' />
+          <span className="ml-2 ltr:mr-2 rtl:ml-2 ">My-Health Tracker</span>
+          </div>
+          {isHealthTrackerDropdownOpen ? <FaChevronUp className='w-4 h-4' /> : <FaChevronDown className='w-4 h-4' />}
         </div>
+        {isHealthTrackerDropdownOpen && (
+          <div className="pl-4">
+            <Link to="/basic-health-tracker" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-health-tracker/basic' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+              <FaMale />
+              <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Basic Health Tracker</span>
+            </Link>
+            <Link to="/women-health-tracker" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-health-tracker/women' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+              <FaFemale />
+              <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Women Health Tracker</span>
+            </Link>
+            <Link to="/senior-citizen-health-tracker" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-health-tracker/senior' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+              <FaOldRepublic />
+              <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Senior Citizen Health Tracker</span>
+            </Link>
+            <Link to="/baby-health-tracker" className={`h-10 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/my-health-tracker/baby' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
+              <FaBaby />
+              <span className="ml-2  ltr:mr-2 rtl:ml-2 ">Baby Health Tracker</span>
+            </Link>
+          </div>  )}
         <div className={`h-12 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/diet-weight-management' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
   <FaAppleAlt className='w-6 h-6' />
   <Link to="/diet-weight-management" className="flex items-center h-full w-full ">

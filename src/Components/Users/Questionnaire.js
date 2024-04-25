@@ -34,7 +34,7 @@ function Questionnaire() {
     <div className="max-w-lg mx-auto my-10 p-4 rounded-md shadow-md bg-white">
     {part === 'A' && (
       <div>
-        <h2 className="text-4xl font-semibold mb-4 text-center py-5">Part A</h2>
+      <h2 className="text-4xl font-semibold mb-4 text-center py-5">Please Help Us to Evaluate Your Wellness Score</h2>
         <form>
           {[
             'Do you have any existing medical condition?',
@@ -61,7 +61,6 @@ function Questionnaire() {
 
     {part === 'B' && (
   <div>
-    <h2 className="text-4xl font-semibold mb-4 text-center py-5">Part B</h2>
     <form>
       <div className="mb-4">
         <label className="block mb-2">How would you rate your overall health?</label>
@@ -94,7 +93,6 @@ function Questionnaire() {
 
 {part === 'C' && (
   <div>
-    <h2 className="text-4xl font-semibold mb-4 text-center py-5">Part C</h2>
     <form>
       {[
         'Have you ever been diagnosed with a mental health disorder?',
@@ -136,7 +134,6 @@ function Questionnaire() {
 
 {part === 'E' && (
   <div>
-    <h2 className="text-4xl font-semibold mb-4 text-center py-5">Part E</h2>
     <form>
       {[
         'Have you experienced any significant stress or life event recently?',
@@ -157,7 +154,6 @@ function Questionnaire() {
 
 {part === 'F' && (
   <div>
-    <h2 className="text-4xl font-semibold mb-4 text-center py-5">Part F</h2>
     <form>
       {[
         'Do you have any specific health concerns or symptoms which you would like to discuss?',

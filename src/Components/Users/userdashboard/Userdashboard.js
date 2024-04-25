@@ -41,10 +41,10 @@ const Userdashboard = () => {
 
   return (
     <div className='bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF] h-[auto] p-10' style={{ fontFamily: 'Rubik, sans-serif' }}>
-      <div className='flex py-8 justify-center flex-wrap gap-12'>
+      <div className='flex py-8 justify-center flex-wrap gap-8'>
         <div className=' w-6/12 gap-8 rounded-lg flex flex-col justify-between'>
         
-         <div className='flex gap-12 bg-white px-10 py-8 shadow-md'>
+         <div className='flex flex-col lg:flex-row gap-12 bg-white px-10 py-8 shadow-md w-auto'>
          <div className=' flex flex-col gap-6'>
           <div className='flex gap-5 justify-center items-center'>
           <img src={userData.photoUrl} alt="User" className='w-20 item-center rounded-full' />
