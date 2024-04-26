@@ -26,7 +26,7 @@
     justify-content: center;
     align-items: center;
     gap: 32px;
-    font-family: 'Rubik', sans-serif;
+    font-family: "Wix Madefor Display", sans-serif;
 }
 .navbar-items > li {
     list-style-type: none;
@@ -48,16 +48,46 @@
     outline: transparent;
     background-color: #f99a1c;
     font-size: 18px;
-    font-family: 'Rubik', sans-serif;
+   
     letter-spacing: .8px;
     cursor: pointer;
     transition: all .4s ease;
 }
+
 .navbar-btn:hover {
     color: #f99a1c;
     background-color: white;
     border: 1px solid #f99a1c;
 }
+
+.dropdown {
+    position: relative;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-item {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown-item:hover{
+    background-color: #aedbe6;
+  
+  }
+
 /* Hamburger Icon */
 .mobile-nav {
     display: none;
@@ -75,7 +105,9 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    overflow: auto;
+    scrollbar-width: none;
     position: fixed;
     top: 0;
     left: -100%;
