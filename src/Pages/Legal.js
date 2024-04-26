@@ -1,5 +1,5 @@
 import React from "react";
-import LegalDocs from "../Components/Policies/LegalDocs";
+import LegalDocs from "../Components/LegalDocs";
 
 function Legal() {
   return <LegalDocs />;

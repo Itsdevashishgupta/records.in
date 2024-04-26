@@ -30,7 +30,7 @@ function Questionnaire() {
   };
 
   return (
-    <div style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center', fontFamily:'"Wix Madefor Display", sans-serif' }} className='w-full min-h-[90vh]'>
+    <div style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center', fontFamily:"'Rubik', sans-serif" }} className='w-full min-h-[90vh]'>
     <div className="max-w-lg mx-auto my-10 p-4 rounded-md shadow-md bg-white">
     {part === 'A' && (
       <div>

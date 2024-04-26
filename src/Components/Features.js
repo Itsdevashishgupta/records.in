@@ -32,7 +32,7 @@ function Features() {
     <h1 className="text-center font-extrabold text-6xl" style={{fontFamily:"'Poppins', sans-serif"}}>One App,<br />Complete Health Empowerment</h1>
   </div>
   <div className="max-w-[60%] w-[60%] text-center mx-auto">
-    <p className="text-center text-xl" style={{fontFamily:"Wix Madefor Display", sans-serif"}}>Uncover the power of seamless health management with an array of intuitive features designed for your proactive health journey.</p>
+    <p className="text-center text-xl" style={{fontFamily:"'Rubik', sans-serif"}}>Uncover the power of seamless health management with an array of intuitive features designed for your proactive health journey.</p>
   </div> 
 
   <div className=" mt-8">

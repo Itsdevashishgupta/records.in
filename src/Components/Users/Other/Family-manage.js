@@ -27,7 +27,7 @@ const FamilyManagement = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       {/* Family Tree */}
       <div>
-        <h1 className="text-2xl font-bold mb-4">Family User Management</h1>
+        <h1 className="text-2xl font-bold mb-4">Family Management</h1>
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-lg font-semibold mb-4">Family Tree</h2>
           <div className="h-[400px] overflow-auto">

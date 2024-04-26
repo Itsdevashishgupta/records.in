@@ -115,7 +115,7 @@ const ExpenseTracker = () => {
                     <tr className="border-b transition-colors hover:bg-gray-200 data-[state=selected]:bg-gray-200">
                       <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">2023-04-15</td>
                       <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Prescription</td>
-                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">₹50.00</td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">$50.00</td>
                       <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 flex items-center space-x-2">
                         <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-gray-900 hover:bg-gray-900 hover:text-white h-10 w-10">
                           <svg
@@ -162,7 +162,7 @@ const ExpenseTracker = () => {
                     <tr className="border-b transition-colors hover:bg-gray-200 data-[state=selected]:bg-gray-200">
                       <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">2023-04-10</td>
                       <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Doctor Visit</td>
-                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">₹75.00</td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">$75.00</td>
                       <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 flex items-center space-x-2">
                         <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-gray-900 hover:bg-gray-900 hover:text-white h-10 w-10">
                           <svg
@@ -209,7 +209,7 @@ const ExpenseTracker = () => {
                     <tr className="border-b transition-colors hover:bg-gray-200 data-[state=selected]:bg-gray-200">
                       <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">2023-04-05</td>
                       <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">Physical Therapy</td>
-                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">₹100.00</td>
+                      <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">$100.00</td>
                       <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 flex items-center space-x-2">
                         <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-gray-900 hover:bg-gray-900 hover:text-white h-10 w-10">
                           <svg

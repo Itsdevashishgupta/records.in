@@ -65,28 +65,11 @@ function Navbar() {
             Contact Us
           </a>
         </li>
-        <li className="dropdown">
-    <a href="#" className="navbar-links dropdown-toggle">
-      Privacy & Security Policy
-    </a>
-    <ul className="dropdown-menu">
-      <li>
-        <a href="/Policies" className="dropdown-item">
-          Privacy Policy
-        </a>
-      </li>
-      <li>
-        <a href="/security-policy" className="dropdown-item">
-          Security Policy
-        </a>
-      </li>
-      <li>
-        <a href="/terms-of-use" className="dropdown-item">
-          Terms of Use
-        </a>
-      </li>
-    </ul>
-  </li>
+        <li>
+          <a href="/Policies" className="navbar-links">
+            Privacy Policy
+          </a>
+        </li>
       </ul>
 <div className="flex gap-2">
       <button
@@ -142,30 +125,31 @@ function Navbar() {
               Contact
             </a>
           </li>
-          <li className="dropdown">
-    <a onClick={openNav} href="#" className="dropdown-toggle">
-      Privacy & Security Policy
-    </a>
-    <ul className="dropdown-menu">
-      <li>
-        <a onClick={openNav} href="/privacy-policy" className="dropdown-item">
-          Privacy Policy
-        </a>
-      </li>
-      <li>
-        <a onClick={openNav} href="/security-policy" className="dropdown-item">
-          Security Policy
-        </a>
-      </li>
-      <li>
-        <a onClick={openNav} href="/terms-of-use" className="dropdown-item">
-          Terms of Use
-        </a>
-      </li>
-    </ul>
-  </li>
+          <li>
+            <a onClick={openNav} href="/Policies">
+              Policies
+            </a>
+          </li>
         </ul>
-    
+        
+      <button
+        className="navbar-btn"
+        type="button"
+        disabled={isButtonDisabled}
+        onClick={()=>navigate('/sign-in')}
+        
+      >
+         Sign In
+      </button>
+      <button
+        className="navbar-btn"
+        type="button"
+        disabled={isButtonDisabled}
+        onClick={()=>navigate('/register')}
+        
+      >
+         Sign Up
+      </button>
      
 
       </div>

@@ -37,7 +37,7 @@ function Blogs() {
           </div>
         </div>  
   </div>
-    <div className="videos grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-5 p-6" height="400px" width="23%" style={{fontFamily:'"Wix Madefor Display", sans-serif'}}>
+    <div className="videos grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-5 p-6" height="400px" width="23%" style={{fontFamily:"'Rubik', sans-serif"}}>
         <div className="video-2 flex flex-col justify-center border">
           <video controls className="" style={{height:"210px"}}>
         <source src={'https://s3.amazonaws.com/myrecords.in/Talk+Ayushman+Bharat+Digital+Mission+(ABDM).mp4'} type="video/mp4" className=" "/>

@@ -37,7 +37,6 @@ const PatientRecords = () => {
   return (
     <div className="flex flex-col h-screen bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]]">
       <main className="flex-1 p-6 md:p-10">
-      <h1 className="text-2xl font-bold">X-Ray & MRI Scan</h1>
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-4">
            
@@ -112,7 +111,7 @@ const PatientRecords = () => {
                       <span className="relative flex shrink-0 overflow-hidden rounded-full w-8 h-8">
                         <img className="aspect-square h-full w-full" alt="John Doe" src="/placeholder-user.jpg" />
                       </span>
-                      Arvind
+                      John Doe
                     </div>
                   </td>
                   <td className="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0">X-Ray</td>

@@ -40,7 +40,7 @@ const MyRecords = () => {
         <div className="grid gap-6">
           <div className="flex items-center justify-between">
            
-            <h1 className="text-2xl font-bold">Lab Reports</h1>
+            <h1 className="text-2xl font-bold">My Records</h1>
             <div className='flex justify-between gap-4'>
             <div style={{ position: 'relative' }} ref={datePickerRef}>
   <button 
