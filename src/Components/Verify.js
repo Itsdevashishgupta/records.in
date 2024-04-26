@@ -23,11 +23,12 @@ const Verify = () => {
         .matches(/^[0-9]{6}$/, 'OTP must be exactly 6 digits'),
     }),
     onSubmit: async(values) => {
-     const response=await axios.post('https://my-records-in.onrender.com/api/v1/users/login',signinvalues)
+     const response=await axios.post('https://my-record-back.test.psi.initz.run/api/v1/users/login',signinvalues)
      console.log(response);
      if(response.status===200){
       console.log(response.data.data.accessToken);
       cookie.set('token',response.data.data.accessToken,{expires:7})
+      cookie.set('userID',response.data.data.user,{expires:7})
         toast.success('Sign In Successfully!')
         navigate('/questionnaire');
      }
@@ -35,7 +36,7 @@ const Verify = () => {
   });
 
   return (
-    <div className="bg-gray-100 h-[90vh]   flex flex-col lg:flex-row w-full" style={{ fontFamily: "'Rubik', sans-serif" }}>
+    <div className="bg-gray-100 h-[90vh]   flex flex-col lg:flex-row w-full" style={{ fontFamily: '"Wix Madefor Display", sans-serif' }}>
       <header className="bg-blue-500 text-white text-center py-4 hidden lg:block w-1/2 sticky top-"
         style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       </header>

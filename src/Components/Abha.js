@@ -3,7 +3,7 @@ import phot from '../Assets/abha.jpeg'
 import { MdAccountCircle } from 'react-icons/md'
 const Abha = () => {
   return (
-    <div style={{ fontFamily: 'Rubik, sans-serif' }} className='py-8'>
+    <div  className='py-8'>
     <div className=' flex flex-col justify-center items-center'>
     <h1 className=' text-center font-extrabold text-4xl'>Take your healthcare to the next level !</h1>
     {/* <h1 className=' text-center font-extrabold text-4xl py-3'></h1> */}

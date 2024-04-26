@@ -6,6 +6,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.root{
+    font-family: "Wix Madefor Display", sans-serif;
+}
+.body{
+    font-family: "Wix Madefor Display", sans-serif;
+}
 @font-face { 
     font-family:"Courier New";
     font-variant:normal;

@@ -65,11 +65,28 @@ function Navbar() {
             Contact Us
           </a>
         </li>
-        <li>
-          <a href="/Policies" className="navbar-links">
-            Privacy Policy
-          </a>
-        </li>
+        <li className="dropdown">
+    <a href="#" className="navbar-links dropdown-toggle">
+      Privacy & Security Policy
+    </a>
+    <ul className="dropdown-menu">
+      <li>
+        <a href="/Policies" className="dropdown-item">
+          Privacy Policy
+        </a>
+      </li>
+      <li>
+        <a href="/security-policy" className="dropdown-item">
+          Security Policy
+        </a>
+      </li>
+      <li>
+        <a href="/terms-of-use" className="dropdown-item">
+          Terms of Use
+        </a>
+      </li>
+    </ul>
+  </li>
       </ul>
 <div className="flex gap-2">
       <button
@@ -125,14 +142,30 @@ function Navbar() {
               Contact
             </a>
           </li>
-          <li>
-            <a onClick={openNav} href="/Policies">
-              Policies
-            </a>
-          </li>
-        </ul>
-        
-      <button
+          <li className="dropdown">
+    <a onClick={openNav} href="#" className="dropdown-toggle">
+      Privacy & Security Policy
+    </a>
+    <ul className="dropdown-menu">
+      <li>
+        <a onClick={openNav} href="/privacy-policy" className="dropdown-item">
+          Privacy Policy
+        </a>
+      </li>
+      <li>
+        <a onClick={openNav} href="/security-policy" className="dropdown-item">
+          Security Policy
+        </a>
+      </li>
+      <li>
+        <a onClick={openNav} href="/terms-of-use" className="dropdown-item">
+          Terms of Use
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <button
         className="navbar-btn"
         type="button"
         disabled={isButtonDisabled}
@@ -150,6 +183,8 @@ function Navbar() {
       >
          Sign Up
       </button>
+        </ul>
+    
      
 
       </div>
