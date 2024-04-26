@@ -100,6 +100,7 @@ const response = await fetch('https://my-record-back.test.psi.initz.run/api/v1/u
    console.log(response)
    const res=await response.json()
     if (!response.ok) {
+    
       toast.error(res.error.message);
     }
     else{

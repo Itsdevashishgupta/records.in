@@ -1,12 +1,30 @@
-import React from 'react';
-import { Line, Bar } from 'react-chartjs-2';
-import { FiActivity, FiWatch, FiUsers } from 'react-icons/fi';
-import { Chart } from 'chart.js';
+import React, { useEffect, useState } from 'react';
 import { FaFileContract, FaUser, FaUserMd } from 'react-icons/fa';
 import Bmi from '../../../Assets/BMI-Calculator.webp'
 import health from '../../../Assets/healthScore.png'
+import axios from 'axios';
+import cookie from 'js-cookie';
 
 const ProfilePage = () => {
+  const [userData, setUserData] = useState(null);
+  const token = cookie.get('token');
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://my-record-back.test.psi.initz.run/api/v1/users/getuser-data/6626496fc190e2f9736734db', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        setUserData(response.data);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    };
+    
+    fetchData();
+  }, []);
+
 
   return (
     <div className="p-8 bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]">

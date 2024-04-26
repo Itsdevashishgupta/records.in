@@ -22,7 +22,6 @@ const SignInSchema = Yup.object().shape({
 
 const SignIn = () => {
     const navigate = useNavigate();
-    const notify = () => toast("Sign In Successfullly!");
   return (
     <div className="bg-gray-100 flex w-full" style={{fontFamily:'"Wix Madefor Display", sans-serif"'}}>
     <header className="bg-blue-500 h-[90vh] text-white text-center py-4 w-1/2 sticky top-0"
@@ -49,6 +48,7 @@ const SignIn = () => {
     const data = await response.json();
     console.log(data);
     cookie.set('token',data.data.accessToken,{expires:7})
+    cookie.set('userID',data.data.user,{expires:7})
     navigate('/user-dashboard');
     toast.success("Sign In Successfully!");}
   } catch (error) {

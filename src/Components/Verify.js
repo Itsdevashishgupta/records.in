@@ -28,6 +28,7 @@ const Verify = () => {
      if(response.status===200){
       console.log(response.data.data.accessToken);
       cookie.set('token',response.data.data.accessToken,{expires:7})
+      cookie.set('userID',response.data.data.user,{expires:7})
         toast.success('Sign In Successfully!')
         navigate('/questionnaire');
      }

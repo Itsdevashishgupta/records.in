@@ -164,6 +164,25 @@ function Navbar() {
       </li>
     </ul>
   </li>
+
+  <button
+        className="navbar-btn"
+        type="button"
+        disabled={isButtonDisabled}
+        onClick={()=>navigate('/sign-in')}
+        
+      >
+         Sign In
+      </button>
+      <button
+        className="navbar-btn"
+        type="button"
+        disabled={isButtonDisabled}
+        onClick={()=>navigate('/register')}
+        
+      >
+         Sign Up
+      </button>
         </ul>
     
      
