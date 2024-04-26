@@ -12,7 +12,11 @@ module.exports = {
     ],
   },
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'sans': ['"Wix Madefor Display"', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }
