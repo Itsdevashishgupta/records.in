@@ -35,7 +35,7 @@ console.log(onExpandClick);
       <div className="flex gap-6 justify-between items-center">
       <div className="text-2xl"><img src={bell} alt="" className="w-8" /></div>
       <div className=" text-2xl ">
-      <img src={profile} alt="" className="w-8" />
+      <img src={profile} alt="" className="w-8"/>
       </div>
 <div className="flex gap-2">
       <button
