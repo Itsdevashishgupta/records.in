@@ -17,24 +17,26 @@ function About() {
           <span>About Us</span>
         </h3>
         <p className="about-description">
-        At My-Records.in, we're dedicated to empowering individuals to take control of their health journey. Our comprehensive health management app provides users with tools to track and manage their medical records efficiently. With a commitment to privacy and security, we strive to simplify healthcare management for everyone, ensuring peace of mind and well-being.
+            With the rising health issues and migration of people towards digital platforms we came up with designing a platform which will solve health data management & storage problem for the users and will help in maintaining records and files in digital form for them and there loved once.
+
+            Also, with this we are focused to help them in adopting a healthy lifestyle by tracking their health journey through data, by the way of providing them unique and scientific tools to deliver accurate data.
+
+            By this platform we are also enabling doctors to access all the health data of patient and getting a better understanding through accessing there family health data.
         </p>
 
         <SolutionStep
-          title="Vision"
-          description="Empowering individuals to take control of their health journey through intuitive,
-           user friendly health tech solutions that prioritize transparency, education and empowerment.  "
+          title="Mission"
+            description="At the intersection of health care and technology, our mission is to pioneer innovative solutions that revolutionize patient expression, enable better clinical outcomes, and drive progress towards healthier future for everyone.  "
         />
 
         <SolutionStep
-          title="Mission"
-          description="At the intersection of healthcare and technology our mission is to pioneer 
-          innovative solutions that revolutionize patient experiences, on able better clinical outcomes, and drive programs towards healthier future for everyone. "
+          title="Vision"
+            description="Empowering individuals to take control of their health journey through intuitive, user-friendly health-tech solutions that brings transparency to all the end users of information. "
         />
         
         <SolutionStep
           title="Goal"
-          description="Our goal is to reduce paper records in health care industry which will lead to saving trees to help global warming and contribute to building a better future by reducing carbon foot prints of our user. Also, by this we will also want to contribute towards Ayushman Bharat digital health mission of govt of India to support in building a transparent and complete health journey of individuals."
+            description="Our goal is to record and arrange all the medical data of our users digitally in a way which will help them and health care professional to get better understanding of patients health and history to derive better clinical outcomes"
         />
 
        
