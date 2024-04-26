@@ -7,7 +7,26 @@ import Footer from "./Footer";
 
 function Blogs() {
   const [expanded, setExpanded] = useState(false);
-  const content = `Ayushman Bharat Digital Mission (ABDM) is a groundbreaking initiative aimed at revolutionizing healthcare delivery in India through digital technology. Launched under the flagship Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB PM-JAY), ABDM envisions a future where every citizen has seamless access to affordable and quality healthcare services, facilitated by digital innovation. ABDM seeks to achieve the ambitious goal of providing Universal Health Coverage (UHC) to all citizens, ensuring that no one is left behind in accessing essential healthcare services. By leveraging digital tools and technologies, the mission aims to streamline healthcare processes, enhance efficiency, and bridge existing gaps in service delivery. Ayushman Bharat Digital Mission represents a landmark initiative towards realizing the vision of a digitally-enabled, inclusive healthcare ecosystem in India. By harnessing the transformative power of technology, ABDM holds the potential to significantly improve health outcomes, enhance patient experiences, and contribute to the overall well-being of the nation's populace.`;
+  const content = [`Ayushman Bharat Digital Mission (ABDM) is a groundbreaking initiative aimed at revolutionizing healthcare delivery in India through digital technology. 
+  \Launched under the flagship Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB PM-JAY), ABDM envisions a future where every citizen has seamless access to affordable and quality healthcare services,
+   facilitated by digital innovation. ABDM seeks to achieve the ambitious goal of providing Universal Health Coverage (UHC) to all citizens, ensuring that no one is left behind in accessing essential healthcare services. 
+   By leveraging digital tools and technologies, the mission aims to streamline healthcare processes, enhance efficiency, and bridge existing gaps in service delivery. Ayushman Bharat Digital Mission represents a landmark
+    initiative towards realizing the vision of a digitally-enabled, inclusive healthcare ecosystem in India. By harnessing the transformative power of technology, ABDM holds the potential to significantly improve health outcomes, 
+    enhance patient experiences, and contribute to the overall well-being of the nation's populace.`,
+
+    `Ayushman Bharat Digital Mission (ABDM) is a groundbreaking initiative aimed at revolutionizing healthcare delivery in India through digital technology. 
+    \Launched under the flagship Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB PM-JAY), ABDM envisions a future where every citizen has seamless access to affordable and quality healthcare services,
+     facilitated by digital innovation. ABDM seeks to achieve the ambitious goal of providing Universal Health Coverage (UHC) to all citizens, ensuring that no one is left behind in accessing essential healthcare services. 
+     By leveraging digital tools and technologies, the mission aims to streamline healthcare processes, enhance efficiency, and bridge existing gaps in service delivery. Ayushman Bharat Digital Mission represents a landmark
+      initiative towards realizing the vision of a digitally-enabled, inclusive healthcare ecosystem in India. By harnessing the transformative power of technology, ABDM holds the potential to significantly improve health outcomes, 
+      enhance patient experiences, and contribute to the overall well-being of the nation's populace.`,
+      
+      `Ayushman Bharat Digital Mission (ABDM) is a groundbreaking initiative aimed at revolutionizing healthcare delivery in India through digital technology. 
+      \Launched under the flagship Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB PM-JAY), ABDM envisions a future where every citizen has seamless access to affordable and quality healthcare services,
+       facilitated by digital innovation. ABDM seeks to achieve the ambitious goal of providing Universal Health Coverage (UHC) to all citizens, ensuring that no one is left behind in accessing essential healthcare services. 
+       By leveraging digital tools and technologies, the mission aims to streamline healthcare processes, enhance efficiency, and bridge existing gaps in service delivery. Ayushman Bharat Digital Mission represents a landmark
+        initiative towards realizing the vision of a digitally-enabled, inclusive healthcare ecosystem in India. By harnessing the transformative power of technology, ABDM holds the potential to significantly improve health outcomes, 
+        enhance patient experiences, and contribute to the overall well-being of the nation's populace.`];
 
   const toggleExpanded = () => {
       setExpanded(!expanded);
@@ -50,7 +69,7 @@ function Blogs() {
     </div>
            
     <div className="px-3">
-            {expanded ? content : `${content.split(' ').slice(0, 50).join(' ')}...`}
+            {expanded ? content[0] : `${content[0].split(' ').slice(0, 50).join(' ')}...`}
             {!expanded && <button onClick={toggleExpanded} className="text-blue-500">Read More</button>}
         </div>  
           </div>
@@ -67,7 +86,7 @@ function Blogs() {
     </div>
            
     <div className="px-3">
-            {expanded ? content : `${content.split(' ').slice(0, 50).join(' ')}...`}
+            {expanded ? content[1] : `${content[1].split(' ').slice(0, 50).join(' ')}...`}
             {!expanded && <button onClick={toggleExpanded} className="text-blue-500">Read More</button>}
         </div> 
           </div>
@@ -84,7 +103,7 @@ function Blogs() {
     </div>
            
     <div className="px-3">
-            {expanded ? content : `${content.split(' ').slice(0, 50).join(' ')}...`}
+            {expanded ? content[2] : `${content[2].split(' ').slice(0, 50).join(' ')}...`}
             {!expanded && <button onClick={toggleExpanded} className="text-blue-500">Read More</button>}
         </div> 
           </div>
