@@ -35,7 +35,7 @@ const MyRecords = () => {
     };
   }, []);
   return (
-    <div className="flex flex-col w-full min-h-screen">
+    <div className="flex flex-col w-full min-h-screen bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]]">
       <main className="flex-1 p-4 md:p-10">
         <div className="grid gap-6">
           <div className="flex items-center justify-between">
@@ -62,7 +62,7 @@ const MyRecords = () => {
   )}
 </div>
             <a
-              className="inline-flex h-9 items-center justify-center rounded-md bg-gray-900 px-4 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+              className="inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium  border border-input focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300 py-2"
               href="#"
             >
               +Add Report
@@ -71,7 +71,7 @@ const MyRecords = () => {
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {/* Replace with map function to render dynamic lab reports */}
-            <div className="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm bg-white" data-v0-t="card">
               <div className="p-6 flex flex-row items-center justify-between pb-2 space-y-0">
                 <h3 className="whitespace-nowrap tracking-tight text-sm font-medium">Lab Report 002</h3>
                 <div className="flex gap-2">
@@ -121,7 +121,7 @@ const MyRecords = () => {
                 <div className="text-sm text-gray-500 dark:text-gray-400">Collected on: 04/15/2023</div>
               </div>
             </div>
-            <div className="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm bg-white" data-v0-t="card">
               <div className="p-6 flex flex-row items-center justify-between pb-2 space-y-0">
                 <h3 className="whitespace-nowrap tracking-tight text-sm font-medium">Lab Report 003</h3>
                 <div className="flex gap-2">
@@ -171,7 +171,7 @@ const MyRecords = () => {
                 <div className="text-sm text-gray-500 dark:text-gray-400">Collected on: 04/15/2023</div>
               </div>
             </div>
-            <div className="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+            <div className="rounded-lg border bg-card text-card-foreground shadow-sm bg-white" data-v0-t="card">
               <div className="p-6 flex flex-row items-center justify-between pb-2 space-y-0">
                 <h3 className="whitespace-nowrap tracking-tight text-sm font-medium">Lab Report 001</h3>
                 <div className="flex gap-2">

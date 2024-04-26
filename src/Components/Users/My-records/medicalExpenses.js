@@ -35,8 +35,8 @@ const ExpenseTracker = () => {
     };
   }, []);
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="bg-white text-gray-900 py-4 px-6">
+    <div className="flex flex-col min-h-screen bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]]">
+      <header className=" text-gray-900 py-4 px-6">
         <div className="container mx-auto flex items-center justify-between">
           <h1 className="text-2xl font-bold">Medical Expenses Tracker</h1>
           <div className="flex items-center space-x-4">
@@ -59,20 +59,20 @@ const ExpenseTracker = () => {
     </div>
   )}
 </div>
-            <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-gray-900 h-10 px-4 py-2">
+            <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border  h-10 px-4 py-2">
               + Add Report
             </button>
           </div>
         </div>
       </header>
-      <main className="flex-1 bg-gray-100 py-8 px-6">
+      <main className="flex-1  py-8 px-6">
         <div className="container mx-auto">
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-bold">Expense Reports</h2>
               <div className="flex items-center space-x-4">
               
-                <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-gray-900 hover:bg-gray-900 hover:text-white h-10 w-10">
+                <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border  hover:border-gray-900  hover:text-black h-10 w-10">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
