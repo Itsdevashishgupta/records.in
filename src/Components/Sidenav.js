@@ -34,7 +34,7 @@ function Sidenav({ isSidenavOpen,onClose }) {
         <div  className=' overflow-y-auto h-[72vh]'>
         <div className=' relative overflow-hidden w-full h-full'>
         <div className='absolute overflow-scroll mr-[-17px] mb-[-17px] inset-0'>
-      <nav className='px-4 pr-6 pb-4 overflow-y-scroll' style={{fontFamily:"'Wix Madefor Display', sans-serif"}}>
+      <nav className='px-4 pr-6 pb-4' style={{fontFamily:"'Wix Madefor Display', sans-serif"}}>
         <div className={`h-12 px-2 mb-2 flex w-full cursor-pointer items-center ${location.pathname === '/user-dashboard' ? 'text-white bg-[#f99a1c]' : 'text-black hover:bg-[#f99a1c] hover:text-white'} rounded-md`}>
           <FaUser className='w-6 h-6' />
           <a href='/user-dashboard' className="flex items-center h-full w-full ">
