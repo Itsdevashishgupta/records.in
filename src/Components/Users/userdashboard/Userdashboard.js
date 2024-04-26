@@ -1,133 +1,110 @@
 import React from 'react';
-import photo from '../../../Assets/1.avif';
-import bmiMeter from '../../../Assets/BMI-Calculator.webp' 
-import healthscore from '../../../Assets/healthScore.png' 
+import { Line, Bar } from 'react-chartjs-2';
+import { FiActivity, FiWatch, FiUsers } from 'react-icons/fi';
+import { Chart } from 'chart.js';
+import { FaFileContract, FaUser, FaUserMd } from 'react-icons/fa';
+import Bmi from '../../../Assets/BMI-Calculator.webp'
+import health from '../../../Assets/healthScore.png'
 
-const Userdashboard = () => {
-  const userData = {
-    name: "Devashish",
-    age: 25,
-    gender: "Male",
-    bloodGroup: "O+",
-    photoUrl: photo
-  };
-  const doctorData = {
-    name: 'R.K Singh',
-    gender: 'Male',
-    title: 'MD',
-    speciality: 'Cardiology',
-    expirence: 12,
-    contactNo: '98XXXXXX10',
-    email: 'rk.singh@gmail.com',
-    address: 'D-20 Lajpat Nagar, New Delhi',
-    };
-  let healthStatus
-  
-  const healthScore = 80;
-
-  if (healthScore>= 70) {
-    healthStatus = 'Good'
-  } else if (healthScore >= 40 && healthScore <70) {
-    healthStatus = 'Average';
-  } else {
-    healthStatus = 'Bad';
-  }
-  
-  const insuranceDetails = {
-    companyName: 'United India Insurance',
-    policyNo: '1234567890',
-    expiresOn: '12/12/2024',
-  }
+const ProfilePage = () => {
 
   return (
-    <div className='bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF] h-[auto] p-10' style={{ fontFamily: 'Rubik, sans-serif' }}>
-      <div className='flex py-8 justify-center flex-wrap gap-8'>
-        <div className=' w-6/12 gap-8 rounded-lg flex flex-col justify-between'>
+    <div className="p-8 bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]">
+      <div className="text-center">
+        <h1 className="text-2xl font-bold">Hello, John Doe</h1>
+        <p className="text-gray-500">Age: 25 | Height: 6'0" | Weight: 180 lbs</p>
+      </div>
+
+      <h2 className="text-xl font-bold">Details</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-8">
+  <div className="bg-white rounded-md shadow-md p-6">
+    <h2 className="text-xl font-bold flex items-center text-blue-600"><FaUser className="mr-2 text-blue-600"/> Personal Details</h2>
+    <div className="mt-4 space-y-2">
+      <p><span className="font-semibold">Name:</span> Devashish Gupta</p>
+      <p><span className="font-semibold">Gender, Age, DOB:</span> Male, 23Y, 20/07/2000</p>
+      <p><span className="font-semibold">Height:</span> 5ft 5in</p>
+      <p><span className="font-semibold">Weight:</span> 142 lbs</p>
+      <p><span className="font-semibold">Blood Group:</span> B+</p>
+      <p><span className="font-semibold">Occupation:</span> -----</p>
+      <p><span className="font-semibold">Address:</span> 123 Main StreetCitytown, State Country</p>
+      <p><span className="font-semibold">Contact:</span> 9999999999</p>
+      <p><span className="font-semibold">Email:</span> demo@gmail.com</p>
+    </div>
+  </div>
+  <div className="bg-white rounded shadow-md p-6">
+    <h2 className="text-xl font-bold flex items-center text-green-600"><FaUserMd className="mr-2 text-green-600"/> Family Doctor Details</h2>
+    <div className="mt-4 space-y-2">
+      <p><span className="font-semibold">Name:</span> Dr. R.K.Singh</p>
+      <p><span className="font-semibold">Age:</span> 45</p>
+      <p><span className="font-semibold">Experience:</span> 20 years</p>
+      <p><span className="font-semibold">Post:</span> Senior Consultant</p>
+    </div>
+  </div>
+  <div className="bg-white rounded shadow-md p-6">
+    <h2 className="text-xl font-bold flex items-center text-red-600"><FaFileContract className="mr-2 text-red-600"/> Medical Insurance Details</h2>
+    <div className="mt-4 space-y-2">
+      <p><span className="font-semibold">Insurance Company:</span> XYZ Health Insurance</p>
+      <p><span className="font-semibold">Policy Number:</span> 123456789</p>
+      <p><span className="font-semibold">Validity:</span> January 1, 2024 - December 31, 2024</p>
+      <p><span className="font-semibold">Coverage:</span> Medical, Dental, Vision</p>
+      <p><span className="font-semibold">Co-payment:</span> $20 for doctor visits</p>
+      <p><span className="font-semibold">Contact Number:</span> 1-800-XYZ-INSURE</p>
+    </div>
+  </div>
+</div>
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-8">
+        <div className="bg-white rounded shadow-md p-6  text-center ">
+        <img src={Bmi} alt="" />
+       <h2 className='text-xl font-semibold mt-4'>BMI Score</h2>
+            </div>
+            <div className="bg-white rounded shadow-md p-6 text-center flex flex-col justify-between">
+            <img src={health} alt="" />
+            <h2 className='text-xl font-semibold mt-4'>Health Score</h2>
+            </div>
+            
+          
         
-         <div className='flex flex-col lg:flex-row gap-12 bg-white px-10 py-8 shadow-md w-auto'>
-         <div className=' flex flex-col gap-6'>
-          <div className='flex gap-5 justify-center items-center'>
-          <img src={userData.photoUrl} alt="User" className='w-20 item-center rounded-full' />
-          <div>
-          <h1>Devashish Gupta</h1>
-          <p>Male, 23Y, 20/07/2000</p>
-          </div>
-          </div>
-          <div className=' flex gap-5'>
-          <div>
-              <h1 className=' text-gray-400'>Height</h1>
-              <p>5ft 5in</p>
-            </div>
-          <div>
-              <h1 className=' text-gray-400'>Weight</h1>
-              <p>142 lbs</p>
-            </div>
-          </div>
-          <div className=' flex gap-5'>
-          <div >
-              <h1 className=' text-gray-400'>Blood Group</h1>
-              <p>B+</p>
-            </div>
-          <div >
-              <h1 className=' text-gray-400'>Occupation</h1>
-              <p>-----</p>
-            </div>
-          </div>
-          </div>
-          <div className=' flex flex-col gap-3' >
-          <div>
-            <h1 className=' text-gray-400'>Address</h1>
-            <p>123 Main StreetCitytown,</p>
-            <p> State Country</p>
-            </div>
-            <div>
-              <h1 className=' text-gray-400'>Contact</h1>
-              <p>9999999999</p>
-            </div>
-            <div>
-              <h1 className=' text-gray-400'>Email</h1>
-              <p>demo@gmail.com</p>
-            </div>
-          </div>
-          </div>
-          <div className='bg-white px-10 py-8 mb-4 shadow-md'>
-  <h1 className='font-semibold text-lg underline underline-offset'>Family Doctor Details</h1>
-  <div>
-  <p><span class="font-bold">Name:</span> Dr. R.K.Singh</p>
-  <p><span class="font-bold">Age:</span> 45</p>
-  <p><span class="font-bold">Experience:</span> 20 years</p>
-  <p><span class="font-bold">Post:</span> Senior Consultant</p>
-</div>
-
-
-
-</div>
-          <div className='bg-white px-10 py-8 mb-4 shadow-md'>
-  <h1 className='font-semibold text-lg underline underline-offset mb-4'>Medical Insurance Details</h1>
-  <ul class="list-disc">
-  <li><span class="font-bold">Insurance Company:</span> XYZ Health Insurance</li>
-  <li><span class="font-bold">Policy Number:</span> 123456789</li>
-  <li><span class="font-bold">Validity:</span> January 1, 2024 - December 31, 2024</li>
-  <li><span class="font-bold">Coverage:</span> Medical, Dental, Vision</li>
-  <li><span class="font-bold">Co-payment:</span> $20 for doctor visits</li>
-  <li><span class="font-bold">Contact Number:</span> 1-800-XYZ-INSURE</li>
-</ul>
-</div>
-        </div>
-        <div className='w-5/12 h-1/2 justify-center items-center gap-4   flex flex-col'>
-        <div className='justify-center items-center gap-4 p-4  flex flex-col bg-white shadow-md'>
-          <img src={bmiMeter} alt="" className='w-[100%]'/>
-          <p className='text-xl font-bold text-center'>BMI Score</p>
-          </div>
-        <div className='justify-center items-center gap-4 p-4  flex flex-col bg-white shadow-md'>
-          <img src={healthscore} alt="" className='w-[100%]'/>
-          <p className='text-xl font-bold text-center'>Health Score</p>
-          </div>
-        </div>
         
+       
+      </div>
+          <h2 className="text-xl font-bold">Health Goals</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div className="bg-white rounded shadow-md p-6">
+        
+        <div className="flex flex-col gap-3">
+              <h3 className='text-xl font-semibold'>Lose 20 lbs</h3>
+              <p>Target weight: 160 lbs</p>
+              <div className="h-2 w-full bg-gray-200 rounded">
+                <div className="h-full bg-blue-500 rounded" style={{width: '50%'}}></div>
+              </div>
+            </div>
+            </div>
+            <div className="bg-white rounded shadow-md p-6">
+            <div className="flex flex-col gap-3">
+              <h3 className='text-xl font-semibold'>Run a 2K</h3>
+              <p>Target distance: 5K</p>
+              <div className="h-2 w-full bg-gray-200 rounded">
+                <div className="h-full bg-green-500 rounded" style={{width: '40%'}}></div>
+              </div>
+            </div>
+            </div>
+            <div className="bg-white rounded shadow-md p-6">
+            <div className="flex flex-col gap-3">
+              <h3 className='text-xl font-semibold'>Improve Sleep</h3>
+              <p>Target hours: 8</p>
+              <div className="h-2 w-full bg-gray-200 rounded">
+                <div className="h-full bg-yellow-500 rounded" style={{width: '75%'}}></div>
+              </div>
+            </div>
+            </div>
+          
+        
+        
+       
       </div>
     </div>
   );
 };
 
-export default Userdashboard;
+export default ProfilePage;
