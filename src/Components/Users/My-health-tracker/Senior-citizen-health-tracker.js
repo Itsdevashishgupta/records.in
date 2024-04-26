@@ -93,19 +93,19 @@ function SeniorCitizenHealthTracker() {
                     <tr>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">April 25, 2024</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10:00 AM</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dr. Smith</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dr Jyotsna</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Routine checkup</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">May 5, 2024</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2:30 PM</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dr. Johnson</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dr Manish Kumar</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Flu shot</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">June 15, 2024</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">9:00 AM</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dr. Lee</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dr Shashank Trivedi</td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Physical therapy</td>
                     </tr>
                   </tbody>

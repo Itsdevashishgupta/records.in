@@ -39,7 +39,7 @@ function Contact() {
         <img src={photo} alt="" />
       </div>
      
-      <div className="relative py-3 sm:max-w-xl sm:mx-auto" style={{ fontFamily: "'Rubik', sans-serif" }} >
+      <div className="relative py-3 sm:max-w-xl sm:mx-auto" style={{ fontFamily: '"Wix Madefor Display", sans-serif' }} >
         <div className="relative px-4 py-10  mx-8 md:mx-0  ">
           <div className="max-w-2xl mx-auto w-[28rem]">
             <div className="flex items-center space-x-5">

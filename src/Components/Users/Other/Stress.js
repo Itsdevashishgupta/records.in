@@ -2,7 +2,8 @@ import React from 'react';
 
 const StressManagementPage = () => {
   return (
-    <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8 bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]">
+    <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8 bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]">
+        <h1 className="text-2xl font-bold mb-4">Stress Management</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
        
         <div className="bg-white rounded-lg shadow-md p-6">

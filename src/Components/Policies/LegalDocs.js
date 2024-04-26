@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../Styles/LegalDocs.css";
-import Footer from "./Footer";
+import "../../Styles/LegalDocs.css";
+import Footer from "../Footer";
 
 function LegalDocs() {
   useEffect(() => {
@@ -190,10 +190,7 @@ function LegalDocs() {
 
           The use of information received from Health Connect will adhere to the Health Connect Permissions policy, including the Limited Use requirements.
         </p>
-        <p className="legal-title">How it Works</p>
-        <p className="legal-description">
-          At My-Records.in, we're committed to putting you in control of your health. Our user-friendly app empowers you to manage your medical records with ease, focusing on privacy and security for peace of mind. We envision a world where transparent health tech solutions enable seamless navigation of health journeys. Our mission is to lead innovation, enhance patient experiences, and contribute to a healthier future for everyone. We're dedicated to reducing paper records in the healthcare industry, supporting environmental sustainability.
-        </p>
+     
         <p className="legal-title">How it Works</p>
         <p className="legal-description">
           At My-Records.in, we're committed to putting you in control of your health. Our user-friendly app empowers you to manage your medical records with ease, focusing on privacy and security for peace of mind. We envision a world where transparent health tech solutions enable seamless navigation of health journeys. Our mission is to lead innovation, enhance patient experiences, and contribute to a healthier future for everyone. We're dedicated to reducing paper records in the healthcare industry, supporting environmental sustainability.

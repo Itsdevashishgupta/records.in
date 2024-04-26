@@ -66,7 +66,7 @@ const Register = () => {
   ];
 
   return (
-    <div className="bg-gray-100 flex w-full" style={{fontFamily:"'Rubik', sans-serif"}}>
+    <div className="bg-gray-100 flex w-full" style={{fontFamily:'"Wix Madefor Display", sans-serif"'}}>
     <header className="bg-blue-500 h-[100vh] text-white text-center py-4 w-1/2 sticky top-0 "
      style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
     </header>
@@ -90,7 +90,7 @@ const Register = () => {
     setPhone(values.phone);
       setPassword(values.password);
   
-const response = await fetch('https://my-records-in.onrender.com/api/v1/users/sendOtp', {
+const response = await fetch('https://my-record-back.test.psi.initz.run/api/v1/users/sendOtp', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -110,7 +110,7 @@ const response = await fetch('https://my-records-in.onrender.com/api/v1/users/se
 >
 
           {({ errors, touched }) => (
-    <Form className=" p-4 w-[90%] " style={{ fontFamily: 'Rubik, sans-serif' }}>
+    <Form className=" p-4 w-[90%] " >
     <h2 className=" text-center font-semibold text-4xl my-7">Register</h2>
     <div className=' flex flex-col gap-5'>
     <div className=' grid grid-cols-2 gap-4'>

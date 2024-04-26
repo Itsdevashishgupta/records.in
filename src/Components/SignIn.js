@@ -24,8 +24,8 @@ const SignIn = () => {
     const navigate = useNavigate();
     const notify = () => toast("Sign In Successfullly!");
   return (
-    <div className="bg-gray-100 flex w-full" style={{fontFamily:"'Rubik', sans-serif"}}>
-    <header className="bg-blue-500 h-[90vh] text-white text-center py-4 w-1/2 sticky top-0 w-1/2"
+    <div className="bg-gray-100 flex w-full" style={{fontFamily:'"Wix Madefor Display", sans-serif"'}}>
+    <header className="bg-blue-500 h-[90vh] text-white text-center py-4 w-1/2 sticky top-0"
      style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
     </header>
     <div className="flex justify-center w-1/2 items-center">
@@ -34,7 +34,7 @@ const SignIn = () => {
       validationSchema={SignInSchema}
       onSubmit={async (values, { setSubmitting }) => {
   try {
-    const response = await fetch('https://my-records-in.onrender.com/api/v1/users/login', {
+    const response = await fetch('https://my-record-back.test.psi.initz.run/api/v1/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ const SignIn = () => {
 }}
     >
       {({ errors, touched ,isSubmitting }) => (
-        <Form className="p-4 w-[80%] " style={{ fontFamily: 'Rubik, sans-serif' }}>
+        <Form className="p-4 w-[80%] " >
         <h2 className=" text-center font-semibold text-4xl my-7">Sign In</h2>
           <label className="block">
             <span className="text-gray-700">Mobile Number:</span>

@@ -39,11 +39,11 @@ const DietTracker = () => {
     <div className="flex flex-col min-h-screen bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]">
       <header className="bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF] py-4 px-6">
         <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Diet Tracker</h1>
+          <h1 className="text-2xl font-bold">Diet and Weight Management</h1>
         
         </div>
       </header>
-      <main className="flex-1 py-8 px-6">
+      <main className="flex-1 py-4 px-6">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Dashboard */}
           <div className="bg-white shadow-md rounded-lg p-6">

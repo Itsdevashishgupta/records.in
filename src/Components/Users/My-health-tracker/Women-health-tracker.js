@@ -8,8 +8,8 @@ const Dashboard = () => {
     <div className="flex flex-col h-screen">
       
       <main className="flex-1 bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]  p-8">
-      <div className='mb-10 ml-10 text-2xl font-bold'>
-    <h3>Basic Health Tracker </h3>
+      <div className='mb-10  text-2xl font-bold'>
+    <h3>Women Health Tracker </h3>
     </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Menstrual Cycle Card */}

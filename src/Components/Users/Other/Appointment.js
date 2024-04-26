@@ -69,6 +69,7 @@ const AppointmentBooking = () => {
     <div className="flex flex-col min-h-screen bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]">
     
       <main className="flex-1 flex flex-col gap-4 p-4 md:gap-8 md:p-6">
+      <h1 className="text-2xl font-bold">Family User Management</h1>
         <div className="grid gap-4 sm:grid-cols-2 grid-col-1">
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm bg-white">
             <div className="flex flex-col space-y-1.5 p-6">
