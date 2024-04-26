@@ -35,7 +35,7 @@ const PrescriptionRecords = () => {
     };
   }, []);
   return (
-    <main className="container mx-auto px-4 py-8 md:px-6 lg:py-12">
+    <main className="container mx-auto px-4 py-8 md:px-6 lg:py-12 bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]] h-full">
       <div className="flex flex-col gap-6 md:gap-8">
         <div>
           <h1 className="text-2xl font-bold tracking-tight md:text-3xl">My Prescription Records</h1>
@@ -90,7 +90,7 @@ const PrescriptionRecords = () => {
         {/* Prescription records table */}
         <div className="overflow-hidden rounded-lg border border-gray-200 shadow-sm dark:border-gray-800">
           <div className="relative w-full overflow-auto">
-            <table className="w-full caption-bottom text-sm">
+            <table className="w-full caption-bottom text-sm bg-white">
               <thead className="[&amp;_tr]:border-b">
                 <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
                   <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&amp;:has([role=checkbox])]:pr-0">Medication</th>

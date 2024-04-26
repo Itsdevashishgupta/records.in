@@ -35,32 +35,34 @@ const PatientRecords = () => {
     };
   }, []);
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]]">
       <main className="flex-1 p-6 md:p-10">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-4">
            
-          <div style={{ position: 'relative' }} ref={datePickerRef}>
-  <button 
-    className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2" 
-    type="button"
-    onClick={() => setDatePickerVisible(true)}
-  >
-    <BiCalendarPlus className="mr-2 h-4 w-4" />
-    Date Filter
-  </button>
-
-  {isDatePickerVisible && (
-    <div style={{ position: 'absolute', zIndex: 1 }}>
-      <DateRangePicker
-        ranges={dateRange}
-        onChange={handleSelect}
-      />
-    </div>
-  )}
-</div>
+       
           </div>
-          <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+          <div className=' flex justify-between gap-4'>
+            <div style={{ position: 'relative' }} ref={datePickerRef}>
+              <button
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
+                type="button"
+                onClick={() => setDatePickerVisible(true)}
+              >
+                <BiCalendarPlus className="mr-2 h-4 w-4" />
+                Date Filter
+              </button>
+
+              {isDatePickerVisible && (
+                <div style={{ position: 'absolute', zIndex: 1, right: 0 }}>
+                  <DateRangePicker
+                    ranges={dateRange}
+                    onChange={handleSelect}
+                  />
+                </div>
+              )}
+            </div>
+          <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 border border-input ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -78,6 +80,7 @@ const PatientRecords = () => {
             </svg>
             Add Report
           </button>
+          </div>
         </div>
         <div className="border rounded-lg overflow-hidden">
           <div className="relative w-full overflow-auto">
