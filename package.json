@@ -16,7 +16,6 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.8",
-    "chart.js": "^4.4.2",
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.10",
     "formik": "^2.4.5",
