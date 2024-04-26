@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Line, Bar } from 'react-chartjs-2';
 import { FiActivity, FiWatch, FiUsers } from 'react-icons/fi';
 import { Chart } from 'chart.js';
 import { FaFileContract, FaUser, FaUserMd } from 'react-icons/fa';

@@ -29,7 +29,7 @@
     margin: 64px;
     text-align: center;
     color: rgb(77, 75, 75);
-    font-family: "Wix Madefor Display",sans-serif;
+    font-family: Wix Madefor Display", sans-serif;
     font-size: 18px;
     letter-spacing: .8px;
     line-height: 1.8rem;
@@ -59,7 +59,7 @@
 .info-card-description {
     margin: 24px;
     color: rgb(77, 75, 75);
-    font-family: "Wix Madefor Display", sans-serif;
+    font-family: Wix Madefor Display", sans-serif;
     font-size: 18px;
     letter-spacing: .8px;
     line-height: 1.5rem;

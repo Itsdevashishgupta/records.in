@@ -14,10 +14,19 @@ function Blogs() {
     initiative towards realizing the vision of a digitally-enabled, inclusive healthcare ecosystem in India. By harnessing the transformative power of technology, ABDM holds the potential to significantly improve health outcomes, 
     enhance patient experiences, and contribute to the overall well-being of the nation's populace.`,
 
-    `EMRs offer significant advantages over traditional paper-based records, including improved accessibility and efficiency, enhanced patient care and safety, seamless communication and collaboration among healthcare teams, data standardization and interoperability, decision support tools, and increased patient engagement and empowerment.
-    Despite challenges such as data security concerns, implementation disruptions, and financial costs, EMRs have the potential to revolutionize healthcare delivery, improve patient care, and advance public health initiatives.`,
+    `Ayushman Bharat Digital Mission (ABDM) is a groundbreaking initiative aimed at revolutionizing healthcare delivery in India through digital technology. 
+    \Launched under the flagship Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB PM-JAY), ABDM envisions a future where every citizen has seamless access to affordable and quality healthcare services,
+     facilitated by digital innovation. ABDM seeks to achieve the ambitious goal of providing Universal Health Coverage (UHC) to all citizens, ensuring that no one is left behind in accessing essential healthcare services. 
+     By leveraging digital tools and technologies, the mission aims to streamline healthcare processes, enhance efficiency, and bridge existing gaps in service delivery. Ayushman Bharat Digital Mission represents a landmark
+      initiative towards realizing the vision of a digitally-enabled, inclusive healthcare ecosystem in India. By harnessing the transformative power of technology, ABDM holds the potential to significantly improve health outcomes, 
+      enhance patient experiences, and contribute to the overall well-being of the nation's populace.`,
       
-      `Electronic Medical Records (EMRs) pertain to digital versions of patient records within a single healthcare organization, while Electronic Health Records (EHRs) encompass a comprehensive view of a patient's health history across multiple healthcare providers and agencies. EMRs are limited to one practice and are primarily used for diagnosis and treatment, while EHRs facilitate the exchange of information between different healthcare settings and provide a longitudinal view of a patient's health information.`];
+      `Ayushman Bharat Digital Mission (ABDM) is a groundbreaking initiative aimed at revolutionizing healthcare delivery in India through digital technology. 
+      \Launched under the flagship Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB PM-JAY), ABDM envisions a future where every citizen has seamless access to affordable and quality healthcare services,
+       facilitated by digital innovation. ABDM seeks to achieve the ambitious goal of providing Universal Health Coverage (UHC) to all citizens, ensuring that no one is left behind in accessing essential healthcare services. 
+       By leveraging digital tools and technologies, the mission aims to streamline healthcare processes, enhance efficiency, and bridge existing gaps in service delivery. Ayushman Bharat Digital Mission represents a landmark
+        initiative towards realizing the vision of a digitally-enabled, inclusive healthcare ecosystem in India. By harnessing the transformative power of technology, ABDM holds the potential to significantly improve health outcomes, 
+        enhance patient experiences, and contribute to the overall well-being of the nation's populace.`];
 
   const toggleExpanded = () => {
       setExpanded(!expanded);
@@ -48,7 +57,7 @@ function Blogs() {
         </div>  
   </div>
     <div className="videos grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  gap-5 p-6" height="400px" width="23%" style={{fontFamily:'"Wix Madefor Display", sans-serif'}}>
-        <div className="video-2 flex flex-col  border">
+        <div className="video-2 flex flex-col justify-center border">
           <video controls className="" style={{height:"210px"}}>
         <source src={'https://s3.amazonaws.com/myrecords.in/Talk+Ayushman+Bharat+Digital+Mission+(ABDM).mp4'} type="video/mp4" className=" "/>
             </video>
@@ -65,7 +74,7 @@ function Blogs() {
         </div>  
           </div>
         </div>
-        <div className="video-2 flex flex-col  border">
+        <div className="video-2 flex flex-col justify-center border">
           <video controls className="" style={{height:"210px"}}>
         <source src={'https://s3.amazonaws.com/myrecords.in/EMR+vs+EHR+What+is+the+difference.mp4'} type="video/mp4" className=" "/>
             </video>
@@ -82,7 +91,7 @@ function Blogs() {
         </div> 
           </div>
         </div>
-        <div className="video-2 flex flex-col  border">
+        <div className="video-2 flex flex-col justify-center border">
           <video controls className="w-200px" style={{height:"210px"}}>
         <source src={'https://s3.amazonaws.com/myrecords.in/The+Difference+Between+EMR++EHR.mp4'} type="video/mp4" className=" "/>
             </video>
