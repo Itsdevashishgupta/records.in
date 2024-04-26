@@ -1,4 +1,8 @@
+
 import React, { useEffect, useState } from 'react';
+
+import { FiActivity, FiWatch, FiUsers } from 'react-icons/fi';
+
 import { FaFileContract, FaUser, FaUserMd } from 'react-icons/fa';
 import Bmi from '../../../Assets/BMI-Calculator.webp'
 import health from '../../../Assets/healthScore.png'
