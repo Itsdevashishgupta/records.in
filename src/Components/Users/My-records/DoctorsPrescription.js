@@ -110,8 +110,8 @@ const PrescriptionRecords = () => {
                     <div className="flex items-center gap-3">
                       <img src="/placeholder.svg" alt="Doctor Avatar" width="40" height="40" className="h-10 w-10 rounded-full object-cover" style={{ aspectRatio: '40 / 40', objectFit: 'cover' }} />
                       <div>
-                        <p className="font-medium">Dr. John Doe</p>
-                        <p className="text-sm text-gray-500 ">johndoe@example.com</p>
+                        <p className="font-medium">Dr.Chetna Awasthi</p>
+                        <p className="text-sm text-gray-500 ">Dr@gmail.com</p>
                       </div>
                     </div>
                   </td>

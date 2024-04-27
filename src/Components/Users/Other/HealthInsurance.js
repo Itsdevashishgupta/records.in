@@ -67,7 +67,7 @@ const HealthInsuranceLanding = () => {
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
             <div className="space-y-4">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-white px-3 py-1 text-sm ">
+                <div className="inline-block rounded-lg bg-[#f99a1c] text-white px-3 py-1 text-sm ">
                   Key Features
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
@@ -105,7 +105,7 @@ const HealthInsuranceLanding = () => {
             </div>
             <div className="space-y-4">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-white px-3 py-1 text-sm ">
+                <div className="inline-block rounded-lg bg-[#f99a1c] text-white px-3 py-1 text-sm ">
                   Policy Details
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
@@ -115,15 +115,15 @@ const HealthInsuranceLanding = () => {
               <div className="grid gap-4">
                 <div className="grid gap-1">
                   <h3 className="text-lg font-bold">Deductible</h3>
-                  <p className="text-sm text-gray-500 ">$500 individual, $1,000 family</p>
+                  <p className="text-sm text-gray-500 ">₹500 individual, ₹1,000 family</p>
                 </div>
                 <div className="grid gap-1">
                   <h3 className="text-lg font-bold">Copays</h3>
-                  <p className="text-sm text-gray-500 ">$20 for primary care, $40 for specialists</p>
+                  <p className="text-sm text-gray-500 ">₹20 for primary care, ₹40 for specialists</p>
                 </div>
                 <div className="grid gap-1">
                   <h3 className="text-lg font-bold">Out-of-Pocket Maximum</h3>
-                  <p className="text-sm text-gray-500 ">$3,000 individual, $6,000 family</p>
+                  <p className="text-sm text-gray-500 ">₹3,000 individual, ₹6,000 family</p>
                 </div>
               </div>
             </div>
@@ -135,7 +135,7 @@ const HealthInsuranceLanding = () => {
         <div className="container px-4 md:px-6">
           <div className="space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-white px-3 py-1 text-sm ">
+              <div className="inline-block rounded-lg bg-[#f99a1c] text-white px-3 py-1 text-sm ">
                 FAQ
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
@@ -150,7 +150,7 @@ const HealthInsuranceLanding = () => {
                     aria-controls={`radix-:r${index + 1}`}
                     aria-expanded={faqItem.isOpen}
                     onClick={() => toggleFaq(index)}
-                    className="flex w-full items-center justify-between rounded-md bg-white px-4 py-3 text-sm font-medium transition-colors hover:bg-gray-200 focus:bg-gray-200 focus:outline-none  "
+                    className="flex shadow-md w-full items-center justify-between rounded-md bg-white px-4 py-3 text-sm font-medium transition-colors hover:bg-[#f99a1c] hover:text-white focus:outline-none  "
                   >
                     {faqItem.question}
                    
@@ -161,7 +161,7 @@ const HealthInsuranceLanding = () => {
                     data-state={faqItem.isOpen ? 'open' : 'closed'}
                     id={`radix-:r${index + 1}`}
                     hidden={!faqItem.isOpen}
-                    className="space-y-2 px-4 py-2 bg-gray-50  rounded-b-md"
+                    className="space-y-2 px-4 py-2 bg-gray-50  rounded-b-md shadow-md"
                   >
                     <p className="text-sm text-gray-500 ">{faqItem.answer}</p>
                   </div>
