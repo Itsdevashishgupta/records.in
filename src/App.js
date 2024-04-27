@@ -35,6 +35,8 @@ import Familymanage from "./Components/Users/Other/Family-manage";
 import HealthInsurance from "./Components/Users/Other/HealthInsurance";
 import Appointment from "./Components/Users/Other/Appointment";
 import Stress from "./Components/Users/Other/Stress";
+import Security from "./Components/Policies/Security";
+import TermsOfUse from "./Components/Policies/termsOfUse";
 
 const ProtectedRoute = ({ children }) => {
   const token = cookie.get('token');
@@ -108,6 +110,9 @@ function Content() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Policies" element={<Legal />} />
+          <Route path="/security-policy" element={<Security />} />
+          <Route path="/security" element={<Security />} />
+          <Route path="/terms-of-use" element={<TermsOfUse/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/features" element={<Info/>} />
           <Route path="/appointment" element={<Appointment />} />

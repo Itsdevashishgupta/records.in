@@ -43,7 +43,7 @@
 .ba-description {
     margin: 32px 0;
     color: #4d4b4b;
-    font-family: 'Rubik', sans-serif;
+    
     font-size: 18px;
     letter-spacing: .8px;
     line-height: 1.8rem;
@@ -51,7 +51,7 @@
 /* Checks */
 .ba-checks {
     margin: 28px 0;
-    font-family: 'Rubik', sans-serif;
+    
     font-size: 22px;
     font-weight: bold;
     letter-spacing: .7px;
@@ -71,7 +71,7 @@
     outline: transparent;
     background-color: #f99a1c;
     font-size: 20px;
-    font-family: 'Rubik', sans-serif;
+    
     letter-spacing: .8px;
     cursor: pointer;
     transition: all .4s ease;

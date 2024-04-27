@@ -30,7 +30,7 @@
     margin: 64px auto 0;
     text-align: center;
     color: rgb(77, 75, 75);
-    font-family: 'Rubik', sans-serif;
+    
     font-size: 20px;
     letter-spacing: .8px;
     line-height: 1.8rem;
@@ -49,7 +49,7 @@
     height: 400px;
     gap: 32px;
     text-align: left;
-    font-family: 'Rubik', sans-serif;
+    
 }
 .dt-card-img {
     width: 100%;

@@ -1,115 +1,98 @@
 import React from 'react';
+import { BiCalendar } from 'react-icons/bi';
+import { MdPregnantWoman } from 'react-icons/md';
+import { RiMenstrualCycleLine, RiPregnantLine, RiHealthBookLine, RiAnotherIcon, RiYetAnotherIcon } from 'react-icons/ri';
 
-function SeniorCitizenHealthTracker() {
+const Dashboard = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]]">
-      {/* Header */}
-      <h1 className="text-2xl font-bold ml-10 mt-10">Senior Citizen Health Tracker</h1>
+    <div className="flex flex-col h-screen">
 
-      {/* Main Content */}
-      <main className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-        {/* Heart Rate Card */}
-        <div className="col-span-1 lg:col-span-2 grid grid-cols-1 gap-6">
-          <div className="bg-white rounded-lg shadow-md">
+      <main className="flex-1 bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]  p-8">
+      <div className='mb-10 text-2xl font-bold'>
+    <h3>Women Health Tracker </h3>
+    </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Menstrual Cycle Card */}
+          <div className="rounded-lg border bg-card text-card-foreground shadow-sm bg-white">
+            <div className="flex-col space-y-1.5 p-6 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <BiCalendar className="h-6 w-6 text-pink-500" />
+                <h3 className="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">Menstrual Cycle</h3>
+              </div>
+              <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+                {/* Add icon for the button if needed */}
+              </button>
+            </div>
             <div className="p-6">
-              <h2 className="text-lg font-semibold text-gray-800  mb-4">Heart Rate</h2>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="text-4xl font-bold">72 bpm</div>
-                  <p className="text-gray-500 dark:text-gray-400">Normal range: 60-100 bpm</p>
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center justify-between">
+                  <p className="text-gray-500 ">Next Period</p>
+                  <p className="font-medium">May 15, 2023</p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-gray-500 ">Cycle Length</p>
+                  <p className="font-medium">28 days</p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-gray-500 ">Last Period</p>
+                  <p className="font-medium">April 17, 2023</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Blood Pressure Card */}
-        <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
-          <div className="bg-white rounded-lg shadow-md">
+          {/* Pregnancy Card */}
+          <div className="rounded-lg border bg-card text-card-foreground shadow-sm bg-white">
+            <div className="flex-col space-y-1.5 p-6 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <MdPregnantWoman className="h-6 w-6 text-green-500" />
+                <h3 className="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">Pregnancy</h3>
+              </div>
+              <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+                {/* Add icon for the button if needed */}
+              </button>
+            </div>
             <div className="p-6">
-              <h2 className="text-lg font-semibold text-gray-800  mb-4">Blood Pressure</h2>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="text-4xl font-bold">120/80 mmHg</div>
-                  <p className="text-gray-500 dark:text-gray-400">Normal range: 120/80 - 129/84 mmHg</p>
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center justify-between">
+                  <p className="text-gray-500 ">Due Date</p>
+                  <p className="font-medium">December 25, 2023</p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-gray-500 ">Weeks Pregnant</p>
+                  <p className="font-medium">16 weeks</p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-gray-500 ">Last Appointment</p>
+                  <p className="font-medium">April 20, 2023</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Medication Reminders Card */}
-        <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
-          <div className="bg-white rounded-lg shadow-md">
-            <div className="p-6">
-              <h2 className="text-lg font-semibold text-gray-800  mb-4">Medication Reminders</h2>
-              <div className="grid grid-cols-1 gap-4">
-                <div className="flex items-center gap-4">
-                  <div className="text-4xl font-bold">2</div>
-                  <div>
-                    <p className="font-medium">Medications due today</p>
-                  </div>
-                </div>
+          {/* Wellness Card */}
+          <div className="rounded-lg border bg-card text-card-foreground shadow-sm bg-white">
+            <div className="flex-col space-y-1.5 p-6 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <RiHealthBookLine className="h-6 w-6 text-blue-500" />
+                <h3 className="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">Wellness</h3>
               </div>
+              <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
+                {/* Add icon for the button if needed */}
+              </button>
             </div>
-          </div>
-        </div>
-
-        {/* Daily Activity Card */}
-        <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
-          <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
-              <h2 className="text-lg font-semibold text-gray-800  mb-4">Daily Activity</h2>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="text-4xl font-bold">7,542</div>
-                  <p className="text-gray-500 dark:text-gray-400">Steps taken</p>
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center justify-between">
+                  <p className="text-gray-500 ">Sleep</p>
+                  <p className="font-medium">7h 15m</p>
                 </div>
-                <div className="flex flex-col items-center">
-                  <div className="text-4xl font-bold">45 min</div>
-                  <p className="text-gray-500 dark:text-gray-400">Exercise time</p>
+                <div className="flex items-center justify-between">
+                  <p className="text-gray-500 ">Steps</p>
+                  <p className="font-medium">8,234</p>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Upcoming Appointments Card */}
-        <div className="col-span-1 lg:col-span-3 grid grid-cols-1 gap-6">
-          <div className="bg-white rounded-lg shadow-md">
-            <div className="p-6">
-              <h2 className="text-lg font-semibold text-gray-800  mb-4">Upcoming Appointments</h2>
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
-                  <thead className="bg-[#f99a1c]">
-                    <tr>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black  uppercase tracking-wider">Date</th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black  uppercase tracking-wider">Time</th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black  uppercase tracking-wider">Provider</th>
-                      <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-black  uppercase tracking-wider">Reason</th>
-                    </tr>
-                  </thead>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    <tr>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">April 25, 2024</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10:00 AM</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dr. Smith</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Routine checkup</td>
-                    </tr>
-                    <tr>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">May 5, 2024</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2:30 PM</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dr. Johnson</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Flu shot</td>
-                    </tr>
-                    <tr>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">June 15, 2024</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">9:00 AM</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Dr. Lee</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Physical therapy</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div className="flex items-center justify-between">
+                  <p className="text-gray-500 ">Water Intake</p>
+                  <p className="font-medium">2.1 L</p>
+                </div>
               </div>
             </div>
           </div>
@@ -117,6 +100,6 @@ function SeniorCitizenHealthTracker() {
       </main>
     </div>
   );
-}
+};
 
-export default SeniorCitizenHealthTracker;
+export default Dashboard;

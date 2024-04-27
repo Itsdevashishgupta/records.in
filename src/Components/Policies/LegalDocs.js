@@ -12,7 +12,7 @@ function LegalDocs() {
     <div className="legal-section-title">
       <h1 className="legal-siteTitle">
         <Link to="/">
-          My-Records.in
+          PRIVACY POLICY
         </Link>
       </h1>
 
