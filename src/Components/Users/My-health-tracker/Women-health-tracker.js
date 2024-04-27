@@ -12,7 +12,6 @@ const Dashboard = () => {
     <h3>Women Health Tracker </h3>
     </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Menstrual Cycle Card */}
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm bg-white">
             <div className="flex-col space-y-1.5 p-6 flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -20,7 +19,7 @@ const Dashboard = () => {
                 <h3 className="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">Menstrual Cycle</h3>
               </div>
               <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
-                {/* Add icon for the button if needed */}
+               
               </button>
             </div>
             <div className="p-6">
@@ -40,7 +39,6 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          {/* Pregnancy Card */}
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm bg-white">
             <div className="flex-col space-y-1.5 p-6 flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -48,7 +46,7 @@ const Dashboard = () => {
                 <h3 className="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">Pregnancy</h3>
               </div>
               <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
-                {/* Add icon for the button if needed */}
+             
               </button>
             </div>
             <div className="p-6">
@@ -68,7 +66,6 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          {/* Wellness Card */}
           <div className="rounded-lg border bg-card text-card-foreground shadow-sm bg-white">
             <div className="flex-col space-y-1.5 p-6 flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -76,7 +73,7 @@ const Dashboard = () => {
                 <h3 className="whitespace-nowrap text-2xl font-semibold leading-none tracking-tight">Wellness</h3>
               </div>
               <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10 rounded-full">
-                {/* Add icon for the button if needed */}
+             
               </button>
             </div>
             <div className="p-6">

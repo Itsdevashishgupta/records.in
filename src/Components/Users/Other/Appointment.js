@@ -33,15 +33,14 @@ const AppointmentBooking = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission logic (e.g., send data to server)
     console.log('Form submitted:', { name, email, date, time });
     const newAppointment = {
-      id: appointments.length + 1, // Generate unique ID
+      id: appointments.length + 1, 
       name,
       email,
       date,
       time,
-      status: 'Pending', // Initial status
+      status: 'Pending', 
     };
     setAppointments([...appointments, newAppointment]);
     resetForm();
@@ -55,9 +54,7 @@ const AppointmentBooking = () => {
   };
 
   const handleAppointmentAction = (action, appointmentId) => {
-    // Handle appointment actions (e.g., view details, cancel)
     if (action === 'view') {
-      // Implement logic to view appointment details
       console.log('Viewing appointment:', appointmentId);
     } else if (action === 'cancel') {
       const updatedAppointments = appointments.filter((appointment) => appointment.id !== appointmentId);
@@ -150,7 +147,6 @@ const AppointmentBooking = () => {
                         <span style={{ pointerEvents: 'none' }} className=''>{time || 'Select a time'}</span>
                         <AiOutlineClockCircle className="h-4 w-4 opacity-50" aria-hidden="true" />
                       </button>
-                      {/* Time selection logic (e.g., dropdown, modal) */}
                       <select
                                                 aria-hidden="true"
                         className="hidden absolute top-0 left-0 w-full h-auto z-50 bg-white shadow-md rounded-md py-2 text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring-primary"
@@ -158,11 +154,9 @@ const AppointmentBooking = () => {
                         onChange={(e) => setTime(e.target.value)}
                       >
                         <option value="">Select a time</option>
-                        {/* Dynamically populate time options based on availability */}
                         <option value="9:00 AM">9:00 AM</option>
                         <option value="10:00 AM">10:00 AM</option>
                         <option value="11:00 AM">11:00 AM</option>
-                        {/* Add more time options as needed */}
                       </select>
                     </div>
                   </div>

@@ -151,7 +151,7 @@ const PatientRecords = () => {
                     </button>
                   </td>
                 </tr>
-                {/* Other rows */}
+                
               </tbody>
             </table>
           </div>

@@ -3,12 +3,12 @@ import React from 'react';
 function SeniorCitizenHealthTracker() {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]]">
-      {/* Header */}
+    
       <h1 className="text-2xl font-bold ml-10 mt-10">Senior Citizen Health Tracker</h1>
 
-      {/* Main Content */}
+    
       <main className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-        {/* Heart Rate Card */}
+       
         <div className="col-span-1 lg:col-span-2 grid grid-cols-1 gap-6">
           <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
@@ -23,7 +23,7 @@ function SeniorCitizenHealthTracker() {
           </div>
         </div>
 
-        {/* Blood Pressure Card */}
+      
         <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
           <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
@@ -38,7 +38,7 @@ function SeniorCitizenHealthTracker() {
           </div>
         </div>
 
-        {/* Medication Reminders Card */}
+       
         <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
           <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
@@ -55,7 +55,6 @@ function SeniorCitizenHealthTracker() {
           </div>
         </div>
 
-        {/* Daily Activity Card */}
         <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
           <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">
@@ -74,7 +73,7 @@ function SeniorCitizenHealthTracker() {
           </div>
         </div>
 
-        {/* Upcoming Appointments Card */}
+        
         <div className="col-span-1 lg:col-span-3 grid grid-cols-1 gap-6">
           <div className="bg-white rounded-lg shadow-md">
             <div className="p-6">

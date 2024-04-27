@@ -23,7 +23,7 @@ function Baby_health_tracker() {
         { name: 'Vaccination 3', date: '2024-05-20', status: 'upcoming' },
     ]);
 
-    // Function to add vaccination data
+   
     const addVaccination = (name, date) => {
         const newVaccination = { name, date, status: 'upcoming' };
         setVaccinations([...vaccinations, newVaccination]);
@@ -31,56 +31,47 @@ function Baby_health_tracker() {
 
     return (
         <div className="flex flex-col min-h-screen bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]]">
-            {/* Header */}
+         
             <h1 className="text-2xl font-bold ml-10 mt-10">Baby Health Tracker</h1>
 
-            {/* Main Content */}
             <main className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6  ">
-                {/* Cards for Growth Metrics, Milestones, Calendar, Notes, and Photos */}
-                {/* Example Card */}
+           
                 <div className="col-span-1 lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Growth Metrics Card */}
+                  
                     <div className="bg-white  rounded-lg shadow-lg">
-                        {/* Card Content */}
+                       
                         <div className="p-6">
                             <h2 className="text-lg font-semibold text-gray-800  mb-4">Growth Metrics</h2>
-                            {/* Growth metrics data */}
-                            {/* Example: */}
+                          
                             <div className="grid grid-cols-2 gap-4">
-                                {/* Weight */}
+                              
                                 <div className="flex flex-col items-center">
                                     <div className="text-4xl font-bold">24 lbs</div>
                                     <p className="text-gray-500 dark:text-gray-400">Weight</p>
                                 </div>
-                                {/* Height */}
                                 <div className="flex flex-col items-center">
                                     <div className="text-4xl font-bold">30 in</div>
                                     <p className="text-gray-500 dark:text-gray-400">Height</p>
                                 </div>
-                                {/* Age */}
                                 <div className="flex flex-col items-center">
                                     <div className="text-4xl font-bold">12 mo</div>
                                     <p className="text-gray-500 dark:text-gray-400">Age</p>
                                 </div>
-                                {/* Percentile */}
                                 <div className="flex flex-col items-center">
                                     <div className="text-4xl font-bold">75%</div>
                                     <p className="text-gray-500 dark:text-gray-400">Percentile</p>
                                 </div>
-                                {/* Add more fields as needed */}
                             </div>
                         </div>
                     </div>
 
-                    {/* Milestones Card */}
                     <div className="bg-white  rounded-lg shadow-lg">
-                        {/* Card Content */}
+                  
                         <div className="p-6">
                             <h2 className="text-lg font-semibold text-gray-800  mb-4">Milestones</h2>
-                            {/* Milestones data */}
-                            {/* Example: */}
+                         
                             <div className="grid grid-cols-1 gap-4">
-                                {/* Smiling */}
+                              
                                 <div className="flex items-center gap-4">
                                     <SmileIcon className="h-8 w-8 text-primary" />
                                     <div>
@@ -88,7 +79,6 @@ function Baby_health_tracker() {
                                         <p className="text-gray-500 dark:text-gray-400 text-sm">2 months</p>
                                     </div>
                                 </div>
-                                {/* Babbling */}
                                 <div className="flex items-center gap-4">
                                     <RabbitIcon className="h-8 w-8 text-primary" />
                                     <div>
@@ -96,7 +86,6 @@ function Baby_health_tracker() {
                                         <p className="text-gray-500 dark:text-gray-400 text-sm">4 months</p>
                                     </div>
                                 </div>
-                                {/* Crawling */}
                                 <div className="flex items-center gap-4">
                                     <ScrollIcon className="h-8 w-8 text-primary" />
                                     <div>
@@ -104,24 +93,21 @@ function Baby_health_tracker() {
                                         <p className="text-gray-500 dark:text-gray-400 text-sm">8 months</p>
                                     </div>
                                 </div>
-                                {/* Add more milestones as needed */}
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Calendar Card */}
                 <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
                     <div className="bg-white  rounded-lg shadow-lg">
-                        {/* Card Content */}
+                        
                         <div className="p-6">
                             <h2 className="text-lg font-semibold text-gray-800  mb-4">Calendar</h2>
-                            {/* Container for the calendar */}
+                         
                             <div className="">
-                                {/* React Calendar component */}
                                 <Calendar
-                                    onChange={setDate} // Function to handle date changes
-                                    value={date} // Value to be displayed in the calendar
+                                    onChange={setDate}
+                                    value={date} 
                                     className="text-center"
                                 />
                             </div>
@@ -129,20 +115,18 @@ function Baby_health_tracker() {
                     </div>
                 </div>
 
-                {/* Notes Container */}
                 <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
                     <div className="bg-white  rounded-lg shadow-lg">
-                        {/* Card Content */}
+                    
                         <div className="p-6">
                             <h2 className="text-lg font-semibold text-gray-800  mb-4">Notes</h2>
-                            {/* Add Notes Button */}
+                          
                             <button className="bg-[#f99a1c] text-white px-4 py-2 rounded-lg mb-4">Add Note</button>
-                            {/* Display Notes */}
+                          
                             <div className="grid grid-cols-1 gap-4">
-                                {/* Map through notesData and display notes */}
                                 {notesData.map((note, index) => (
                                     <div key={index} className="flex items-start gap-4">
-                                        {/* User Avatar */}
+                                      
                                         <img
                                             alt="User Avatar"
                                             className="rounded-full"
@@ -154,7 +138,7 @@ function Baby_health_tracker() {
                                             }}
                                             width="40"
                                         />
-                                        {/* Note Content */}
+                                   
                                         <div>
                                             <p className="font-medium">{note.title}</p>
                                             <p className="text-gray-500 dark:text-gray-400 text-sm">{note.content}</p>
@@ -168,17 +152,16 @@ function Baby_health_tracker() {
                 </div>
                 <div className="col-span-1 lg:col-span-1 grid grid-cols-1 gap-6">
                     <div className="bg-white  rounded-lg shadow-lg">
-                        {/* Card Content */}
+                      
                         <div className="p-6">
                             <h2 className="text-lg font-semibold text-gray-800  mb-4">Vaccinations</h2>
-                            {/* Add Vaccination Button */}
+                           
                             <button className="bg-[#f99a1c] text-white px-4 py-2 rounded-lg mb-4" onClick={() => addVaccination('New Vaccination', '2024-06-30')}>Add Vaccination</button>
-                            {/* Display Vaccination Data */}
+                           
                             <div className="grid grid-cols-1 gap-4">
-                                {/* Map through vaccinations and display */}
                                 {vaccinations.map((vaccination, index) => (
                                     <div key={index} className="flex items-start gap-4">
-                                        {/* Vaccination Data */}
+                                    
                                         <div>
                                             <p className="font-medium">{vaccination.name}</p>
                                             <p className="text-gray-500 dark:text-gray-400 text-sm">{vaccination.date}</p>
@@ -195,7 +178,7 @@ function Baby_health_tracker() {
     );
 }
 
-// Icon Components
+
 function SmileIcon(props) {
     return (
         <svg
