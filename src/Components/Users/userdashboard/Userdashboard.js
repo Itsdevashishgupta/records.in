@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { FaFileContract, FaUser, FaUserMd } from 'react-icons/fa';
 import Bmi from '../../../Assets/BMI-Calculator.webp'
@@ -6,30 +7,46 @@ import axios from 'axios';
 import cookie from 'js-cookie';
 
 const ProfilePage = () => {
-  const [userData, setUserData] = useState(null);
-  const token = cookie.get('token');
+  const [userData, setUserData] = useState();
+  const [isLoading, setIsLoading] = useState(true); 
+  const token = localStorage.getItem('token');
+  const userId = localStorage.getItem('userID');
+  console.log(userId);
+  const url = `https://my-record-back.test.psi.initz.run/api/v1/users/getuser-data/${userId}`;
+  console.log(url);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://my-record-back.test.psi.initz.run/api/v1/users/getuser-data/6626496fc190e2f9736734db', {
+        const response = await axios.get(url, {
           headers: {
             Authorization: `Bearer ${token}`
           }
         });
-        setUserData(response.data);
+        setUserData(response.data.data);
+        setIsLoading(false);
+       
       } catch (error) {
         console.error('Error fetching data: ', error);
+        setIsLoading(false); 
       }
     };
     
     fetchData();
   }, []);
-
+  function calculateAge(dob) {
+    const diffMs = Date.now() - new Date(dob);
+    const ageDt = new Date(diffMs);
+  
+    return Math.abs(ageDt.getUTCFullYear() - 1970);
+  }
+  if (isLoading) {
+    return <div className='flex justify-center items-center'>Loading...</div>; // Render a loading message or a spinner
+  }
 
   return (
     <div className="p-8 bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]">
       <div className="text-center mb-10">
-        <h1 className="text-2xl font-bold">Hello, Devashish Gupta</h1>
+        <h1 className="text-2xl font-bold">Hello, {userData.name}</h1>
         <p className="text-gray-500">Age: 24 | Height: 6'0" | Weight: 180 lbs</p>
       </div>
       <h2 className="text-xl font-bold">Details</h2>
@@ -37,15 +54,15 @@ const ProfilePage = () => {
   <div className="bg-white rounded-md shadow-md p-6">
     <h2 className="text-xl font-bold flex items-center text-blue-600"><FaUser className="mr-2 text-blue-600"/> Personal Details</h2>
     <div className="mt-4 space-y-2">
-      <p><span className="font-semibold">Name:</span> Devashish Gupta</p>
-      <p><span className="font-semibold">Gender, Age, DOB:</span> Male, 24Y, 20/07/2000</p>
+      <p><span className="font-semibold">Name:</span> {userData.name}</p>
+      <p><span className="font-semibold">Gender, Age, DOB:</span> {userData.gender}, {calculateAge(userData.dob)} , {userData.dob}</p>
       <p><span className="font-semibold">Height:</span> 5ft 5in</p>
       <p><span className="font-semibold">Weight:</span> 142 lbs</p>
-      <p><span className="font-semibold">Blood Group:</span> B+</p>
-      <p><span className="font-semibold">Occupation:</span> -----</p>
-      <p><span className="font-semibold">Address:</span> 123 Main StreetCitytown, State Country</p>
+      <p><span className="font-semibold">Blood Group:</span> {userData.blood_group}</p>
+      <p><span className="font-semibold">Occupation:</span> {userData.occupation?userData.occupation:"-----"}</p>
+      <p><span className="font-semibold">Address:</span> {userData.address[0].address},{userData.address[0].pincode}</p>
       <p><span className="font-semibold">Contact:</span> 9999999999</p>
-      <p><span className="font-semibold">Email:</span> demo@gmail.com</p>
+      <p><span className="font-semibold">Email:</span> {userData.email?userData.email:"-----"}</p>
     </div>
   </div>
   <div className="bg-white rounded shadow-md p-6">

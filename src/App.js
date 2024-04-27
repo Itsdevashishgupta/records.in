@@ -39,7 +39,7 @@ import Security from "./Components/Policies/Security";
 import TermsOfUse from "./Components/Policies/termsOfUse";
 
 const ProtectedRoute = ({ children }) => {
-  const token = cookie.get('token');
+  const token = localStorage.getItem('token');
 
   if (token) {
     return children;
@@ -65,7 +65,7 @@ function Content() {
       "/family-user-management",
       "/appointment-management",
       "/health-insurance-policy",
-      "/questionnaire",
+     
       "/stress-management"
     ];
   const windowSize = useWindowSize(); 

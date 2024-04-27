@@ -45,12 +45,12 @@ const SignIn = () => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
      else{
-    const data = await response.json();
-    console.log(data);
-    cookie.set('token',data.data.accessToken,{expires:7})
-    cookie.set('userID',data.data.user,{expires:7})
-    navigate('/user-dashboard');
-    toast.success("Sign In Successfully!");}
+      const data = await response.json();
+console.log(data);
+localStorage.setItem('token', data.data.accessToken);
+localStorage.setItem('userID', data.data.user);
+navigate('/user-dashboard');
+toast.success("Sign In Successfully!");}
   } catch (error) {
     console.error('Error during sign in:', error);
     toast.error("Sign In Failed!");

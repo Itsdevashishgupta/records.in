@@ -25,7 +25,7 @@ const FamilyManagement = () => {
   return (
     <div className="container mx-auto py-8 px-4 md:px-6 lg:px-8 bg-gradient-to-r from-[#ECF2FF] to-[#FBFCFF]">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-     
+      {/* Family Tree */}
       <div>
         <h1 className="text-2xl font-bold mb-4">Family User Management</h1>
         <div className="bg-white rounded-lg shadow-md p-6">
@@ -40,6 +40,7 @@ const FamilyManagement = () => {
           </div>
         </div>
       </div>
+      {/* Manage Family Members */}
       <div>
           <h2 className="text-2xl font-bold mb-4">Manage Family Members</h2>
           <form onSubmit={handleSave} className="bg-white rounded-lg shadow-md p-6 space-y-4">

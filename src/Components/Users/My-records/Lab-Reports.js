@@ -70,10 +70,12 @@ const MyRecords = () => {
             </div>
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {/* Replace with map function to render dynamic lab reports */}
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm bg-white" data-v0-t="card">
               <div className="p-6 flex flex-row items-center justify-between pb-2 space-y-0">
                 <h3 className="whitespace-nowrap tracking-tight text-sm font-medium">Lab Report 002</h3>
                 <div className="flex gap-2">
+                  {/* Add onClick handlers for view and delete actions */}
                   <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -123,6 +125,7 @@ const MyRecords = () => {
               <div className="p-6 flex flex-row items-center justify-between pb-2 space-y-0">
                 <h3 className="whitespace-nowrap tracking-tight text-sm font-medium">Lab Report 003</h3>
                 <div className="flex gap-2">
+                  {/* Add onClick handlers for view and delete actions */}
                   <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -172,6 +175,7 @@ const MyRecords = () => {
               <div className="p-6 flex flex-row items-center justify-between pb-2 space-y-0">
                 <h3 className="whitespace-nowrap tracking-tight text-sm font-medium">Lab Report 001</h3>
                 <div className="flex gap-2">
+                  {/* Add onClick handlers for view and delete actions */}
                   <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 w-10">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -217,6 +221,7 @@ const MyRecords = () => {
                 <div className="text-sm text-gray-500 dark:text-gray-400">Collected on: 04/15/2023</div>
               </div>
             </div>
+            {/* Repeat for other lab reports */}
           </div>
         </div>
       </main>

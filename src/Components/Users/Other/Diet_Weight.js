@@ -29,7 +29,7 @@ const DietTracker = () => {
 
       <div className="bg-white shadow-md rounded-lg p-6">
             <h2 className="text-xl font-bold mb-4">Food Diary</h2>
-          
+            {/* Food Diary content */}
             <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full">
               <FiPlus className="mr-2" /> {/* Plus icon */}
               Add Meal
@@ -45,7 +45,7 @@ const DietTracker = () => {
       </header>
       <main className="flex-1 py-4 px-6">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-       
+          {/* Dashboard */}
           <div className="bg-white shadow-md rounded-lg p-6">
   <h2 className="text-xl font-bold mb-4">Dashboard</h2>
   <div className="grid grid-cols-2 gap-4">
@@ -73,6 +73,7 @@ const DietTracker = () => {
     </div>
   </div>
 </div>
+          {/* Food Diary */}
           <div className="bg-white shadow-md rounded-lg p-6">
       <h2 className="text-xl font-bold mb-4">Food Diary</h2>
       {meals.map(meal => (
@@ -89,6 +90,7 @@ const DietTracker = () => {
         Add Meal
       </button>
     </div>
+          {/* Exercise Tracking */}
           <div className="bg-white shadow-md rounded-lg p-6">
       <h2 className="text-xl font-bold mb-4">Exercise Tracking</h2>
       {exercises.map(exercise => (
@@ -101,10 +103,11 @@ const DietTracker = () => {
         onClick={addExercise}
         className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full"
       >
-        <FiPlus className="mr-2" /> 
+        <FiPlus className="mr-2" /> {/* Plus icon */}
         Add Exercise
       </button>
     </div>
+          {/* Weight Loss Plan */}
           <div className="bg-white shadow-md rounded-lg p-6 col-span-1 md:col-span-2 lg:col-span-3">
   <h2 className="text-xl font-bold mb-4">Weight Loss Plan</h2>
   <div>

@@ -142,26 +142,29 @@ function Navbar() {
               Contact
             </a>
           </li>
-          <div className="relative inline-block text-left">
-  <div>
-    <button type="button" onClick={openNav} className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500" id="options-menu" aria-haspopup="true" aria-expanded="true">
+          <li className="dropdown">
+    <a onClick={openNav} href="#" className="dropdown-toggle">
       Privacy & Security Policy
-      <svg className="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-      </svg>
-    </button>
-  </div>
-
-  <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-    <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-      <a href="/privacy-policy" onClick={openNav} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Privacy Policy</a>
-      <a href="/security-policy" onClick={openNav} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Security Policy</a>
-      <a href="/terms-of-use" onClick={openNav} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Terms of Use</a>
-    </div>
-  </div>
-</div>
-
-  <button
+    </a>
+    <ul className="dropdown-menu">
+      <li>
+        <a onClick={openNav} href="/privacy-policy" className="dropdown-item">
+          Privacy Policy
+        </a>
+      </li>
+      <li>
+        <a onClick={openNav} href="/security-policy" className="dropdown-item">
+          Security Policy
+        </a>
+      </li>
+      <li>
+        <a onClick={openNav} href="/terms-of-use" className="dropdown-item">
+          Terms of Use
+        </a>
+      </li>
+    </ul>
+    <li className="flex flex-col w-1/2 mx-auto mt-4 gap-5">
+    <button
         className="navbar-btn"
         type="button"
         disabled={isButtonDisabled}
@@ -179,6 +182,10 @@ function Navbar() {
       >
          Sign Up
       </button>
+      </li>
+  </li>
+
+
         </ul>
     
      

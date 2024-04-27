@@ -23,17 +23,11 @@ const validationSchema = Yup.object().shape({
   phone: Yup.string()
     .matches(/^[0-9]{10}$/, 'Must be exactly 10 digits')
     .required('Mobile number is required'),
-    password: Yup.string()
-  .required('Password is required')
-  .test('password', 'Password must be at least 8 characters, contain a number, an uppercase letter, a lowercase letter, and a special character', value => {
-    return (
-      /[0-9]/.test(value) && 
-      /[A-Z]/.test(value) && 
-      /[a-z]/.test(value) && 
-      /[^A-Za-z0-9]/.test(value) && 
-      value.length >= 8 
-    );
-  }),
+  password: Yup.string()
+    .required('Password is required')
+    .min(8, 'Password is too short - should be 8 chars minimum')
+    .matches(/(?=.*[0-9])/, 'Password must contain a number')
+    .matches(/[^A-Za-z0-9]/, 'Password must contain a special character'),
   confirmPassword: Yup.string()
     .required('Confirm Password is required')
     .oneOf([Yup.ref('password'), null], 'Passwords must match'),
